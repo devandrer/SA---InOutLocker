@@ -87,7 +87,7 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./painel.php" class="nav-link '.$opcPainel.'">
+                        <a href="#" class="nav-link '.$opcPainel.'">
                         <i class="ion ion-pie-graph nav-icon"></i>
                         <p>Dashboard</p>
                         </a>
@@ -96,18 +96,18 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./painel-simples.php" class="nav-link '.$opcPainelSimples.'">
+                        <a href="#" class="nav-link '.$opcPainelSimples.'">
                         <i class="ion ion-pie-graph nav-icon"></i>
-                        <p>Dashboard Simples</p>
+                        <p>Registros</p>
                         </a>
                     </li>              
                 </ul>
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./painel-filtro.php" class="nav-link '.$opcPainelFiltro.'">
+                        <a href="#" class="nav-link '.$opcPainelFiltro.'">
                         <i class="ion ion-pie-graph nav-icon"></i>
-                        <p>Dashboard Filtro</p>
+                        <p>Movimentação</p>
                         </a>
                     </li>              
                 </ul>
@@ -123,22 +123,14 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./fornecedores.php" class="nav-link '.$opcFornecedores.'">
+                        <a href="#" class="nav-link '.$opcFornecedores.'">
                         <i class="far fa-user nav-icon"></i>
-                        <p>Fornecedores</p>
+                        <p>Empresas</p>
                         </a>
                     </li>              
                 </ul>
 
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="./produtos.php" class="nav-link '.$opcProdutos.'">
-                        <i class="ion ion-bag nav-icon"></i>
-                        <p>Produtos</p>
-                        </a>
-                    </li>              
-                </ul>
-
+                
             </li>
             
             <li class="nav-item '.$menuForms.'">
