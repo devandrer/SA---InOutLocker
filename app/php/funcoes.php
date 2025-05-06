@@ -1,5 +1,5 @@
 <?PHP
-include("funcaoPainel.php");
+include("funcaoPerfil.php");
 include("funcaoMenu.php");
 
 
