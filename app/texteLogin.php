@@ -8,7 +8,7 @@
 		<style> 
 			body{
 				font-family: Arial, Helvetica, sans-serif; 
-				background-image: url('img/armario.jpg'); 
+				background-image: url('dist/img/armario.jpg'); 
 				background-size: cover;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 				color: #fff;
 			}
 			input{
-				padding: 10px; /
+				padding: 10px;
 				border: none;
 				outline: none;
 				font-size: 15px; 
@@ -54,7 +54,7 @@
 	</head> 
 	<body> 
 		<div> 
-			<img id="logo" src="img/Logosemfundo.png" alt="Logoazul"> 
+			<img id="logo" src="dist/img/Logosemfundo.png" alt="Logoazul"> 
 			<input type="text" placeholder="Nome">
 			<br><br>
 			<input type="password" placeholder="senha">
