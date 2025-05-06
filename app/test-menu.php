@@ -24,8 +24,8 @@
 
   <!-- Sidebar -->
   <?php 
-    $_SESSION['menu-n1'] = 'administrador';
-    $_SESSION['menu-n2'] = 'painel';
+    $_SESSION['menu-n1'] = 'dashboard';
+    $_SESSION['menu-n2'] = '';
     include('partes/sidebar.php'); 
   ?>
   <!-- Fim Sidebar -->

@@ -7,28 +7,32 @@ function montaMenu($n1,$n2){
     
     $menuAdmin = '';
     $acaoAdmin = '';
-    $menuForms = '';
-    $acaoForms = '';
+    $menuDashboard = '';
+    $acaoDashboard = '';
+    $menuMovimentacao = '';
+    $acaoMovimentacao = '';
 
-    $opcPainel        = '';
-    $opcPainelSimples = '';
-    $opcPainelFiltro  = '';
-    $opcUsuarios      = '';
-    $opcFornecedores  = '';
-    $opcProdutos      = '';
-    $opcPerfil        = '';
+    $opcUsuarios        = '';
+    $opcRegistros       = '';
+    $opcEmpresa         = '';
+    
     
     //Primeiro nível do menu
     switch ($n1) {
         case 'administrador':
             $menuAdmin = 'menu-open';
             $acaoAdmin = 'active';
-            break;        
-            
-        case 'forms':
-            $menuForms = 'menu-open';
-            $acaoForms = 'active';
-            break;
+            break; 
+
+        case 'dashboard':
+            $menuDashboard = 'menu-open';
+            $acaoDashboard = 'active';
+            break; 
+        
+        case 'movimentacao':
+            $menuMovimentacao = 'menu-open';
+            $acaoMovimentacao = 'active';
+            break; 
         
         default:
             # code...
@@ -37,35 +41,19 @@ function montaMenu($n1,$n2){
 
     //Segundo nível do menu
     switch ($n2) {
-        case 'painel':
-            $opcPainel = 'active';
-            break;
-            
-        case 'painel-simples':
-            $opcPainelSimples = 'active';
-            break;
-            
-        case 'painel-filtro':
-            $opcPainelFiltro = 'active';
-            break;
 
         case 'usuarios':
             $opcUsuarios = 'active';
-            break; 
-        
-        case 'fornecedores':
-            $opcFornecedores = 'active';
-            break;        
-                
-        
-        case 'produtos':
-            $opcProdutos = 'active';
-            break;       
-        
-        case 'perfil':
-            $opcPerfil = 'active';
             break;
-        
+            
+        case 'registros':
+            $opcRegistros = 'active';
+            break;
+
+        case 'empresa':
+            $opcEmpresa = 'active';
+            break; 
+    
         default:
             # code...
             break;
@@ -87,27 +75,18 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link '.$opcPainel.'">
-                        <i class="ion ion-pie-graph nav-icon"></i>
-                        <p>Dashboard</p>
-                        </a>
-                    </li>              
-                </ul>
-
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link '.$opcPainelSimples.'">
+                        <a href="#" class="nav-link '.$opcRegistros.'">
                         <i class="ion ion-pie-graph nav-icon"></i>
                         <p>Registros</p>
                         </a>
                     </li>              
                 </ul>
-
+                
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link '.$opcPainelFiltro.'">
-                        <i class="ion ion-pie-graph nav-icon"></i>
-                        <p>Movimentação</p>
+                        <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
+                        <i class="far fa-user nav-icon"></i>
+                        <p>Empresa</p>
                         </a>
                     </li>              
                 </ul>
@@ -121,61 +100,23 @@ function montaMenu($n1,$n2){
                     </li>              
                 </ul>
 
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link '.$opcFornecedores.'">
-                        <i class="far fa-user nav-icon"></i>
-                        <p>Empresas</p>
-                        </a>
-                    </li>              
-                </ul>
-
-                
             </li>
             
-            <li class="nav-item '.$menuForms.'">
-                <a href="#" class="nav-link '.$acaoForms.'">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                    Forms
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-                </a>
-                <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General Elements</p>
+                <li class="nav-item '.$menuDashboard.'">
+                    <a href="#" class="nav-link '.$acaoDashboard.'">
+                    <i class="ion ion-pie-graph nav-icon"></i>
+                    <p>Dashboard</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Advanced Elements</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
-                    </a>
-                </li>
-                </ul>
-            </li>
+                </li>   
 
-            <li class="nav-item">
-                <a href="./perfil.php" class="nav-link '.$opcPerfil.'">
-                <i class="nav-icon fas fa-user"></i>
-                <p>Meu Perfil</p>
-                </a>
-            </li>
-        
+                <li class="nav-item '.$menuMovimentacao.'">
+                        <a href="#" class="nav-link '.$acaoMovimentacao.'">
+                        <i class="ion ion-pie-graph nav-icon"></i>
+                        <p>Movimentação</p>
+                        </a>
+                    </li>
+
+
             <li class="nav-item">
                 <a href="php/validaLogoff.php" class="nav-link text-danger">
                 <i class="nav-icon fas fa-power-off"></i>
