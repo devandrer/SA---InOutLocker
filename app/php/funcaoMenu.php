@@ -103,7 +103,7 @@ function montaMenu($n1,$n2){
             </li>
             
                 <li class="nav-item '.$menuDashboard.'">
-                    <a href="#" class="nav-link '.$acaoDashboard.'">
+                    <a href="./test-menu.php" class="nav-link '.$acaoDashboard.'">
                     <i class="ion ion-pie-graph nav-icon"></i>
                     <p>Dashboard</p>
                     </a>
