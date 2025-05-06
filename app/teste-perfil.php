@@ -2,9 +2,7 @@
   session_start();
   include('php/funcoes.php');
 
-  if($_SESSION['logado'] != 1){
-    header('location: /');
-  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +90,7 @@
                                         </div>											
                                         <div class="col-5">
                                           <div class="form-group">
-                                            <label>Mátricula</label>
+                                            <label>Matrícula</label>
                                             <input readonly name="nMatricula" type="text" maxlength="50" class="form-control" value="">
                                           </div>
                                         </div>	
