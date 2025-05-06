@@ -2,9 +2,7 @@
   session_start();
   include('php/funcoes.php');
 
-  if($_SESSION['logado'] != 1){
-    header('location: /');
-  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +90,7 @@
                                         </div>											
                                         <div class="col-5">
                                           <div class="form-group">
-                                            <label>Mátricula</label>
+                                            <label>Matrícula</label>
                                             <input readonly name="nMatricula" type="text" maxlength="50" class="form-control" value="">
                                           </div>
                                         </div>	
@@ -104,11 +102,12 @@
                                         </div>		
                                         <div class="col-5">
                                           <div class="form-group">
-                                          <label for="iSenha">Redefinir Senha</label>
-                                            <div style="border: 1px solid #8b8e91  ; border-radius: 10px; padding: 20px;">
-                                           <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha"> <br>
-                                           <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Repetir senha">
-                                           </div>
+                                          <input type="button" value="Redefinir Senha" style="background-color:rgb(73, 127, 180); color: white; border-radius: 5px; border: none;" data-toggle="tooltip"></input>
+                                            <!-- <div style="border: 1px solid #8b8e91  ; border-radius: 10px; padding: 20px;">
+                                            <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
+                                           <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
+                                           <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Repetir senha" required>
+                                           </div> -->
                                          </div>
                                         </div>
                                       </div>
