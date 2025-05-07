@@ -61,7 +61,7 @@
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="POST" action="php/salvaPerfil.php" enctype="multipart/form-data">
+                <form method="POST" action="php/salvaPerfil.php?Perfil=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
                   <div class="card-body">
                       <div class="row">	
                           
