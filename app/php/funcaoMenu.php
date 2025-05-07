@@ -66,7 +66,10 @@ function montaMenu($n1,$n2){
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-            <li class="nav-item '.$menuAdmin.'">
+    ';
+    if($_SESSION["idTipoUsuario"] == 1) {
+        $html .=
+        '<li class="nav-item '.$menuAdmin.'">
                 <a href="#" class="nav-link '.$acaoAdmin.'">
                     <i class="nav-icon fas fa-user-tie"></i>
                     <p>
@@ -93,14 +96,16 @@ function montaMenu($n1,$n2){
                     </li>              
                 </ul>
 
-            </li>
+            </li>';
+    }
             
-                <li class="nav-item '.$menuDashboard.'">
-                    <a href="./test-menu.php" class="nav-link '.$acaoDashboard.'">
-                    <i class="far fa-chart-bar nav-icon"></i>
-                    <p>Dashboard</p>
-                    </a>
-                </li>   
+    $html .=        
+            '<li class="nav-item '.$menuDashboard.'">
+                <a href="./dashboard.php" class="nav-link '.$acaoDashboard.'">
+                <i class="far fa-chart-bar nav-icon"></i>
+                <p>Dashboard</p>
+                </a>
+            </li>   
         
             <li class="nav-item '.$menuRegistros.'">
                 <a href="#" class="nav-link '.$acaoRegistros.'">
