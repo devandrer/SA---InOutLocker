@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/05/2025 às 00:59
+-- Tempo de geração: 08/05/2025 às 00:00
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -150,6 +150,7 @@ CREATE TABLE `tb_usuario` (
   `bairro` varchar(50) NOT NULL COMMENT 'Bairro do endereço do usuário',
   `cep` varchar(10) NOT NULL COMMENT 'CEP do endereço do usuário',
   `uf` char(2) NOT NULL COMMENT 'UF do endereço do usuário',
+  `foto` varchar(200) DEFAULT NULL COMMENT 'Foto de perfil do usuário',
   `login` varchar(80) NOT NULL COMMENT 'Login de acesso do usuário',
   `senha` varchar(32) NOT NULL COMMENT 'Senha de acesso do usuário',
   `flg_ativo` char(1) NOT NULL COMMENT 'Ativo: S-Sim | N-Não',
@@ -161,9 +162,9 @@ CREATE TABLE `tb_usuario` (
 -- Despejando dados para a tabela `tb_usuario`
 --
 
-INSERT INTO `tb_usuario` (`id_usuario`, `matricula`, `nome`, `cpf`, `cidade`, `endereco`, `numero`, `bairro`, `cep`, `uf`, `login`, `senha`, `flg_ativo`, `id_empresa`, `id_tipo_usuario`) VALUES
-(1, '202501', 'João', '111.222.333-44', 'Joinville', 'Rua da casa do João', 7, 'Bom Retiro', '89225-100', 'SC', 'j@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 1),
-(2, '202502', 'Gabriel', '111.222.333-44', 'Joinville', 'Rua da casa do Gabriel', 6, 'Bom Retiro', '89225-100', 'SC', 'g@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 2);
+INSERT INTO `tb_usuario` (`id_usuario`, `matricula`, `nome`, `cpf`, `cidade`, `endereco`, `numero`, `bairro`, `cep`, `uf`, `foto`, `login`, `senha`, `flg_ativo`, `id_empresa`, `id_tipo_usuario`) VALUES
+(1, '202501', 'João', '111.222.333-44', 'Joinville', 'Rua da casa do João', 7, 'Bom Retiro', '89225-100', 'SC', NULL, 'j@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 1),
+(2, '202502', 'Gabriel', '111.222.333-44', 'Joinville', 'Rua da casa do Gabriel', 6, 'Bom Retiro', '89225-100', 'SC', NULL, 'g@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 2);
 
 --
 -- Índices para tabelas despejadas
