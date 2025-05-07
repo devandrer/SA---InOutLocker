@@ -117,10 +117,14 @@
                                                   </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                  
+                                                
+                                                <div style="border: none ; padding: 7px;">
                                                 <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
+                                                </div>
+                                                <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
                                                 <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
                                                 <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Repetir senha" required>
+                                                </div> 
                                                 </div> 
                                                 
                                                 <div class="modal-footer">
