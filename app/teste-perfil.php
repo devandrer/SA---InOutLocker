@@ -97,7 +97,7 @@
                                         <div class="col-10">
                                           <div class="form-group">
                                             <label>E-mail</label>
-                                            <input  type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="">
+                                            <input type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="">
                                           </div>
                                         </div>		
                                         <div class="col-5">
