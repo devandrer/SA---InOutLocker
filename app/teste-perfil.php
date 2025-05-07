@@ -102,7 +102,34 @@
                                         </div>		
                                         <div class="col-5">
                                           <div class="form-group">
-                                          <input type="button" class ="btn btn-secondary" value="Redefinir Senha"></input>
+                                          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalRedefinirSenha">
+                                            Redefinir Senha
+                                            </button>
+
+                                            <!-- Modal -->
+                                          <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="TituloModalCentralizado">Redefinir Senha</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  
+                                                <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
+                                                <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
+                                                <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Repetir senha" required>
+                                                </div> 
+                                                
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                  <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
                                             <!-- <div style="border: 1px solid #8b8e91  ; border-radius: 10px; padding: 20px;">
                                             <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
                                            <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
