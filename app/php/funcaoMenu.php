@@ -5,14 +5,14 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 function montaMenu($n1,$n2){
     
-    $menuAdmin = '';
-    $acaoAdmin = '';
-    $menuDashboard = '';
-    $acaoDashboard = '';
-    $menuMovimentacao = '';
-    $acaoMovimentacao = '';
-    $menuRegistros = '';
-    $acaoRegistros = '';
+    $menuAdmin          = '';
+    $acaoAdmin          = '';
+    $menuDashboard      = '';
+    $acaoDashboard      = '';
+    $menuMovimentacao   = '';
+    $acaoMovimentacao   = '';
+    $menuReservas       = '';
+    $acaoReservas       = '';
 
     $opcUsuarios        = '';
     $opcEmpresa         = '';
@@ -31,8 +31,8 @@ function montaMenu($n1,$n2){
             break; 
         
         case 'registro':
-            $menuRegistros = 'menu-open';
-            $acaoRegistros = 'active';
+            $menuReservas = 'menu-open';
+            $acaoReservas = 'active';
             break; 
         
         case 'movimentacao':
@@ -102,10 +102,10 @@ function montaMenu($n1,$n2){
                     </a>
                 </li>   
         
-            <li class="nav-item '.$menuRegistros.'">
-                <a href="#" class="nav-link '.$acaoRegistros.'">
+            <li class="nav-item '.$menuReservas.'">
+                <a href="#" class="nav-link '.$acaoReservas.'">
                 <i class="fas fa-clipboard-check nav-icon"></i>
-                <p>Registros</p>
+                <p>Reservas</p>
                 </a>
             </li>  
 
