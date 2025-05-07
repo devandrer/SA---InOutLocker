@@ -8,12 +8,12 @@ $matriculaPerfil = '';
 $emailPerfil = '';
 $senhaPerfil = '';
 
-function atualizarSenha($id){
+function buscarEmail($id){
 
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT Login FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT login FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -28,7 +28,7 @@ function atualizarSenha($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["Login"];
+            $resp = $coluna["login"];
         }        
     } 
 
