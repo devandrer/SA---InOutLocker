@@ -61,7 +61,7 @@
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="POST" action="php/salvaPerfil.php" enctype="multipart/form-data">
+                <form method="POST" action="php/salvaPerfil.php?Perfil=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
                   <div class="card-body">
                       <div class="row">	
                           
@@ -85,7 +85,7 @@
                                         <div class="col-7">
                                           <div class="form-group">
                                             <label for="iNome">Nome</label>
-                                            <input name="nNome" id="iNome" type="text" maxlength="80" class="form-control" value="<?php echo $_SESSION['NomeLogin']; ?>" required>
+                                            <input readonly name="nNome" id="iNome" type="text" maxlength="80" class="form-control" value="<?php echo $_SESSION['NomeLogin']; ?>" required>
                                           </div>
                                         </div>											
                                         <div class="col-5">
@@ -97,12 +97,12 @@
                                         <div class="col-10">
                                           <div class="form-group">
                                             <label>E-mail</label>
-                                            <input readonly type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="">
+                                            <input type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="">
                                           </div>
                                         </div>		
                                         <div class="col-5">
                                           <div class="form-group">
-                                          <input type="button" value="Redefinir Senha" style="background-color:rgb(73, 127, 180); color: white; border-radius: 5px; border: none;" data-toggle="tooltip"></input>
+                                          <input type="button" class ="btn btn-secondary" value="Redefinir Senha"></input>
                                             <!-- <div style="border: 1px solid #8b8e91  ; border-radius: 10px; padding: 20px;">
                                             <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
                                            <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
