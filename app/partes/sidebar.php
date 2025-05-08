@@ -14,7 +14,7 @@
           <img src="dist/img/Logo_InOutLocker.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="./teste-perfil.php" class="d-block">User</a>
+          <a href="./perfil.php" class="d-block">User</a>
         </div>
       </div>
 
