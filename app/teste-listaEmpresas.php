@@ -25,16 +25,15 @@
         <table border='1'>
             <tr>
                 <th>ID</th>
-                <th>ID</th>
-                      <th>Razão Social</th>
-                      <th>CNPJ</th>
-                      <th>Cidade</th>
-                      <th>UF</th>
-                      <th>Ativo</th>                
-                      <th>Ações</th>
+                <th>Razão Social</th>
+                <th>CNPJ</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Ativo</th>                
+                <th>Ações</th>
             </tr>
         
-            <?php echo listaEmpresa(); ?>
+            <?php echo listaEmpresa();?>
 
         </table>
 

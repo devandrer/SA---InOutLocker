@@ -72,7 +72,7 @@ function listaEmpresa(){
                                  .'<div class="col-8">'
                                      .'<div class="form-group">'
                                         .' <label for="iCnpj">CNPJ:</label>'
-                                         .'<input type="text" class="form-control"  value="'.$coluna["cnpj"].'" id="iCnpj" name="nCnpj" maxlength="50">'
+                                         .'<input type="text" class="form-control" value="'.$coluna["cnpj"].'" id="iCnpj" name="nCnpj" maxlength="50">'
                                      .'</div>'
                                  .'</div>'
 
@@ -121,7 +121,7 @@ function listaEmpresa(){
                                 .'<div class="col-12">'
                                         .'<div class="form-group">'
                                             .'<input type="checkbox" id="iAtivo" name="nAtivo" '.$ativo.'>'
-                                            .'<label for="iAtivo">Usuário Ativo</label>'
+                                            .'<label for="iAtivo">Empresa Ativa</label>'
                                         .'</div>'
                                     .'</div>'
                                  .'</div>'
@@ -225,7 +225,7 @@ function razaoempresa($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["nome"];
+            $resp = $coluna["razao"];
         }        
     } 
 
@@ -261,7 +261,7 @@ function qtdEmpresasAtivas(){
     $qtd = 0;
 
     include("conexao.php");
-    $sql = "SELECT COUNT(*) AS Qtd FROM empresa WHERE flg_ativo = 'S';";
+    $sql = "SELECT COUNT(*) AS Qtd FROM tb_empresa WHERE flg_ativo = 'S';";
 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
