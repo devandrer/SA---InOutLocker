@@ -33,7 +33,7 @@
             $_SESSION['logado']        = 1;
             $_SESSION['idLogin']       = $coluna['id_usuario'];
             $_SESSION['NomeLogin']     = $coluna['nome'];
-            // $_SESSION['FotoLogin']     = $coluna['Foto'];
+            $_SESSION['FotoLogin']     = $coluna['foto'];
             $_SESSION['AtivoLogin']    = $coluna['flg_ativo'];
             $_SESSION['EmailLogin']    = $coluna['login'];
             $_SESSION['Matricula']    = $coluna['matricula'];
