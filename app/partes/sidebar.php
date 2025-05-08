@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="dist/img/Logo_recortada.png" alt="AdminLTE Logo" class=" img-fluid rounded " style="opacity: .8">
-      <span class="brand-text font-weight-light">In Out Locker</span>
+    <a href="#" class="brand-link d-flex justify-content-around">
+      <img src="dist/img/door-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 30%; padding:8px">
+      <img src="dist/img/nick-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 60%;">
     </a>
 
     <!-- Sidebar -->
