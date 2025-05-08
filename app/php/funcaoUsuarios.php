@@ -7,7 +7,7 @@ function listaUsuario(){
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
-
+    
     $lista = '';
     $ativo = '';
     $icone = '';
@@ -17,10 +17,10 @@ function listaUsuario(){
         
         
         foreach ($result as $coluna) {
-
+            
             //Ativo: S ou N
             //if($coluna["FlgAtivo"] == 'S')  $ativo = 'checked'; else $ativo = '';
-            if($coluna["FlgAtivo"] == 'S'){  
+            if($coluna["flg_ativo"] == 'S'){  
                 $ativo = 'checked';
                 $icone = '<h6><i class="fas fa-check-circle text-success"></i></h6>'; 
             }else{
@@ -28,14 +28,14 @@ function listaUsuario(){
                 $icone = '<h6><i class="fas fa-times-circle text-danger"></i></h6>';
             } 
             
-            
+
             //***Verificar os dados da consulta SQL
             $lista .= 
             '<tr>'
                 .'<td align="center">'.$coluna["id_usuario"].'</td>'
                 .'<td align="center">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</td>'
                 .'<td>'.$coluna["nome"].'</td>'
-                .'<td>'.$coluna["login"].'</td>'
+                .'<td>'.$coluna["matricula"].'</td>'
                 .'<td align="center">'.$icone.'</td>'
                 .'<td>'
                     .'<div class="row" align="center">'
@@ -127,22 +127,22 @@ function listaUsuario(){
                 .'</div>'
             .'</div>'
             
-            .'<div class="modal fade" id="modalDeleteUsuario'.$coluna["idUsuario"].'">'
+            .'<div class="modal fade" id="modalDeleteUsuario'.$coluna["id_usuario"].'">'
                 .'<div class="modal-dialog">'
                     .'<div class="modal-content">'
                         .'<div class="modal-header bg-danger">'
-                            .'<h4 class="modal-title">Excluir Usuário: '.$coluna["idUsuario"].'</h4>'
+                            .'<h4 class="modal-title">Excluir Usuário: '.$coluna["id_usuario"].'</h4>'
                             .'<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">'
                                 .'<span aria-hidden="true">&times;</span>'
                             .'</button>'
                         .'</div>'
                         .'<div class="modal-body">'
 
-                            .'<form method="POST" action="php/salvarUsuario.php?funcao=D&codigo='.$coluna["idUsuario"].'" enctype="multipart/form-data">'              
+                            .'<form method="POST" action="php/salvarUsuario.php?funcao=D&codigo='.$coluna["id_usuario"].'" enctype="multipart/form-data">'              
 
                                 .'<div class="row">'
                                     .'<div class="col-12">'
-                                        .'<h5>Deseja EXCLUIR o usuário '.$coluna["Nome"].'?</h5>'
+                                        .'<h5>Deseja EXCLUIR o usuário '.$coluna["nome"].'?</h5>'
                                     .'</div>'
                                 .'</div>'
                                 
