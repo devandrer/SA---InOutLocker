@@ -197,7 +197,7 @@ function tipoAcessoUsuario($id){
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT idTipoUsuario FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT id_tipo_usuario FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -212,21 +212,21 @@ function tipoAcessoUsuario($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            if($coluna["idTipoUsuario"] == 1){
+            if($coluna["id_tipo_usuario"] == 1){
                 //Admin
                 $resp = '<option value="1">Admin</option>'
-                        .'<option value="2">Empresa</option>'
+                        .'<option value="2">Funcionário</option>'
                         .'<option value="3">Comum</option>';
             }else if($coluna["idTipoUsuario"] == 2){
                 //Empresa
-                $resp = '<option value="2">Empresa</option>'
+                $resp = '<option value="2">Funcionário</option>'
                         .'<option value="1">Admin</option>'
                         .'<option value="3">Comum</option>';
             }else{
                 //Comum
                 $resp = '<option value="3">Comum</option>'
                         .'<option value="1">Admin</option>'
-                        .'<option value="2">Empresa</option>';
+                        .'<option value="2">Funcionário</option>';
             }
         }        
     } 
@@ -240,7 +240,7 @@ function fotoUsuario($id){
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT Foto FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT foto FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -255,7 +255,7 @@ function fotoUsuario($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["Foto"];
+            $resp = $coluna["foto"];
         }        
     } 
 
@@ -268,7 +268,7 @@ function nomeUsuario($id){
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT Nome FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT nome FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -283,7 +283,7 @@ function nomeUsuario($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["Nome"];
+            $resp = $coluna["nome"];
         }        
     } 
 
@@ -296,7 +296,7 @@ function loginUsuario($id){
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT Login FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT Login FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -311,7 +311,7 @@ function loginUsuario($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["Login"];
+            $resp = $coluna["login"];
         }        
     } 
 
@@ -324,7 +324,7 @@ function ativoUsuario($id){
     $resp = "";
 
     include("conexao.php");
-    $sql = "SELECT FlgAtivo FROM usuarios WHERE idUsuario = $id;";        
+    $sql = "SELECT flg_ativo FROM tb_usuario WHERE id_usuario = $id;";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -333,7 +333,7 @@ function ativoUsuario($id){
         
         foreach ($result as $coluna) {            
             //***Verificar os dados da consulta SQL
-            if($coluna["FlgAtivo"] == 'S') $resp = 'checked'; else $resp = '';
+            if($coluna["flg_ativo"] == 'S') $resp = 'checked'; else $resp = '';
         }        
     } 
 
@@ -345,7 +345,7 @@ function qtdUsuariosAtivos(){
     $qtd = 0;
 
     include("conexao.php");
-    $sql = "SELECT COUNT(*) AS Qtd FROM usuarios WHERE FlgAtivo = 'S';";
+    $sql = "SELECT COUNT(*) AS Qtd FROM usuarios WHERE flg_ativo = 'S';";
 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
