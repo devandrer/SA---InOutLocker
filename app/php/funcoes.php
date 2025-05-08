@@ -1,6 +1,7 @@
 <?PHP
 include("funcaoPerfil.php");
 include("funcaoUsuarios.php");
+include("funcaoTipoUsuario.php");
 include("funcaoMenu.php");
 
 
