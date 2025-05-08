@@ -61,7 +61,7 @@
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="POST" action="php/salvaPerfil.php?Perfil=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
+                <form method="POST" action="php/salvaPerfil.php" enctype="multipart/form-data">
                   <div class="card-body">
                       <div class="row">	
                           
@@ -85,19 +85,19 @@
                                         <div class="col-7">
                                           <div class="form-group">
                                             <label for="iNome">Nome</label>
-                                            <input readonly name="nNome" id="iNome" type="text" maxlength="80" class="form-control" value="<?php echo $_SESSION['NomeLogin']; ?>" required>
+                                            <input readonly name="nNome" id="iNome" type="text" maxlength="80" class="form-control" value="<?php echo $_SESSION['NomeLogin']; ?>">
                                           </div>
                                         </div>											
                                         <div class="col-5">
                                           <div class="form-group">
                                             <label>Matrícula</label>
-                                            <input readonly name="nMatricula" type="text" maxlength="50" class="form-control" value="">
+                                            <input readonly name="nMatricula" type="text" maxlength="50" class="form-control" value="<?php echo $_SESSION['Matricula'];?>">
                                           </div>
                                         </div>	
                                         <div class="col-10">
                                           <div class="form-group">
                                             <label>E-mail</label>
-                                            <input type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="">
+                                            <input type="email" class="form-control form-control-sm" name="nEmail" id="iEmail" value="<?php echo $_SESSION['EmailLogin'];?>">
                                           </div>
                                         </div>		
                                         <div class="col-5">

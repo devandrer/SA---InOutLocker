@@ -35,7 +35,8 @@
             $_SESSION['NomeLogin']     = $coluna['nome'];
             // $_SESSION['FotoLogin']     = $coluna['Foto'];
             $_SESSION['AtivoLogin']    = $coluna['flg_ativo'];
-
+            $_SESSION['EmailLogin']    = $coluna['login'];
+            $_SESSION['Matricula']    = $coluna['matricula'];
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             
