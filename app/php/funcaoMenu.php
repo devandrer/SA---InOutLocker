@@ -89,7 +89,7 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./teste-usuarios.php" class="nav-link '.$opcUsuarios.'">
+                        <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
                         <p>Usuários</p>
                         </a>

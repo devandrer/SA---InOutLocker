@@ -8,7 +8,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projeto Modelo - Usuários</title>
+  <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
+  <title>Usuários</title>
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>
@@ -107,7 +108,7 @@
               <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data">              
                 
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-5">
                     <div class="form-group">
                       <label for="iNome">Nome:</label>
                       <input type="text" class="form-control" id="iNome" name="nNome" maxlength="50">
@@ -116,6 +117,13 @@
 
                   <div class="col-4">
                     <div class="form-group">
+                      <label for="iCpf">CPF:</label>
+                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14">
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-group">
                       <label for="iNome">Tipo de Usuário:</label>
                       <select name="nTipoUsuario" class="form-control" required>
                         <option value="">Selecione...</option>
@@ -123,6 +131,14 @@
                       </select>
                     </div>
                   </div>
+                  
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="iEmpresa">Empresa:</label>
+                      <input type="text" class="form-control" id="iEmpresa" name="nEmpresa" maxlength="80">
+                    </div>
+                  </div>
+                  
 
                   <div class="col-8">
                     <div class="form-group">
@@ -137,8 +153,15 @@
                       <input type="text" class="form-control" id="iSenha" name="nSenha" maxlength="6">
                     </div>
                   </div>
+
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label for="iMatricula">Matrícula:</label>
+                      <input type="text" class="form-control" id="iMatricula" name="nMatricula" maxlength="6">
+                    </div>
+                  </div>
                 
-                  <div class="col-12">
+                  <div class="col-9">
                     <div class="form-group">
                       <label for="iFoto">Foto:</label>
                       <input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">
@@ -159,7 +182,7 @@
                     </div>
                   </div>
                   
-                  <div class="col-9">
+                  <div class="col-6">
                     <div class="form-group">
                       <label>Endereço</label>
                       <input required name="Endereco" type="text" class="form-control">
@@ -170,13 +193,6 @@
                     <div class="form-group">
                       <label>Número</label>
                       <input required name="Numero" type="text" maxlength="8" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="col-9">
-                    <div class="form-group">
-                      <label>Complemento</label>
-                      <input name="Complemento" type="text" maxlength="50" class="form-control">
                     </div>
                   </div>
 
