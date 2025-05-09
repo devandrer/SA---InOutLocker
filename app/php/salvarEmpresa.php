@@ -5,12 +5,12 @@
     $idEmpresa   = $_GET["codigo"];
     $razao   = $_POST["nRazao"];
     $cnpj        = $_POST["nCnpj"];
-    $endereco    = $_POST["Endereco"];
-    $cidade      = $_POST["Cidade"];
-    $uf          = $_POST["UF"];
-    $cep         = $_POST["Cep"];
-    $numero      = $_POST["Numero"];
-    $bairro      = $_POST["Bairro"];
+    $endereco    = $_POST["nEndereco"];
+    $cidade      = $_POST["nCidade"];
+    $uf          = $_POST["nUF"];
+    $cep         = $_POST["nCep"];
+    $numero      = $_POST["nNumero"];
+    $bairro      = $_POST["nBairro"];
     $funcao      = $_GET["funcao"];
 
     if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
@@ -21,14 +21,14 @@
     if($funcao == "I"){
 
         //Busca o próximo ID na tabela
-        $idUsuario = proximoID("tb_empresa","id_empresa");
+        $idEmpresa = proximoID("tb_empresa","id_empresa");
 
         //INSERT
         $sql = "INSERT INTO tb_empresa(
                 id_empresa,razao_social,cnpj,endereco,cidade,uf,cep,numero,
                 bairro,flg_ativo)
-                VALUES($idEmpresa,'$razao','$cnpj','$endereco','$cidade','$uf',$cep,
-                '$numero','$bairro','$ativo');";
+                VALUES($idEmpresa,'$razao','$cnpj','$endereco','$cidade','$uf','$cep',
+                $numero,'$bairro','$ativo');";
 
     }elseif($funcao == "A"){
         //UPDATE
@@ -43,10 +43,9 @@
                     cep = '$cep',
                     numero = $numero,
                     bairro = '$bairro',
-                    flg_ativo = '$ativo',
+                    flg_ativo = '$ativo'
                 WHERE id_empresa = $idEmpresa";
        
-
     }elseif($funcao == "D"){
         //DELETE
         $sql = "DELETE FROM tb_empresa 

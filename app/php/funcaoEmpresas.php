@@ -32,6 +32,13 @@ function listaEmpresa(){
             //***Verificar os dados da consulta SQL
             $lista .= 
             '<tr>'
+                .'<td align="center">'.$coluna["id_empresa"].'</td>'
+                .'<td>'.$coluna["razao_social"].'</td>'
+                .'<td>'.$coluna["cnpj"].'</td>'
+                .'<td>'.$coluna["cidade"].'</td>'
+                .'<td>'.$coluna["uf"].'</td>'
+                .'<td align="center">'.$icone.'</td>'
+                .'<td>'
                     .'<div class="row" align="center">'
                         .'<div class="col-6">'
                             .'<a href="#modalEditEmpresa'.$coluna["id_empresa"].'" data-toggle="modal">'

@@ -3,6 +3,8 @@ include("funcaoPerfil.php");
 include("funcaoUsuarios.php");
 include("funcaoTipoUsuario.php");
 include("funcaoMenu.php");
+include("funcaoEmpresas.php");
+
 
 
 function proximoID($tabela,$campo){
