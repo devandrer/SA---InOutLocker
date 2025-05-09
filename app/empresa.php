@@ -125,42 +125,42 @@
                   <div class="col-9">
                     <div class="form-group">
                       <label>Endereço</label>
-                      <input required name="nEndereco" type="text" class="form-control">
+                      <input required name="Endereco" type="text" class="form-control">
                     </div>
                   </div>
 
                   <div class="col-5">
                     <div class="form-group">
                       <label>Cidade</label>
-                      <input required name="nCidade" type="text" class="form-control">
+                      <input required name="Cidade" type="text" class="form-control">
                     </div>
                   </div>
 
                   <div class="col-2">
                     <div class="form-group">
                       <label>UF</label>
-                      <input required name="nUF" type="text" class="form-control">
+                      <input required name="UF" type="text" class="form-control">
                     </div>
                   </div>
 
                   <div class="col-3">
                     <div class="form-group">
                       <label>CEP</label>
-                      <input required name="nCEP" type="text" class="form-control cep">
+                      <input required name="CEP" type="text" class="form-control cep">
                     </div>
                   </div>
 
                   <div class="col-3">
                     <div class="form-group">
                       <label>Número</label>
-                      <input required name="nNumero" type="text" maxlength="8" class="form-control">
+                      <input required name="Numero" type="text" maxlength="8" class="form-control">
                     </div>
                   </div>
 
                   <div class="col-5">
                     <div class="form-group">
                       <label>Bairro</label>
-                      <input required name="nBairro" type="text" class="form-control">
+                      <input required name="Bairro" type="text" class="form-control">
                     </div>
                   </div>
                
