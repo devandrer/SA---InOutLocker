@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>InOutLocker - Empresas</title>
+  <title>Empresas</title>
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>
