@@ -49,7 +49,7 @@
                     cpf = '$cpf',
                     cidade = '$cidade',
                     endereco = '$endereco',
-                    numero = $numero,
+                    numero = '$numero',
                     bairro = '$bairro',
                     cep = '$cep',
                     uf = '$uf',
@@ -59,9 +59,7 @@
                     id_empresa = '$empresa',
                     id_tipo_usuario = $tipoUsuario
                 WHERE id_usuario = $idUsuario";
-        var_dump($sql);
-        die();
-
+        
     }elseif($funcao == "D"){
         //DELETE
         $sql = "DELETE FROM tb_usuario 

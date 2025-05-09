@@ -185,7 +185,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iUf">UF:</label>'
-                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf name="UF" maxlength="2">'
+                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf" name="UF" maxlength="2">'
                                         .'</div>'
                                     .'</div>'
                                     
