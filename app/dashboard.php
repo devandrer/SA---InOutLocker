@@ -8,7 +8,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projeto Modelo - Dashboard</title>
+  <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
+  <title>InOutLocker - Dashboard</title>
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>
