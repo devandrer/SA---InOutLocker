@@ -2,9 +2,8 @@
     if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }
-
-    $idUsuario = $_SESSION['id_usuario'];
-    $nome      = $_POST['nNome'];
+    $idUsuario = $_GET['id'];
+    $email      = $_POST['nEmail'];
 
     include('funcoes.php');
 
@@ -37,17 +36,16 @@
                 ." WHERE id_usuario = ".$idUsuario.";";                                 
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
-
+        $_SESSION['FotoLogin'] = $diretorioImg;
     }
-    
-
     //Gravação no BD
     include('conexao.php');
     $sql = "UPDATE tb_usuario "
-            ." SET Nome = '".$nome."' "
+            ." SET login = '".$email."' "
             ." WHERE id_usuario = ".$idUsuario.";";                                 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
+    $_SESSION['EmailLogin'] = $email;
 
     header('location: '.$_SERVER['HTTP_REFERER']);
 
