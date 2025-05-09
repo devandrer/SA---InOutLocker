@@ -147,7 +147,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iCep">CEP:</label>'
-                                            .'<input type="text" value="'.$coluna["cep"].'" class="form-control" id="iCep" name="nCep" maxlength="20">'
+                                            .'<input type="text" value="'.$coluna["cep"].'" class="form-control" id="iCep" name="CEP" maxlength="20">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -155,21 +155,21 @@ function listaUsuario(){
                                     .'<div class="col-7">'
                                         .'<div class="form-group">'
                                             .'<label for="iEndereco">Endereco:</label>'
-                                            .'<input type="text" value="'.$coluna["endereco"].'" class="form-control" id="iEndereco" name="nEndereco" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["endereco"].'" class="form-control" id="iEndereco" name="Endereco" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
                                     .'<div class="col-2">'
                                         .'<div class="form-group">'
                                             .'<label for="iNumero">Número:</label>'
-                                            .'<input type="text" value="'.$coluna["numero"].'" class="form-control" id="iNumero" name="nNumero" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["numero"].'" class="form-control" id="iNumero" name="Numero" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iBairro">Bairro:</label>'
-                                            .'<input type="text" value="'.$coluna["bairro"].'" class="form-control" id="iBairro" name="nBairro" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["bairro"].'" class="form-control" id="iBairro" name="Bairro" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -177,7 +177,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iCidade">Cidade:</label>'
-                                            .'<input type="text" value="'.$coluna["cidade"].'" class="form-control" id="iCidade" name="nCidade" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["cidade"].'" class="form-control" id="iCidade" name="Cidade" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -185,7 +185,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iUf">UF:</label>'
-                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf name="nUf" maxlength="2">'
+                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf name="UF" maxlength="2">'
                                         .'</div>'
                                     .'</div>'
                                     

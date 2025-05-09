@@ -6,12 +6,12 @@
     $matricula   = $_POST["nMatricula"];
     $nome        = $_POST["nNome"];
     $cpf         = $_POST["nCpf"];
-    $cidade      = $_POST["nCidade"];
-    $endereco    = $_POST["nEndereco"];
-    $numero      = $_POST["nNumero"];
-    $bairro      = $_POST["nBairro"];
-    $cep         = $_POST["nCep"];
-    $uf          = $_POST["nUf"];
+    $cidade      = $_POST["Cidade"];
+    $endereco    = $_POST["Endereco"];
+    $numero      = $_POST["Numero"];
+    $bairro      = $_POST["Bairro"];
+    $cep         = $_POST["CEP"];
+    $uf          = $_POST["UF"];
     $login       = $_POST["nLogin"];
     $senha       = $_POST["nSenha"];
     $empresa     = $_POST["nEmpresa"];
@@ -33,10 +33,8 @@
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
                 VALUES($idUsuario,'$matricula','$nome','$cpf','$cidade','$endereco',$numero,
-                '$bairro','$cep','$uf',$'login',md5('$senha'),'$ativo',$empresa,$tipoUsuario);";
-        var_dump($sql);
-        die();
-
+                '$bairro','$cep','$uf','$login','$senha','$ativo','$empresa',$tipoUsuario);";
+        
     }elseif($funcao == "A"){
         //UPDATE
         if($senha == ''){ 
@@ -56,9 +54,9 @@
                     cep = '$cep',
                     uf = '$uf',
                     login = '$login',
-                    $setSenha,
+                    $setSenha
                     flg_ativo = '$ativo',
-                    id_empresa = $empresa,
+                    id_empresa = '$empresa',
                     id_tipo_usuario = $tipoUsuario
                 WHERE id_usuario = $idUsuario";
         var_dump($sql);
