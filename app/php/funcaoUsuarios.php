@@ -262,4 +262,7 @@ function qtdUsuariosAtivos(){
     return $qtd;
 }
 
+function alterarSenha(){
+    
+}
 ?>
