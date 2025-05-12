@@ -14,7 +14,7 @@
         
         //Pega extensão e monta o novo nome do arquivo
         $ext       = pathinfo($_FILES['Foto']["name"], PATHINFO_EXTENSION);
-        $novo_nome = "foto-".$idUsuario.'.'.$ext;
+        $novo_nome = md5($_FILES['Foto']['name']).'.'.$ext;
     
         //Verifica se existe o diretório (ou cria)
         if(is_dir('../dist/img/usuarios/')){ 

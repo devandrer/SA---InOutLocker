@@ -123,7 +123,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iSenha">Senha:</label>'
-                                            .'<input type="password" value="'.$coluna["senha"].'" class="form-control" id="iSenha" name="nSenha" maxlength="32">'
+                                            .'<input type="password" value="" class="form-control" id="iSenha" name="nSenha" maxlength="32">'
                                         .'</div>'
                                     .'</div>'
                     
@@ -137,7 +137,7 @@ function listaUsuario(){
                                     .'<div class="col-9">'
                                         .'<div class="form-group">'
                                             .'<label for="iFoto">Foto:</label>'
-                                            .'<input type="file" class="form-control" id="iFoto" name="nFoto" accept="image/*">'
+                                            .'<input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">'
                                         .'</div>'
                                     .'</div>'
                                     
