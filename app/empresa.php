@@ -9,11 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
-<<<<<<< HEAD
-  <title>InOutLocker - Empresas</title>
-=======
   <title>Empresas</title>
->>>>>>> 3e76546a267a35ebe833411ff8c6e1248c0998c0
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>

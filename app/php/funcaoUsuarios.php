@@ -94,20 +94,24 @@ function listaUsuario(){
 
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
-                                            .'<label for="iNome">Tipo de Usuário:</label>'
+                                            .'<label for="iTipoUsuario">Tipo de Usuário:</label>'
                                             .'<select name="nTipoUsuario" class="form-control" required>'
                                                 .'<option value="'.$coluna["id_tipo_usuario"].'">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</option>'
                                                 .optionTipoUsuario()
                                             .'</select>'
                                         .'</div>'
                                     .'</div>'
-                    
+
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iEmpresa">Empresa:</label>'
-                                            .'<input type="text" value="'.$coluna["empresa"].'" class="form-control" id="iEmpresa" name="nEmpresa" maxlength="80">'
+                                            .'<select name="nEmpresa" class="form-control" required>'
+                                                .'<option value="'.$coluna["id_empresa"].'">'.razaoempresa($coluna["id_empresa"]).'</option>'
+                                                .optionEmpresa()
+                                            .'</select>'
                                         .'</div>'
                                     .'</div>'
+
                     
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
