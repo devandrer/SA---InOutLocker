@@ -82,7 +82,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
                         <i class="fas fa-building nav-icon ml-3"></i>
-                        <p>Empresa</p>
+                        <p>Empresas</p>
                         </a>
                     </li>              
                 </ul>

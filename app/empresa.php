@@ -26,7 +26,7 @@
   <!-- Sidebar -->
   <?php 
     $_SESSION['menu-n1'] = 'administrador';
-    $_SESSION['menu-n2'] = 'usuarios';
+    $_SESSION['menu-n2'] = 'empresa';
     include('partes/sidebar.php'); 
   ?>
   <!-- Fim Sidebar -->
@@ -168,7 +168,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Usuário Ativo</label>
+                      <label for="iAtivo">Empresa Ativa</label>
                     </div>
                   </div>
 
