@@ -168,7 +168,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Usuário Ativo</label>
+                      <label for="iAtivo">Empresa Ativa</label>
                     </div>
                   </div>
 
