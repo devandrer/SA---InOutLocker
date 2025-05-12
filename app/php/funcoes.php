@@ -1,4 +1,6 @@
 <?PHP
+include("funcaoMovimentacao.php");
+include("funcaoDiscrArmario.php");
 include("funcaoPerfil.php");
 include("funcaoUsuarios.php");
 include("funcaoTipoUsuario.php");
