@@ -21,8 +21,7 @@
 
   <!-- Sidebar -->
   <?php 
-    $_SESSION['menu-n1'] = 'administrador';
-    $_SESSION['menu-n2'] = 'Movimentação'; // Você pode alterar isso para algo como 'movimentacoes'
+    $_SESSION['menu-n1'] = 'movimentacao'; // Você pode alterar isso para algo como 'movimentacoes'
     include('partes/sidebar.php'); 
   ?>
 
