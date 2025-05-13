@@ -115,7 +115,7 @@ function montaMenu($n1,$n2){
             </li>  
 
             <li class="nav-item '.$menuMovimentacao.'">
-                    <a href="./teste-movimentacao.php" class="nav-link '.$acaoMovimentacao.'">
+                    <a href="./movimentacao.php" class="nav-link '.$acaoMovimentacao.'">
                     <i class="fas fa-sync-alt nav-icon"></i>
                     <p>Movimentação</p>
                     </a>
