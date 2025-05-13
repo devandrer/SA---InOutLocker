@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex bd-highlight">
         <div class="image">
-          <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="rounded" alt="User Image">
+          <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="rounded-circle" alt="User Image" style="width: 35px; height: 35px; object-fit: cover;">
         </div>
         <div class="info">
           <a href="./perfil.php" class="d-block"><?php echo $_SESSION['NomeLogin']; ?></a>
