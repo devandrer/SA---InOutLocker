@@ -39,12 +39,14 @@
             $_SESSION['SenhaLogin']    = $coluna['senha'];
             $_SESSION['Matricula']    = $coluna['matricula'];
             $_SESSION["erroPerfil"] = ""; 
+            $_SESSION["erroLogin"] = False; 
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             
         }        
     }else{
         //Acessar a tela inicial
+        $_SESSION["erroLogin"] = True; 
         header('location: ../');
     } 
 
