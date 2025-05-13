@@ -145,7 +145,7 @@ include('php/funcoes.php');
         </div>
         <!-- /.container-fluid -->
         <!-- Modal -->
-        <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+        <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" >
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -155,20 +155,21 @@ include('php/funcoes.php');
                 </button>
               </div>
               <div class="modal-body">
-
-                <div style="border: none ; padding: 7px;">
-                  <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Senha Atual" required> <br>
+              <form method="POST" action="php/alterarSenha.php">
+                  <div style="border: none ; padding: 7px;">
+                    <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual" required> <br>
+                  </div>
+                  <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
+                    <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" required> <br>
+                    <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha" required>
+                  </div>
                 </div>
-                <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
-                  <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Nova senha" required> <br>
-                  <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenha" value="" placeholder="Repetir senha" required>
-                </div>
-              </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary" >Salvar</button>
+                </div>
+                </form>
             </div>
           </div>
         </div>
@@ -189,17 +190,26 @@ include('php/funcoes.php');
   <!-- Fim JS -->
 
   <script>
-    $(function() {
-      $('#tabela').DataTable({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
+    const inputSenha = document.getElementById('iSenhaA')
+    inputSenha.onblur = ()=>{
+      console.log('funcionou')
+      let verificaSenha = md5(inputSenha.value)
+      let verificaSenhaA = '<?php echo $_SESSION['SenhaLogin'];?>'
+      if (verificaSenha == verificaSenhaA){
+        
+      }}
+
+    // $(function() {
+    //   $('#tabela').DataTable({
+    //     "paging": true,
+    //     "lengthChange": true,
+    //     "searching": true,
+    //     "ordering": true,
+    //     "info": true,
+    //     "autoWidth": false,
+    //     "responsive": true,
+    //   });
+    // });
   </script>
 
 </body>
