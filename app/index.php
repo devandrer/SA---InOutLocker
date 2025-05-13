@@ -1,3 +1,11 @@
+<?php
+	if(session_status() !== PHP_SESSION_ACTIVE){
+        session_start();
+    }
+
+	$erro = $_SESSION["erroLogin"];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,6 +45,14 @@
 			width: 93%;
 		}
 
+		p {
+			color:red; 
+			font-size: 12px;
+			line-height: 32px;
+			padding: 2px 0;
+			margin: 0;
+		}
+
 		button {
 			background-color: dodgerblue;
 			border: none;
@@ -64,10 +80,17 @@
 	<div>
 		<form action="php/validaLogin.php" method="POST">
 			<img id="logo" src="dist/img/Logosemfundo.png" alt="Logoazul">
-			<input type="text" placeholder="Nome" name="nNome">
+			<input type="email" placeholder="E-mail" name="nNome">
 			<br><br>
-			<input type="password" placeholder="senha" name="nSenha">
-			<br><br>
+			<input type="password" placeholder="Senha" name="nSenha">
+			<p>
+				<?php if($erro) {
+					echo 'E-mail ou senha estão incorretos, tente novamente!!!';
+				} else {
+					echo '&nbsp;';
+				}
+				?>
+			</p>
 			<button type="submit">ACESSO</button>
 		</form>
 	</div>
