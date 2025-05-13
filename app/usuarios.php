@@ -124,8 +124,8 @@
 
                   <div class="col-3">
                     <div class="form-group">
-                      <label for="iNome">Tipo de Usuário:</label>
-                      <select name="nTipoUsuario" class="form-control" required>
+                      <label for="iTipoUsuario">Tipo de Usuário:</label>
+                      <select name="nTipoUsuario" id="iTipoUsuario" class="form-control" required>
                         <option value="">Selecione...</option>
                         <?php echo optionTipoUsuario();?>
                       </select>
@@ -146,15 +146,15 @@
 
                   <div class="col-8">
                     <div class="form-group">
-                      <label for="iLogin">Login:</label>
-                      <input type="email" class="form-control" id="iLogin" name="nLogin" maxlength="50">
+                      <label for="iLoginN">Login:</label>
+                      <input type="email" class="form-control" id="iLoginN" name="nLogin" maxlength="50">
                     </div>
                   </div>
 
                   <div class="col-4">
                     <div class="form-group">
-                      <label for="iSenha">Senha:</label>
-                      <input type="text" class="form-control" id="iSenha" name="nSenha" maxlength="6">
+                      <label for="iSenhaN">Senha:</label>
+                      <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
                     </div>
                   </div>
 
@@ -256,6 +256,22 @@
 <!-- Fim JS -->
 
 <script>
+  let select = document.getElementById("iTipoUsuario")
+  select.onchange = () => {
+    const optionSelecionado = select.options[select.selectedIndex].value;
+    console.log(optionSelecionado);
+    
+    if (optionSelecionado == 3) {
+        document.getElementById("iLoginN").disabled = true;
+        document.getElementById("iSenhaN").disabled = true;
+      } else {
+      document.getElementById("iLoginN").disabled = false;
+      document.getElementById("iSenhaN").disabled = false;
+    }
+  }
+
+
+
   $(function () {
     $('#tabela').DataTable({
       "paging": true,
