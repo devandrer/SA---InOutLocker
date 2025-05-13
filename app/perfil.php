@@ -3,7 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
 }
 include('php/funcoes.php');
-
+$erro = $_SESSION["erroPerfil"];
 
 ?>
 
@@ -107,7 +107,7 @@ include('php/funcoes.php');
                                     </div>
                                     <div class="col-5">
                                       <div class="form-group">
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalRedefinirSenha">
+                                        <button type="button" class="btn btn-secondary" id="btnSenha" data-toggle="modal" data-target="#modalRedefinirSenha">
                                           Redefinir Senha
                                         </button>
 
@@ -145,7 +145,7 @@ include('php/funcoes.php');
         </div>
         <!-- /.container-fluid -->
         <!-- Modal -->
-        <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" >
+        <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -155,21 +155,33 @@ include('php/funcoes.php');
                 </button>
               </div>
               <div class="modal-body">
-              <form method="POST" action="php/alterarSenha.php">
+                <form method="POST" action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
-                    <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual" required> <br>
+                    <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
+                      <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'style="border-color: red;" ';
+                      } else {
+                        echo 'style="border-color: #ced4da;" ';
+                      } ?>
+                      required> <br>
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
                     <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" required> <br>
-                    <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha" required>
+                    <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
+                      <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'style="border-color: red;" ';
+                      } else {
+                        echo 'style="border-color: #ced4da;" ';
+                      } ?>
+                      required>
                   </div>
-                </div>
+              </div>
 
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-primary" >Salvar</button>
-                </div>
-                </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -190,14 +202,11 @@ include('php/funcoes.php');
   <!-- Fim JS -->
 
   <script>
-    const inputSenha = document.getElementById('iSenhaA')
-    inputSenha.onblur = ()=>{
-      console.log('funcionou')
-      let verificaSenha = md5(inputSenha.value)
-      let verificaSenhaA = '<?php echo $_SESSION['SenhaLogin'];?>'
-      if (verificaSenha == verificaSenhaA){
-        
-      }}
+    <?php if ($erro == "erroSenhaR" || $erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+      echo 'document.getElementById("btnSenha").click();';
+    }
+    ?>
+    //document.getElementById("btnSenha").click(); Abrir a modal com JS
 
     // $(function() {
     //   $('#tabela').DataTable({

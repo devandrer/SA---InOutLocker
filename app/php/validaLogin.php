@@ -38,6 +38,7 @@
             $_SESSION['EmailLogin']    = $coluna['login'];
             $_SESSION['SenhaLogin']    = $coluna['senha'];
             $_SESSION['Matricula']    = $coluna['matricula'];
+            $_SESSION["erroPerfil"] = ""; 
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             
