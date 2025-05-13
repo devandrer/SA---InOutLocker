@@ -69,8 +69,8 @@
                   <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Tipo de Usuário</th>
                       <th>Nome</th>
+                      <th>Tipo de Usuário</th>
                       <th>Matricula</th>
                       <th>Ativo</th>                
                       <th>Ações</th>
