@@ -27,8 +27,8 @@
         <table border='1'>
             <tr>
                 <th>ID</th>
-                <th>Tipo de Usuário</th>
                 <th>Nome</th>
+                <th>Tipo de Usuário</th>
                 <th>Login</th>
                 <th>Senha</th>
                 <th>Ativo</th>                

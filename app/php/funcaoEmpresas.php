@@ -181,6 +181,36 @@ function listaEmpresa(){
     return $lista;
 }
 
+//Função para montar o select/option
+function optionEmpresa(){
+
+    $option = "";
+
+    include("conexao.php");
+    $sql = "SELECT id_empresa, razao_social FROM tb_empresa ORDER BY razao_social;";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+                
+        $array = array();
+        
+        while ($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            array_push($array,$linha);
+        }
+        
+        foreach ($array as $coluna) {            
+            //***Verificar os dados da consulta SQL            
+            $option .= '<option value="'.$coluna['id_empresa'].'">'.$coluna['razao_social'].'</option>';
+        }        
+    } 
+
+    return $option;
+}
+
+
+
 //Próximo ID da empresa
 function proxIdEmpresa(){
 
@@ -232,7 +262,7 @@ function razaoempresa($id){
         
         foreach ($array as $coluna) {            
             //***Verificar os dados da consulta SQL
-            $resp = $coluna["razao"];
+            $resp = $coluna["razao_social"];
         }        
     } 
 

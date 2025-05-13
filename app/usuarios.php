@@ -69,8 +69,8 @@
                   <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Tipo de Usuário</th>
                       <th>Nome</th>
+                      <th>Tipo de Usuário</th>
                       <th>Matricula</th>
                       <th>Ativo</th>                
                       <th>Ações</th>
@@ -134,10 +134,14 @@
                   
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="iEmpresa">Empresa:</label>
-                      <input type="text" class="form-control" id="iEmpresa" name="nEmpresa" maxlength="80">
+                      <label for="iNome">Empresa:</label>
+                      <select name="nEmpresa" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <?php echo optionEmpresa();?>
+                      </select>
                     </div>
                   </div>
+                  
                   
 
                   <div class="col-8">

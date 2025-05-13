@@ -33,8 +33,8 @@ function listaUsuario(){
             $lista .= 
             '<tr>'
                 .'<td align="center">'.$coluna["id_usuario"].'</td>'
-                .'<td align="center">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</td>'
                 .'<td>'.$coluna["nome"].'</td>'
+                .'<td align="center">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</td>'
                 .'<td>'.$coluna["matricula"].'</td>'
                 .'<td align="center">'.$icone.'</td>'
                 .'<td>'
@@ -94,20 +94,24 @@ function listaUsuario(){
 
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
-                                            .'<label for="iNome">Tipo de Usuário:</label>'
+                                            .'<label for="iTipoUsuario">Tipo de Usuário:</label>'
                                             .'<select name="nTipoUsuario" class="form-control" required>'
                                                 .'<option value="'.$coluna["id_tipo_usuario"].'">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</option>'
                                                 .optionTipoUsuario()
                                             .'</select>'
                                         .'</div>'
                                     .'</div>'
-                    
+
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iEmpresa">Empresa:</label>'
-                                            .'<input type="text" value="'.$coluna["empresa"].'" class="form-control" id="iEmpresa" name="nEmpresa" maxlength="80">'
+                                            .'<select name="nEmpresa" class="form-control" required>'
+                                                .'<option value="'.$coluna["id_empresa"].'">'.razaoempresa($coluna["id_empresa"]).'</option>'
+                                                .optionEmpresa()
+                                            .'</select>'
                                         .'</div>'
                                     .'</div>'
+
                     
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
@@ -119,7 +123,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iSenha">Senha:</label>'
-                                            .'<input type="password" value="'.$coluna["senha"].'" class="form-control" id="iSenha" name="nSenha" maxlength="32">'
+                                            .'<input type="password" value="" class="form-control" id="iSenha" name="nSenha" maxlength="32">'
                                         .'</div>'
                                     .'</div>'
                     
@@ -133,7 +137,7 @@ function listaUsuario(){
                                     .'<div class="col-9">'
                                         .'<div class="form-group">'
                                             .'<label for="iFoto">Foto:</label>'
-                                            .'<input type="file" class="form-control" id="iFoto" name="nFoto" accept="image/*">'
+                                            .'<input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -147,7 +151,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iCep">CEP:</label>'
-                                            .'<input type="text" value="'.$coluna["cep"].'" class="form-control" id="iCep" name="nCep" maxlength="20">'
+                                            .'<input type="text" value="'.$coluna["cep"].'" class="form-control" id="iCep" name="CEP" maxlength="20">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -155,21 +159,21 @@ function listaUsuario(){
                                     .'<div class="col-7">'
                                         .'<div class="form-group">'
                                             .'<label for="iEndereco">Endereco:</label>'
-                                            .'<input type="text" value="'.$coluna["endereco"].'" class="form-control" id="iEndereco" name="nEndereco" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["endereco"].'" class="form-control" id="iEndereco" name="Endereco" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
                                     .'<div class="col-2">'
                                         .'<div class="form-group">'
                                             .'<label for="iNumero">Número:</label>'
-                                            .'<input type="text" value="'.$coluna["numero"].'" class="form-control" id="iNumero" name="nNumero" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["numero"].'" class="form-control" id="iNumero" name="Numero" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iBairro">Bairro:</label>'
-                                            .'<input type="text" value="'.$coluna["bairro"].'" class="form-control" id="iBairro" name="nBairro" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["bairro"].'" class="form-control" id="iBairro" name="Bairro" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -177,7 +181,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iCidade">Cidade:</label>'
-                                            .'<input type="text" value="'.$coluna["cidade"].'" class="form-control" id="iCidade" name="nCidade" maxlength="50">'
+                                            .'<input type="text" value="'.$coluna["cidade"].'" class="form-control" id="iCidade" name="Cidade" maxlength="50">'
                                         .'</div>'
                                     .'</div>'
                                     
@@ -185,7 +189,7 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iUf">UF:</label>'
-                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf name="nUf" maxlength="2">'
+                                            .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf" name="UF" maxlength="2">'
                                         .'</div>'
                                     .'</div>'
                                     

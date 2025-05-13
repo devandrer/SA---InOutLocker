@@ -6,12 +6,12 @@
     $matricula   = $_POST["nMatricula"];
     $nome        = $_POST["nNome"];
     $cpf         = $_POST["nCpf"];
-    $cidade      = $_POST["nCidade"];
-    $endereco    = $_POST["nEndereco"];
-    $numero      = $_POST["nNumero"];
-    $bairro      = $_POST["nBairro"];
-    $cep         = $_POST["nCep"];
-    $uf          = $_POST["nUf"];
+    $cidade      = $_POST["Cidade"];
+    $endereco    = $_POST["Endereco"];
+    $numero      = $_POST["Numero"];
+    $bairro      = $_POST["Bairro"];
+    $cep         = $_POST["CEP"];
+    $uf          = $_POST["UF"];
     $login       = $_POST["nLogin"];
     $senha       = $_POST["nSenha"];
     $empresa     = $_POST["nEmpresa"];
@@ -33,10 +33,8 @@
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
                 VALUES($idUsuario,'$matricula','$nome','$cpf','$cidade','$endereco',$numero,
-                '$bairro','$cep','$uf',$'login',md5('$senha'),'$ativo',$empresa,$tipoUsuario);";
-        var_dump($sql);
-        die();
-
+                '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
+        
     }elseif($funcao == "A"){
         //UPDATE
         if($senha == ''){ 
@@ -51,19 +49,17 @@
                     cpf = '$cpf',
                     cidade = '$cidade',
                     endereco = '$endereco',
-                    numero = $numero,
+                    numero = '$numero',
                     bairro = '$bairro',
                     cep = '$cep',
                     uf = '$uf',
                     login = '$login',
-                    $setSenha,
+                    $setSenha
                     flg_ativo = '$ativo',
-                    id_empresa = $empresa,
+                    id_empresa = '$empresa',
                     id_tipo_usuario = $tipoUsuario
                 WHERE id_usuario = $idUsuario";
-        var_dump($sql);
-        die();
-
+        
     }elseif($funcao == "D"){
         //DELETE
         $sql = "DELETE FROM tb_usuario 
@@ -85,27 +81,31 @@
         $novoNome = md5($_FILES['Foto']['name']).'.'.$extensao;        
         
         //Verificar se o diretório existe, ou criar a pasta
-        if(is_dir('../dist/img/')){
+        if(is_dir('../dist/img/usuarios/')){
             //Existe
-            $diretorio = '../dist/img/';
+            $diretorio = '../dist/img/usuarios/';
         }else{
             //Criar pq não existe
-            $diretorio = mkdir('../dist/img/');
+            $diretorio = mkdir('../dist/img/usuarios/');
         }
 
         //Cria uma cópia do arquivo local na pasta do projeto
         move_uploaded_file($_FILES['Foto']['tmp_name'], $diretorio.$novoNome);
 
         //Caminho que será salvo no banco de dados
-        $dirImagem = 'dist/img/'.$novoNome;
+        $dirImagem = 'dist/img/usuarios/'.$novoNome;
 
         include("conexao.php");
         //UPDATE
         $sql = "UPDATE tb_usuario "
-                ." SET foto = '$dirImagem' "
-                ." WHERE id_usuario = $idUsuario;";
+                ." SET foto = '".$dirImagem."' "
+                ." WHERE id_usuario = ".$idUsuario.";";
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
+
+        if($_SESSION['idLogin'] ==  $_GET["codigo"]) {
+            $_SESSION['FotoLogin'] = $dirImagem;
+        }
     }
 
     header("location: ../usuarios.php");
