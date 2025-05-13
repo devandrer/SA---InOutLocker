@@ -33,7 +33,7 @@
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
                 VALUES($idUsuario,'$matricula','$nome','$cpf','$cidade','$endereco',$numero,
-                '$bairro','$cep','$uf','$login','$senha','$ativo','$empresa',$tipoUsuario);";
+                '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
         
     }elseif($funcao == "A"){
         //UPDATE
