@@ -157,16 +157,30 @@ $erro = $_SESSION["erroPerfil"];
               <div class="modal-body">
                 <form method="POST" action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
+                    <label for="iSenhaA">
+                    <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'Senha incorreta';
+                      } else {
+                        echo '' ;
+                      } ?>
+                      </label><br>
                     <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
                       <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
-                        echo 'style="border-color: #ced4da;" ';
+                        echo 'style="border-color: #ced4da;" ' ;
                       } ?>
                       required> <br>
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
                     <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" required> <br>
+                    <label for="iSenhaR">
+                    <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'Senha incorreta';
+                      } else {
+                        echo '' ;
+                      } ?>
+                      </label><br>
                     <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
                       <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
