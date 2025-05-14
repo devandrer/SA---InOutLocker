@@ -194,7 +194,7 @@ $erro = $_SESSION["erroPerfil"];
               </div>
 
               <div class="modal-footer">
-                <button type="submit" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
+                <button type="submit" id="btDeFechar" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
                 <button type="submit" name="btModal" value="modal_salvar"  class="btn btn-primary">Salvar</button>
               </div>
               </form>
@@ -222,6 +222,9 @@ $erro = $_SESSION["erroPerfil"];
       echo 'document.getElementById("btnSenha").click();';
     }
     ?>
+    $('#modalRedefinirSenha').on('hidden.bs.modal', function (event) {
+    document.getElementById('btDeFechar').click()
+    });
     //document.getElementById("btnSenha").click(); Abrir a modal com JS
 
     // $(function() {
