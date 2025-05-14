@@ -157,9 +157,9 @@ $erro = $_SESSION["erroPerfil"];
               <div class="modal-body">
                 <form method="POST" id=""action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
-                    <label for="iSenhaA">
+                    <label for="iSenhaA" style="color:red;">
                     <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
-                        echo 'Senha incorreta';
+                        echo 'Senha incorreta!';
                       } elseif ($erro == "erroNone"){
                         echo 'Preencha todos os campos.' ;
                       }else{
@@ -176,9 +176,9 @@ $erro = $_SESSION["erroPerfil"];
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
                     <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
-                    <label for="iSenhaR">
+                    <label for="iSenhaR" style="color:red;">
                     <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
-                        echo 'Senha incorreta';
+                        echo 'As senhas não coincidem!';
                       } else {
                         echo '' ;
                       } ?>
