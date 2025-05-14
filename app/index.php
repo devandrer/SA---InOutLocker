@@ -35,6 +35,8 @@
 			padding: 80px;
 			border-radius: 80px;
 			color: #fff;
+			width: 400px;
+			height: 400px;
 		}
 
 		input {
@@ -68,18 +70,14 @@
 			cursor: pointer;
 		}
 
-		img {
-			width: 80%;
-			display: block;
-			margin: 0 auto;
-		}
 	</style>
 </head>
 
 <body>
 	<div>
 		<form action="php/validaLogin.php" method="POST">
-			<img id="logo" src="dist/img/Logosemfundo.png" alt="Logoazul">
+			<img src="dist/img/door-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 30%; padding:8px">
+			<img src="dist/img/nick-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 60%;">
 			<input type="email" placeholder="E-mail" name="nNome">
 			<br><br>
 			<input type="password" placeholder="Senha" name="nSenha">
