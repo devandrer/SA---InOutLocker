@@ -158,7 +158,7 @@ $erro = $_SESSION["erroPerfil"];
                 <form method="POST" id=""action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
                     <label for="iSenhaA" style="color:red;">
-                    <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+                    <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada, cria uma label 'Senha incorreta!' ou  'Preencha todos os campos.'
                         echo 'Senha incorreta!';
                       } elseif ($erro == "erroNone"){
                         echo 'Preencha todos os campos.' ;
@@ -177,14 +177,14 @@ $erro = $_SESSION["erroPerfil"];
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
                     <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
                     <label for="iSenhaR" style="color:red;">
-                    <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
+                    <?php if ($erro == "erroSenhaR") { //Se a senha nova estiver errada, cria uma label 'As senhas não coincidem!' 
                         echo 'As senhas não coincidem!';
                       } else {
                         echo '' ;
                       } ?>
                       </label><br>
                     <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
-                      <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
+                      <?php if ($erro == "erroSenhaR") { //Se a senha nova no campo "Repetir Senha" estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
                         echo 'style="border-color: #ced4da;" ';
@@ -194,7 +194,7 @@ $erro = $_SESSION["erroPerfil"];
               </div>
 
               <div class="modal-footer">
-                <button type="submit" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
+                <button type="submit" id="btDeFechar" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
                 <button type="submit" name="btModal" value="modal_salvar"  class="btn btn-primary">Salvar</button>
               </div>
               </form>
@@ -222,6 +222,9 @@ $erro = $_SESSION["erroPerfil"];
       echo 'document.getElementById("btnSenha").click();';
     }
     ?>
+    $('#modalRedefinirSenha').on('hidden.bs.modal', function (event) {
+    document.getElementById('btDeFechar').click()//limpa dados da Modal ao clickar o icone "x" da modal
+    });
     //document.getElementById("btnSenha").click(); Abrir a modal com JS
 
     // $(function() {
