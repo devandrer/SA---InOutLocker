@@ -95,6 +95,9 @@
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
+       
+
+      <!-- modal de adicionar nova empresa -->
 
       <div class="modal fade" id="novaEmpresaModal">
         <div class="modal-dialog modal-lg">
