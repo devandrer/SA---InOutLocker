@@ -155,31 +155,47 @@ $erro = $_SESSION["erroPerfil"];
                 </button>
               </div>
               <div class="modal-body">
-                <form method="POST" action="php/alterarSenha.php">
+                <form method="POST" id=""action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
+                    <label for="iSenhaA" style="color:red;">
+                    <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'Senha incorreta!';
+                      } elseif ($erro == "erroNone"){
+                        echo 'Preencha todos os campos.' ;
+                      }else{
+                        echo '';
+                      } ?>
+                      </label><br>
                     <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
                       <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
-                        echo 'style="border-color: #ced4da;" ';
+                        echo 'style="border-color: #ced4da;" ' ;
                       } ?>
-                      required> <br>
+                      > <br>
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
-                    <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" required> <br>
+                    <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
+                    <label for="iSenhaR" style="color:red;">
+                    <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
+                        echo 'As senhas não coincidem!';
+                      } else {
+                        echo '' ;
+                      } ?>
+                      </label><br>
                     <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
                       <?php if ($erro == "erroSenhaR") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
                         echo 'style="border-color: #ced4da;" ';
                       } ?>
-                      required>
+                      >
                   </div>
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
+                <button type="submit" name="btModal" value="modal_salvar"  class="btn btn-primary">Salvar</button>
               </div>
               </form>
             </div>
@@ -202,7 +218,7 @@ $erro = $_SESSION["erroPerfil"];
   <!-- Fim JS -->
 
   <script>
-    <?php if ($erro == "erroSenhaR" || $erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
+    <?php if ($erro == "erroSenhaR" || $erro == "erroSenhaA" || $erro == "erroNone") { //Se a senha atual estiver errada muda a borda para vermelho
       echo 'document.getElementById("btnSenha").click();';
     }
     ?>
