@@ -223,7 +223,7 @@ $erro = $_SESSION["erroPerfil"];
     }
     ?>
     $('#modalRedefinirSenha').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFechar').click()
+    document.getElementById('btDeFechar').click()//limpa dados da Modal ao clickar o icone "x" da modal
     });
     //document.getElementById("btnSenha").click(); Abrir a modal com JS
 
