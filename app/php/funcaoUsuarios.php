@@ -1,13 +1,17 @@
 <?php
 //Função para listar todos os usuários
 function listaUsuario(){
-
+    //Abre conexão com o banco
     include("conexao.php");
+    //SELECT
     $sql = "SELECT * FROM tb_usuario ORDER BY id_usuario;";
-            
+
+    //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn,$sql);
+    //Fecha conexão com banco
     mysqli_close($conn);
     
+    //Define variaveis
     $lista = '';
     $ativo = '';
     $icone = '';
@@ -15,11 +19,9 @@ function listaUsuario(){
     //Validar se tem retorno do BD
     if (mysqli_num_rows($result) > 0) {
         
-        
         foreach ($result as $coluna) {
             
-            //Ativo: S ou N
-            //if($coluna["FlgAtivo"] == 'S')  $ativo = 'checked'; else $ativo = '';
+            //Adiciona icone para usuarios ativos ou desativos
             if($coluna["flg_ativo"] == 'S'){  
                 $ativo = 'checked';
                 $icone = '<h6><i class="fas fa-check-circle text-success"></i></h6>'; 
@@ -29,7 +31,7 @@ function listaUsuario(){
             } 
             
 
-            //***Verificar os dados da consulta SQL
+            //Monta os itens da tabela com os dados do BD
             $lista .= 
             '<tr>'
                 .'<td align="center">'.$coluna["id_usuario"].'</td>'
