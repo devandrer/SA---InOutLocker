@@ -2,10 +2,11 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-
+//Ação que seleciona o submit entre Salvar e Fechar a Modal na tela Perfil.php
 $acao = $_POST['btModal'];
 
     switch($acao){
+        //Salva todos os dados escritos ao clicar no botão Salvar
         case "modal_salvar":
             include('conexao.php');
             if($_POST["nSenha"] == "" || $_POST["nSenhaN"] == "" || $_POST["nSenhaR"] == ""){
@@ -27,14 +28,16 @@ $acao = $_POST['btModal'];
                     $_SESSION['SenhaLogin'] = md5($senhaN);
                     $_SESSION["erroPerfil"] = "";
                 } else {
+                    //colocar uma label de erro acima do campo "Repetir Senha"
                     $_SESSION["erroPerfil"] = "erroSenhaR";
                 }
             } else {
+                //colocar uma label de erro acima do campo "Senha Atual"
                 $_SESSION["erroPerfil"] = "erroSenhaA"; 
             }
             header('location: ../perfil.php');
             break;
-        
+        //limpa todos os dados e modificações ao clicar no botão Fechar
         case "modal_limpar":
             $_SESSION["erroPerfil"] = "";
             header('location: ../perfil.php');
