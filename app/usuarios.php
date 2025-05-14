@@ -100,7 +100,7 @@
           <div class="modal-content">
             <div class="modal-header bg-success">
               <h4 class="modal-title">Novo Usuário</h4>
-              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <button type="button" id="novousuario" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
