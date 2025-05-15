@@ -30,7 +30,7 @@ function montaMenu($n1,$n2){
             $acaoDashboard = 'active';
             break; 
         
-        case 'registro':
+        case 'reservas':
             $menuReservas = 'menu-open';
             $acaoReservas = 'active';
             break; 
@@ -108,7 +108,7 @@ function montaMenu($n1,$n2){
             </li>   
         
             <li class="nav-item '.$menuReservas.'">
-                <a href="#" class="nav-link '.$acaoReservas.'">
+                <a href="./reservas.php" class="nav-link '.$acaoReservas.'">
                 <i class="fas fa-clipboard-check nav-icon"></i>
                 <p>Reservas</p>
                 </a>
