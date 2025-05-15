@@ -2,6 +2,7 @@
     
     include('funcoes.php');
 
+    // Declara  as variáveis de acordo com o "name"
     $idEmpresa   = $_GET["codigo"];
     $razao   = $_POST["nRazao"];
     $cnpj        = $_POST["nCnpj"];
@@ -13,9 +14,10 @@
     $bairro      = $_POST["Bairro"];
     $funcao      = $_GET["funcao"];
 
+    //Verifica se está ativo
     if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
 
-    include("conexao.php");
+    include("conexao.php"); //Arquivo de conexão com o banco
 
     //Validar se é Inclusão ou Alteração
     if($funcao == "I"){
@@ -24,8 +26,9 @@
         $idEmpresa = proximoID("tb_empresa","id_empresa");
 
         //INSERT
-        $sql = "INSERT INTO tb_empresa(
-                id_empresa,razao_social,cnpj,endereco,cidade,uf,cep,numero,
+        //Insere as informações
+        $sql = "INSERT INTO tb_empresa(  
+                id_empresa,razao_social,cnpj,endereco,cidade,uf,cep,numero, 
                 bairro,flg_ativo)
                 VALUES($idEmpresa,'$razao','$cnpj','$endereco','$cidade','$uf','$cep',
                 '$numero','$bairro','$ativo');";
@@ -33,9 +36,9 @@
                
 
     }elseif($funcao == "A"){
-        //UPDATE
+        //UPDATE 
     
-
+        // Atualiza no banco
         $sql = "UPDATE tb_empresa
                 SET razao_social = '$razao',
                     cnpj = '$cnpj',
@@ -50,7 +53,8 @@
        
       
     }elseif($funcao == "D"){
-        //DELETE
+        //DELETE 
+        // Deleta a empresa
         $sql = "DELETE FROM tb_empresa 
                 WHERE id_empresa = $idEmpresa;";
     }
