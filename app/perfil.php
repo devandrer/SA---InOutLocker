@@ -66,7 +66,7 @@ $erro = $_SESSION["erroPerfil"];
                 <!-- /.card-header -->
                 <div class="card-body">
 
-                  <form method="POST" action="php/salvarPerfil.php?id=<?php echo $_SESSION['idLogin']; ?>" enctype="multipart/form-data">
+                  <form method="POST" action="php/salvarPerfil.php?id=<?php echo $_SESSION['idLogin']; ?>" enctype="multipart/form-data"> <!-- Traz a informações do perfil logado, através do idlogin -->
                     <div class="card-body">
                       <div class="row">
 
@@ -77,7 +77,7 @@ $erro = $_SESSION["erroPerfil"];
                               <div class="row">
                                 <div class="col-3 text-center">
                                   <div class="foto-perfil mx-auto">
-                                    <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="foto">
+                                     <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="foto"> <!-- Campo que puxa a foto do usuário-->
                                     <div class="trocar-imagem">
                                       <i class="fas fa-camera upload-button"></i>
                                       <p>Alterar Foto</p>
@@ -144,7 +144,7 @@ $erro = $_SESSION["erroPerfil"];
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        <!-- Modal -->
+        <!-- Modal de redefinir a senha -->
         <div class="modal fade" id="modalRedefinirSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

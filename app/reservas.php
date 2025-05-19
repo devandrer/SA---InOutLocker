@@ -128,7 +128,7 @@ include('php/funcoes.php');
     <?php include('partes/js.php'); ?>
     <!-- Fim JS -->
 <script>
-    document.querySelector("#imodal").click();
+    //document.querySelector("#imodal").click();
 
 </script>
 

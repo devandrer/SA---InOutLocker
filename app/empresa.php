@@ -67,7 +67,7 @@
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
                   <thead>
-                  <tr>
+                  <tr> <!-- tabela das informações principais da empresa -->
                       <th>ID</th>
                       <th>Razão Social</th>
                       <th>CNPJ</th>
@@ -79,7 +79,7 @@
                   </thead>
                   <tbody>
 
-                  <?php echo listaEmpresa(); ?>
+                  <?php echo listaEmpresa(); ?> <!-- faz o select no banco de dados, puxando as infos da empresa -->
                   
                   </tbody>
                   
@@ -109,7 +109,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarEmpresa.php?funcao=I" enctype="multipart/form-data">              
+              <form method="POST" action="php/salvarEmpresa.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
                 
                 <div class="row">
                   <div class="col-8">
