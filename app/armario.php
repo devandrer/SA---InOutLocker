@@ -67,17 +67,17 @@
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
                   <thead>
-                  <tr> <!-- tabela das informações principais da empresa -->
+                  <tr> <!-- tabela das informações principais do armario -->
                       <th>ID</th>
                       <th>Local</th>
-                      <th>Ativo</th>
-                      <th>Empresa</th>                
+                      <th>Empresa</th>  
+                      <th>Ativo</th>              
                       <th>Ações</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos da empresa -->
+                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos do armario -->
                   
                   </tbody>
                   
@@ -120,7 +120,7 @@
                   <div class="col-12">
                     <div class="form-group">
                       <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Armario Ativa</label>
+                      <label for="iAtivo">Armário Ativo</label>
                     </div>
                   </div>
 
