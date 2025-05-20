@@ -90,7 +90,15 @@ include('php/funcoes.php');
     <!-- Fim JS -->
 <script>
     //document.querySelector("#imodal").click();
-
+    <?php
+        //Valida se a variavel é verdadeira
+        if($_SESSION["portaOcupada"]) {
+            //Exibe um alert na tela
+            echo "alert('Por favor, desocupe a porta para desabilita-la!!!')";
+            //Reseta a variavel de sessao
+            $_SESSION["portaOcupada"] = FALSE;
+        }
+    ?>
 </script>
 
 
