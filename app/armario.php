@@ -107,7 +107,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
+              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de um novo armario -->              
                 
                 <div class="row">
                   <div class="col-8">
@@ -137,7 +137,7 @@
                 
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                   <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 
