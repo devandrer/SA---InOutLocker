@@ -116,6 +116,14 @@
                       <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
                     </div>
                   </div>
+
+                  <div class="row">
+                  <div class="col-8">
+                    <div class="form-group">
+                      <label for="iRazao">Empresa</label>
+                      <input type="text" class="form-control" id="iRazao" name="nRazao" maxlength="50">
+                    </div>
+                  </div>
                
                   <div class="col-12">
                     <div class="form-group">
