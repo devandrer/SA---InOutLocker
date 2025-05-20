@@ -118,14 +118,16 @@
                   </div>
                 </div>
 
-                <div class="row">
-                  <div class="col-6">
+                 
+                 <div class="col-12">
                     <div class="form-group">
-                      <label for="iRazao">Empresa</label>
-                      <input type="text" class="form-control" id="iRazao" name="nRazao" maxlength="50">
+                      <label for="iRazao">Empresa:</label>
+                      <select name="nRazao" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <?php echo optionEmpresa();?>
+                      </select>
                     </div>
                   </div>
-               </div>
                
                   <div class="col-12">
                     <div class="form-group">
