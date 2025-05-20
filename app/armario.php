@@ -116,14 +116,16 @@
                       <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
                     </div>
                   </div>
+                </div>
 
-                  <div class="row">
-                  <div class="col-8">
+                <div class="row">
+                  <div class="col-6">
                     <div class="form-group">
                       <label for="iRazao">Empresa</label>
                       <input type="text" class="form-control" id="iRazao" name="nRazao" maxlength="50">
                     </div>
                   </div>
+               </div>
                
                   <div class="col-12">
                     <div class="form-group">
@@ -132,7 +134,7 @@
                     </div>
                   </div>
 
-                </div>
+                
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
