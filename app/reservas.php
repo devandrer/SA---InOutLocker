@@ -65,7 +65,7 @@ include('php/funcoes.php');
                     <!-- Main row -->
                     <div class="row">
                         
-                            <?php echo listaPorta(); ?>
+                            <?php echo listaPortaReserva(); ?>
                        
                     </div>
                     <!-- /.row (main row) -->

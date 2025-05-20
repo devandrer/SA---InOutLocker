@@ -1,6 +1,6 @@
 <?php
 
-function listaPorta()
+function listaPortaReserva()
 {
     //Abre conexão com o banco
     include("conexao.php");
@@ -45,10 +45,7 @@ function listaPorta()
                 <div class="col-2">
                     <div class="card border border-dark porta-armario" style="background-color: beige;">
                         <button class="border border-dark porta-armario-botao" style="' . $status . '" data-toggle="modal" data-target="' . $modal . '" '.$btnDisabled.'>
-                            <!-- <div class="border border-dark" style="width: 5rem; height: 2rem; margin-bottom: 2rem; background-color: red;">
-                        
-                            </div> -->
-                            
+                            '.$coluna["referencia"].'                            
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
@@ -67,11 +64,11 @@ function listaPorta()
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="php/salvarMovimento.php?funcao=D&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
+                                    <form method="POST" action="php/salvarMovimentacao.php?funcao=Ativo&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
 
                                         <div class="modal-footer d-flex justify-content-center">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                                            <button type="submit" class="btn btn-success">Sim</button>
+                                            <button type="submit" name="nAtivo" value="'.$coluna["flg_ativo"].'" class="btn btn-success">Sim</button>
                                         </div>
 
                                     </form>
@@ -156,7 +153,7 @@ function listaPorta()
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="php/salvarMovimento.php?funcao=Saída&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
+                                        <form method="POST" action="php/salvarMovimentacao.php?funcao=Saída&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
 
                                             <div class="modal-footer d-flex justify-content-center">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
