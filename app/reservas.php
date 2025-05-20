@@ -11,7 +11,21 @@ include('php/funcoes.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
     <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
+    <style>
+        .porta-armario {
+            width: 8rem; 
+            height: 8rem; 
+            display:flex;
+            align-items: center;
+            justify-content: center; 
+        }
 
+        .porta-armario-botao {
+            width: 5rem; 
+            height: 2rem; 
+            margin-bottom: 2rem; 
+        }
+    </style>
     <!-- CSS -->
     <?php include('partes/css.php'); ?>
     <!-- Fim CSS -->
@@ -50,66 +64,13 @@ include('php/funcoes.php');
                     <!-- /.row -->
                     <!-- Main row -->
                     <div class="row">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="card border border-dark" style="width: 8rem; height: 8rem; display:flex;align-items: center;justify-content: center; background-color: beige;">
-                                    <button id="imodal" class="border border-dark" style="width: 5rem; height: 2rem; margin-bottom: 2rem; background-color: red;" data-toggle="modal" data-target="#novoUsuarioModal">
-                                        <!-- <div class="border border-dark" style="width: 5rem; height: 2rem; margin-bottom: 2rem; background-color: red;">
-
-                                        </div> -->
-                                    </button>
-                                    <div class="border-bottom border-dark" style="width: 5rem;">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                            <?php echo listaPortaReserva(); ?>
+                       
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
-                <div class="modal fade" id="novoUsuarioModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header bg-success">
-                                <h4 class="modal-title">Reservar porta</h4>
-                                <button type="button" id="novousuario" class="close text-white" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form method="POST" action="php/salvarMovimento.php?funcao=I" enctype="multipart/form-data">
-
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label for="iNome">Nome:</label>
-                                                <input type="text" class="form-control" id="iNome" name="nNome" maxlength="50">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4">
-                                            <div class="form-group">
-                                                <label for="iCpf">Matrícula:</label>
-                                                <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="6">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="modal-footer d-flex justify-content-center">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                        <button type="submit" class="btn btn-success">Salvar</button>
-                                    </div>
-
-                                </form>
-
-                            </div>
-
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
+                
             </section>
             <!-- /.content -->
 
@@ -128,7 +89,7 @@ include('php/funcoes.php');
     <?php include('partes/js.php'); ?>
     <!-- Fim JS -->
 <script>
-    document.querySelector("#imodal").click();
+    //document.querySelector("#imodal").click();
 
 </script>
 

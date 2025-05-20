@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
-  <title>Empresas</title>
+  <title>Armários</title>
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>
@@ -26,7 +26,7 @@
   <!-- Sidebar -->
   <?php 
     $_SESSION['menu-n1'] = 'administrador';
-    $_SESSION['menu-n2'] = 'empresa';
+    $_SESSION['menu-n2'] = 'armario';
     include('partes/sidebar.php'); 
   ?>
   <!-- Fim Sidebar -->
@@ -49,12 +49,12 @@
                 <div class="row">
                   
                   <div class="col-9">
-                    <h3 class="card-title">Empresas</h3>
+                    <h3 class="card-title">Armário</h3>
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novaEmpresaModal">
-                      Nova Empresa
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novoArmarioModal">
+                      Novo Armário
                     </button>
                   </div>
 
@@ -69,17 +69,15 @@
                   <thead>
                   <tr> <!-- tabela das informações principais da empresa -->
                       <th>ID</th>
-                      <th>Razão Social</th>
-                      <th>CNPJ</th>
-                      <th>Cidade</th>
-                      <th>UF</th>
-                      <th>Ativo</th>                
+                      <th>Local</th>
+                      <th>Ativo</th>
+                      <th>Empresa</th>                
                       <th>Ações</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php echo listaEmpresa(); ?> <!-- faz o select no banco de dados, puxando as infos da empresa -->
+                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos da empresa -->
                   
                   </tbody>
                   
@@ -97,81 +95,32 @@
       <!-- /.container-fluid -->
        
 
-      <!-- modal de adicionar nova empresa -->
+      <!-- modal de adicionar novo armario -->
 
-      <div class="modal fade" id="novaEmpresaModal">
+      <div class="modal fade" id="novoArmarioModal">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header bg-success">
-              <h4 class="modal-title">Nova Empresa</h4>
+              <h4 class="modal-title">Novo Armário</h4>
               <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarEmpresa.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
+              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
                 
                 <div class="row">
                   <div class="col-8">
                     <div class="form-group">
-                      <label for="iRazao">Razão Social:</label>
-                      <input type="text" class="form-control" id="iRazao" name="nRazao" maxlength="50">
-                    </div>
-                  </div>
-
-                  <div class="col-8">
-                    <div class="form-group">
-                      <label for="iCnpj">CNPJ:</label>
-                      <input type="text" class="form-control" id="iCnpj" name="nCnpj" maxlength="50">
-                    </div>
-                  </div>
-
-                  <div class="col-9">
-                    <div class="form-group">
-                      <label>Endereço</label>
-                      <input required name="Endereco" type="text" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="col-5">
-                    <div class="form-group">
-                      <label>Cidade</label>
-                      <input required name="Cidade" type="text" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="col-2">
-                    <div class="form-group">
-                      <label>UF</label>
-                      <input required name="UF" type="text" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="col-3">
-                    <div class="form-group">
-                      <label>CEP</label>
-                      <input required name="CEP" type="text" class="form-control cep">
-                    </div>
-                  </div>
-
-                  <div class="col-3">
-                    <div class="form-group">
-                      <label>Número</label>
-                      <input required name="Numero" type="text" maxlength="8" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="col-5">
-                    <div class="form-group">
-                      <label>Bairro</label>
-                      <input required name="Bairro" type="text" class="form-control">
+                      <label for="iRazao">Local</label>
+                      <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
                     </div>
                   </div>
                
                   <div class="col-12">
                     <div class="form-group">
                       <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Empresa Ativa</label>
+                      <label for="iAtivo">Armario Ativa</label>
                     </div>
                   </div>
 
