@@ -1,5 +1,7 @@
 <?php 
+// Inicia a sessão para verificar e usar dados do login
   session_start();
+  // Inclui arquivo de funções auxiliares, se necessário
   include('php/funcoes.php');
 ?>
 
@@ -8,6 +10,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ícone da aba do navegador -->
   <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
   <title>InOutLocker - Dashboard</title>
 
@@ -27,35 +30,34 @@
   <?php 
     $_SESSION['menu-n1'] = 'dashboard';
     $_SESSION['menu-n2'] = '';
+     // Inclui o menu lateral
     include('partes/sidebar.php'); 
   ?>
   <!-- Fim Sidebar -->
 
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Área que contém o conteúdo da página -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Cabeçalho da página -->
     <div class="content-header">
       <!-- Espaço -->
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+     <!-- Conteúdo principal -->
     <section class="content">
       <div class="container-fluid">
 
-        <!-- Small boxes (Stat box) -->
-        
-        <!-- /.row -->
-        <!-- Main row -->
+         <!-- Linha principal -->
         <div class="row">
-          <!-- Left col -->
+          <!-- Coluna ocupando 100% da largura -->
           <section class="col-lg-12 connectedSortable">
               
-            <!-- BAR CHART -->
+            <!-- Cartão com o gráfico de barras -->
             <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Usuários</h3>
 
+                 <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -65,6 +67,7 @@
                   </button>
                 </div>
               </div>
+              <!-- Corpo do card contendo o canvas do gráfico -->
               <div class="card-body">
                 <div class="chart">
                   <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
@@ -96,33 +99,34 @@
 <!-- Fim JS -->
 
 <script>
+  // Dados do gráfico: categorias e valores
     var areaChartData = {
-      labels  : ['Admin','Empresa','Comum'],
+      labels  : ['Admin','Empresa','Comum'],// Categorias de usuários
       labels  : ['Admin','Empresa','Comum'],
       datasets: [
         
         {
           label               : 'Ativo',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
+          backgroundColor     : 'rgba(60,141,188,0.9)',// Azul
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40]
+          data                : [28, 48, 40]// Quantidades de usuários ativos
         },
         
         {
           label               : 'Inativo',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
+          backgroundColor     : 'rgba(210, 214, 222, 1)',// Cinza
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80]
+          data                : [65, 59, 80]// Quantidades de usuários inativos
         },
         
       ]

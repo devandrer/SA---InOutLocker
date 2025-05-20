@@ -22,7 +22,7 @@ function descrUsuario($id){
     return $nome;
 }
 
-//Função para buscar a descrição da prota
+//Função para buscar a descrição da porta
 function descrPorta($id){
 
     $referencia = "";
