@@ -7,6 +7,7 @@ include("funcaoTipoUsuario.php");
 include("funcaoMenu.php");
 include("funcaoEmpresas.php");
 include("funcaoPorta.php");
+include("funcaoArmario.php");
 
 
 
