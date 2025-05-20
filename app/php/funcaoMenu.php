@@ -16,6 +16,7 @@ function montaMenu($n1,$n2){
 
     $opcUsuarios        = '';
     $opcEmpresa         = '';
+    $opcArmario         = '';
     
     
     //Primeiro nível do menu
@@ -55,6 +56,10 @@ function montaMenu($n1,$n2){
         case 'empresa':
             $opcEmpresa = 'active';
             break; 
+
+         case 'armario':
+            $opcArmario = 'active';
+            break; 
     
         default:
             # code...
@@ -92,6 +97,15 @@ function montaMenu($n1,$n2){
                         <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
                         <p>Usuários</p>
+                        </a>
+                    </li>              
+                </ul>
+
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="./armario.php" class="nav-link '.$opcArmario.'">
+                        <i class="fas fa-archive nav-icon ml-3"></i>
+                        <p>Armários</p>
                         </a>
                     </li>              
                 </ul>
