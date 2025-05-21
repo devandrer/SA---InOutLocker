@@ -55,7 +55,7 @@
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-warning">
               <div class="card-header">
-                <h3 class="card-title">Usuários</h3>
+                <h3 class="card-title">Portas</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
@@ -101,32 +101,32 @@
 <script>
   // Dados do gráfico: categorias e valores
     var areaChartData = {
-      labels  : ['Admin','Empresa','Comum'],// Categorias de usuários
-      labels  : ['Admin','Empresa','Comum'],
+      labels  : ['Entrada','Saída'],// Categorias de usuários
+      labels  : ['Entrada','Saída'],
       datasets: [
         
         {
-          label               : 'Ativo',
-          backgroundColor     : 'rgba(60,141,188,0.9)',// Azul
+          label               : 'Disponíveis',
+          backgroundColor     : '#007bff',// Azul
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40]// Quantidades de usuários ativos
+          data                : [28, 48]// Quantidades de usuários ativos
         },
         
         {
-          label               : 'Inativo',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',// Cinza
+          label               : 'Ocupados',
+          backgroundColor     : '#212529',// Cinza
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80]// Quantidades de usuários inativos
+          data                : [65, 59]// Quantidades de usuários inativos
         },
         
       ]
