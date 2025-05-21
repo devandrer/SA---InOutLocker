@@ -1,11 +1,12 @@
 <?php
 
-function listaPortaReserva()
+// Retorna um lista com as portas do armario indicado
+function listaPortaReserva($armario = 1)
 {
     //Abre conexão com o banco
     include("conexao.php");
-    //SELECT
-    $sql = "SELECT * FROM tb_porta ORDER BY id_porta;";
+    //Busca todas as portas do determinado armario
+    $sql = "SELECT * FROM tb_porta WHERE id_armario = $armario ORDER BY id_porta;";
 
     //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn, $sql);
@@ -22,7 +23,7 @@ function listaPortaReserva()
 
         foreach ($result as $coluna) {
 
-            //Adiciona icone para usuarios ativos ou desativos
+            //Muda a cor do centro da porta e define a modal
             if ($coluna["status"] == 'D') {
                 $status = "background-color: green;";
                 $modal = "#novoRegistroModal".$coluna["id_porta"];
@@ -30,11 +31,14 @@ function listaPortaReserva()
                 $status = "background-color: red;";
                 $modal = "#fecharRegistroModal".$coluna["id_porta"];
             }
+            // PREENCHER QUANTO ESTIVER PRONTO
             if ($coluna["flg_ativo"] == 'S') {
                 $ativo = 'Desativar';
+                // $ativo = 'checked';
                 $btnDisabled = '';
             } else {
                 $ativo = 'Ativar';
+                // $ativo = '';
                 $status = "background-color: grey;";
                 $btnDisabled = 'disabled';
             }
@@ -49,6 +53,12 @@ function listaPortaReserva()
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
+                        <!-- slider
+                        <label class="switchCustom">
+                            <input '.$ativo.' class="switchCustom-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
+                            <span class="sliderCustom redondo"></span>
+                        </label>
+                        -->
                         <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
                     </div>
 
@@ -81,7 +91,9 @@ function listaPortaReserva()
                         <!-- /.modal-dialog -->
                     </div>       
                 ';
-
+            //Adiciona a modal de nova reserva para portas com o status de disponivel
+            //ou
+            //Adiciona a modal de fechar reserva para portas com o status de ocupado
             if ($coluna["status"] == 'D') {
                 $lista .= '
                 <div class="modal fade" id="novoRegistroModal'.$coluna["id_porta"].'"">
