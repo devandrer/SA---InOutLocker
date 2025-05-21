@@ -210,37 +210,6 @@ function optionEmpresa(){
 }
 
 
-
-//Próximo ID da empresa
-function proxIdEmpresa(){
-
-    $id = "";
-
-    include("conexao.php");
-    $sql = "SELECT MAX(id_empresa) AS Maior FROM tb_empresa;";        
-    $result = mysqli_query($conn,$sql);
-    mysqli_close($conn);
-
-    //Validar se tem retorno do BD
-    if (mysqli_num_rows($result) > 0) {
-                
-        $array = array();
-        
-        while ($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            array_push($array,$linha);
-        }
-        
-        foreach ($array as $coluna) {            
-            //***Verificar os dados da consulta SQL
-            $id = $coluna["Maior"] + 1;
-        }        
-    } 
-
-    return $id;
-}
-
-
-
 //Função para buscar o nome da empresa
 function razaoempresa($id){
 
@@ -268,7 +237,6 @@ function razaoempresa($id){
 
     return $resp;
 }
-
 
 
 //Função para buscar a flag FlgAtivo da empresa

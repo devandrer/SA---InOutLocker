@@ -11,21 +11,6 @@ include('php/funcoes.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
     <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
-    <style>
-        .porta-armario {
-            width: 8rem; 
-            height: 8rem; 
-            display:flex;
-            align-items: center;
-            justify-content: center; 
-        }
-
-        .porta-armario-botao {
-            width: 5rem; 
-            height: 2rem; 
-            margin-bottom: 2rem; 
-        }
-    </style>
     <!-- CSS -->
     <?php include('partes/css.php'); ?>
     <!-- Fim CSS -->
@@ -90,7 +75,15 @@ include('php/funcoes.php');
     <!-- Fim JS -->
 <script>
     //document.querySelector("#imodal").click();
-
+    <?php
+        //Valida se a variavel é verdadeira
+        if($_SESSION["portaOcupada"]) {
+            //Exibe um alert na tela
+            echo "alert('Por favor, desocupe a porta para desabilita-la!!!')";
+            //Reseta a variavel de sessao
+            $_SESSION["portaOcupada"] = FALSE;
+        }
+    ?>
 </script>
 
 

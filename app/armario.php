@@ -67,17 +67,17 @@
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
                   <thead>
-                  <tr> <!-- tabela das informações principais da empresa -->
+                  <tr> <!-- tabela das informações principais do armario -->
                       <th>ID</th>
                       <th>Local</th>
-                      <th>Ativo</th>
-                      <th>Empresa</th>                
+                      <th>Empresa</th>  
+                      <th>Ativo</th>              
                       <th>Ações</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos da empresa -->
+                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos do armario -->
                   
                   </tbody>
                   
@@ -107,7 +107,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
+              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de um novo armario -->              
                 
                 <div class="row">
                   <div class="col-8">
@@ -116,18 +116,30 @@
                       <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
                     </div>
                   </div>
+                </div>
+
+                 
+                 <div class="col-12">
+                    <div class="form-group">
+                      <label for="iRazao">Empresa:</label>
+                      <select name="nRazao" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <?php echo optionEmpresa();?> 
+                      </select>
+                    </div>
+                  </div>
                
                   <div class="col-12">
                     <div class="form-group">
                       <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Armario Ativa</label>
+                      <label for="iAtivo">Armário Ativo</label>
                     </div>
                   </div>
 
-                </div>
+                
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                   <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 
