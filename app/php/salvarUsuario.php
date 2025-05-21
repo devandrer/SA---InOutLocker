@@ -4,7 +4,7 @@
     
     //Pega os valores do formulario que serão inseridos no banco
     $idUsuario   = $_GET["codigo"];
-    $matricula   = $_POST["nMatricula"];
+    $matricula   = proximoID("tb_usuario","matricula");
     $nome        = $_POST["nNome"];
     $cpf         = $_POST["nCpf"];
     $cidade      = $_POST["Cidade"];
@@ -38,7 +38,7 @@
         $sql = "INSERT INTO tb_usuario(
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
-                VALUES($idUsuario,'$matricula','$nome','$cpf','$cidade','$endereco',$numero,
+                VALUES($idUsuario,$matricula,'$nome','$cpf','$cidade','$endereco',$numero,
                 '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
         
     }elseif($funcao == "A"){
@@ -53,7 +53,7 @@
         
         //UPDATE
         $sql = "UPDATE tb_usuario
-                SET matricula = '$matricula',
+                SET matricula = $matricula,
                     nome = '$nome',
                     cpf = '$cpf',
                     cidade = '$cidade',
