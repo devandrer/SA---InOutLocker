@@ -18,25 +18,23 @@
 
         //Busca o próximo ID na tabela
         $idArmario = proximoID("tb_armario","id_armario");
-
         //INSERT
         //Insere as informações
         $sql = "INSERT INTO tb_armario(  
-                id_armario,local,flg_ativo,razao_social)
+                id_armario,local,flg_ativo,id_empresa)
                 VALUES($idArmario,'$local','$ativo','$razao');";
-
                
 
     }elseif($funcao == "A"){
         //UPDATE 
-    
+
         // Atualiza no banco
         $sql = "UPDATE tb_armario
                 SET local = '$local',
-                    razao_social = '$razao',
-                    flg_ativo = '$ativo'
-                WHERE id_armario = $idArmario";
-       
+                    flg_ativo = '$ativo',
+                    id_empresa = '$razao'
+                WHERE id_armario = $idArmario;";
+
       
     }elseif($funcao == "D"){
         //DELETE 
@@ -44,7 +42,7 @@
         $sql = "DELETE FROM tb_armario 
                 WHERE id_armario = $idArmario;";
     }
-
+    
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 

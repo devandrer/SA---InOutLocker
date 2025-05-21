@@ -3,10 +3,7 @@
 function listaArmario(){
 
     include("conexao.php");
-    $sql = "SELECT arm.id_armario,arm.local,empr.razao_social,arm.flg_ativo 
-    FROM tb_armario as arm 
-    INNER JOIN tb_empresa as empr 
-    ON arm.id_empresa = empr.id_empresa;";
+    $sql = "SELECT * FROM tb_armario ORDER BY id_armario;";
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -77,12 +74,15 @@ function listaArmario(){
                                      .'</div>' //Coluna local
                                   .'</div>'
 
-                                 .'<div class="col-8">'
-                                     .'<div class="form-group">'
-                                        .' <label for="iRazao">Empresa:</label>'
-                                         .'<input type="text" class="form-control" value="'.$coluna["razao_social"].'" id="iRazao" name="nRazao" maxlength="50">'
-                                     .'</div>' //Coluna razão social
-                                 .'</div>'
+                                  .'<div class="col-6">'
+                                  .'<div class="form-group">'
+                                      .'<label for="iRazao">Empresa:</label>'
+                                      .'<select name="nRazao" class="form-control" required>'
+                                          .'<option value="'.$coluna["id_empresa"].'">'.razaoempresa($coluna["id_empresa"]).'</option>'
+                                          .optionEmpresa()
+                                      .'</select>'
+                                  .'</div>'
+                              .'</div>'
                             
                                 .'<div class="col-12">'
                                         .'<div class="form-group">'
@@ -139,3 +139,4 @@ function listaArmario(){
     
     return $lista;
 }
+
