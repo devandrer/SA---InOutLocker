@@ -1,11 +1,11 @@
 <?php
 
-function listaPortaReserva()
+function listaPortaReserva($armario = 1)
 {
     //Abre conexão com o banco
     include("conexao.php");
     //SELECT
-    $sql = "SELECT * FROM tb_porta ORDER BY id_porta;";
+    $sql = "SELECT * FROM tb_porta WHERE id_armario = $armario ORDER BY id_porta;";
 
     //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn, $sql);
