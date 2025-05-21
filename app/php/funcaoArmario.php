@@ -3,8 +3,21 @@
 function listaArmario(){
 
     include("conexao.php");
-    $sql = "SELECT * FROM tb_armario ORDER BY id_armario;";
-            
+    $sql = "SELECT
+   tb_armario.id_armario,
+    tb_armario.id_empresa,
+    tb_armario.local,
+    tb_empresa.razao_social,
+    tb_armario.flg_ativo
+FROM
+    tb_armario
+INNER JOIN
+    tb_empresa
+ON
+	tb_empresa.id_empresa = tb_armario.id_empresa
+WHERE
+	id_armario;";
+                
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     
@@ -81,7 +94,7 @@ function listaArmario(){
                                           .'<option value="'.$coluna["id_empresa"].'">'.razaoempresa($coluna["id_empresa"]).'</option>'
                                           .optionEmpresa()
                                       .'</select>'
-                                  .'</div>'
+                                  .'</div>' //Coluna empresa
                               .'</div>'
                             
                                 .'<div class="col-12">'
