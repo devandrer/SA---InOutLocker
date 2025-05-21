@@ -4,7 +4,7 @@
     
     //Pega os valores do formulario que serão inseridos no banco
     $idUsuario   = $_GET["codigo"];
-    $matricula   = proximoID("tb_usuario","matricula");
+    $matricula   = $_POST["nMatricula"];
     $nome        = $_POST["nNome"];
     $cpf         = $_POST["nCpf"];
     $cidade      = $_POST["Cidade"];
@@ -33,7 +33,7 @@
 
         //Busca o próximo ID na tabela
         $idUsuario = proximoID("tb_usuario","id_usuario");
-
+        $matricula   = proximoID("tb_usuario","matricula");
         //INSERT
         $sql = "INSERT INTO tb_usuario(
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
