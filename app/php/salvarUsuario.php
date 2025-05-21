@@ -31,9 +31,10 @@
     //Validar se é Inclusão ou Alteração ou Exclusão
     if($funcao == "I"){
 
-        //Busca o próximo ID na tabela
+        //Busca o próximo ID e matricula na tabela usuario 
         $idUsuario = proximoID("tb_usuario","id_usuario");
         $matricula   = proximoID("tb_usuario","matricula");
+        
         //INSERT
         $sql = "INSERT INTO tb_usuario(
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,

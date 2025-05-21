@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/05/2025 às 00:42
+-- Tempo de geração: 22/05/2025 às 00:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `tb_armario` (
 
 INSERT INTO `tb_armario` (`id_armario`, `local`, `flg_ativo`, `id_empresa`) VALUES
 (1, 'Biblioteca', 'S', 1),
-(2, 'Bloco C', 'S', 1);
+(2, 'Bloco C', 'S', 1),
+(3, 'Bloco B', 'S', 1);
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,14 @@ CREATE TABLE `tb_movimentacao` (
   `id_usuario` int(11) NOT NULL COMMENT 'FK - Número Identificador do Usuário ',
   `id_porta` int(11) NOT NULL COMMENT 'FK -  Número Identificador da Porta'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tb_movimentacao`
+--
+
+INSERT INTO `tb_movimentacao` (`id_movimentacao`, `movimentacao`, `status`, `id_usuario`, `id_porta`) VALUES
+(1, '2025-05-21 19:43:04', 'Entrada', 8, 1),
+(2, '2025-05-21 19:43:06', 'Saída', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -159,9 +168,9 @@ CREATE TABLE `tb_usuario` (
 --
 
 INSERT INTO `tb_usuario` (`id_usuario`, `matricula`, `nome`, `cpf`, `cidade`, `endereco`, `numero`, `bairro`, `cep`, `uf`, `foto`, `login`, `senha`, `flg_ativo`, `id_empresa`, `id_tipo_usuario`) VALUES
-(8, 2025001, 'João', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 123, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'j@teste.com', '123', 'S', 1, 1),
-(9, 2025002, 'Gabriel', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 42, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'g@teste.com', '123', 'S', 1, 2),
-(10, 2025003, 'Mari', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 1231, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', '', 'd41d8cd98f00b204e9800998ecf8427e', 'S', 1, 3);
+(8, 2025001, 'João', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 123, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'j@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 1),
+(9, 2025002, 'Gabriel', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 42, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'g@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 2),
+(10, 2025003, 'Mari', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 1231, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', '', '202cb962ac59075b964b07152d234b70', 'S', 1, 3);
 
 --
 -- Índices para tabelas despejadas
@@ -218,7 +227,7 @@ ALTER TABLE `tb_usuario`
 -- AUTO_INCREMENT de tabela `tb_armario`
 --
 ALTER TABLE `tb_armario`
-  MODIFY `id_armario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK - Número Identificador do Armário', AUTO_INCREMENT=3;
+  MODIFY `id_armario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK - Número Identificador do Armário', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_empresa`
