@@ -107,7 +107,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova empresa -->              
+              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de um novo armario -->              
                 
                 <div class="row">
                   <div class="col-8">
@@ -116,12 +116,16 @@
                       <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
                     </div>
                   </div>
+                </div>
 
-                  <div class="row">
-                  <div class="col-8">
+                 
+                 <div class="col-12">
                     <div class="form-group">
-                      <label for="iRazao">Empresa</label>
-                      <input type="text" class="form-control" id="iRazao" name="nRazao" maxlength="50">
+                      <label for="iRazao">Empresa:</label>
+                      <select name="nRazao" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <?php echo optionEmpresa();?>
+                      </select>
                     </div>
                   </div>
                
@@ -132,10 +136,10 @@
                     </div>
                   </div>
 
-                </div>
+                
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                   <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 
