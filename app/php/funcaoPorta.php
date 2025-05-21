@@ -1,10 +1,11 @@
 <?php
 
+// Retorna um lista com as portas do armario indicado
 function listaPortaReserva($armario = 1)
 {
     //Abre conexão com o banco
     include("conexao.php");
-    //SELECT
+    //Busca todas as portas do determinado armario
     $sql = "SELECT * FROM tb_porta WHERE id_armario = $armario ORDER BY id_porta;";
 
     //Executa o comando SQL e armazena o resultado            
@@ -22,7 +23,7 @@ function listaPortaReserva($armario = 1)
 
         foreach ($result as $coluna) {
 
-            //Adiciona icone para usuarios ativos ou desativos
+            //Muda a cor do centro da porta e define a modal
             if ($coluna["status"] == 'D') {
                 $status = "background-color: green;";
                 $modal = "#novoRegistroModal".$coluna["id_porta"];
@@ -30,6 +31,7 @@ function listaPortaReserva($armario = 1)
                 $status = "background-color: red;";
                 $modal = "#fecharRegistroModal".$coluna["id_porta"];
             }
+            // PREENCHER QUANTO ESTIVER PRONTO
             if ($coluna["flg_ativo"] == 'S') {
                 $ativo = 'Desativar';
                 $btnDisabled = '';
@@ -81,7 +83,9 @@ function listaPortaReserva($armario = 1)
                         <!-- /.modal-dialog -->
                     </div>       
                 ';
-
+            //Adiciona a modal de nova reserva para portas com o status de disponivel
+            //ou
+            //Adiciona a modal de fechar reserva para portas com o status de ocupado
             if ($coluna["status"] == 'D') {
                 $lista .= '
                 <div class="modal fade" id="novoRegistroModal'.$coluna["id_porta"].'"">
