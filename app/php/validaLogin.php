@@ -18,7 +18,8 @@
     //SELECT
     $sql = "SELECT * FROM tb_usuario "
             ." WHERE login = '$email' "
-            ." AND senha = md5('$senha');";
+            ." AND senha = md5('$senha') "
+            ." AND id_tipo_usuario <> 3";
     //Executa o comando SQL e armazena o resultado
     $resultLogin = mysqli_query($conn,$sql);
     //Fecha conexão com banco
