@@ -34,9 +34,11 @@ function listaPortaReserva($armario = 1)
             // PREENCHER QUANTO ESTIVER PRONTO
             if ($coluna["flg_ativo"] == 'S') {
                 $ativo = 'Desativar';
+                // $ativo = 'checked';
                 $btnDisabled = '';
             } else {
                 $ativo = 'Ativar';
+                // $ativo = '';
                 $status = "background-color: grey;";
                 $btnDisabled = 'disabled';
             }
@@ -51,6 +53,12 @@ function listaPortaReserva($armario = 1)
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
+                        <!-- slider
+                        <label class="switchCustom">
+                            <input '.$ativo.' class="switchCustom-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
+                            <span class="sliderCustom redondo"></span>
+                        </label>
+                        -->
                         <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
                     </div>
 

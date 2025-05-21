@@ -11,21 +11,6 @@ include('php/funcoes.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
     <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
-    <style>
-        .porta-armario {
-            width: 8rem; 
-            height: 8rem; 
-            display:flex;
-            align-items: center;
-            justify-content: center; 
-        }
-
-        .porta-armario-botao {
-            width: 5rem; 
-            height: 2rem; 
-            margin-bottom: 2rem; 
-        }
-    </style>
     <!-- CSS -->
     <?php include('partes/css.php'); ?>
     <!-- Fim CSS -->
