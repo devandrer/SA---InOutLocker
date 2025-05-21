@@ -84,6 +84,7 @@ include('php/funcoes.php');
             $_SESSION["portaOcupada"] = FALSE;
         }
     ?>
+    
 </script>
 
 
