@@ -53,7 +53,7 @@
           <section class="col-lg-12 connectedSortable">
               
             <!-- Cartão com o gráfico de barras -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Portas</h3>
 
@@ -80,6 +80,74 @@
           </section>
           <!-- /.Left col -->
         </div>
+
+         <!-- Linha principal -->
+         <div class="row">
+          <!-- Coluna ocupando 100% da largura -->
+          <section class="col-lg-12 connectedSortable">
+              
+            <!-- Cartão com o gráfico de barras -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Portas Livre e Ocupadas</h3>
+
+                 <!-- Botões de colapsar e remover o card -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Corpo do card contendo o canvas do gráfico -->
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </section>
+          <!-- /.Left col -->
+        </div>
+
+        <!-- Linha principal -->
+        <div class="row">
+          <!-- Coluna ocupando 100% da largura -->
+          <section class="col-lg-12 connectedSortable">
+              
+            <!-- Cartão com o gráfico de barras -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Valores do dia atual em tempo real</h3>
+
+                 <!-- Botões de colapsar e remover o card -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Corpo do card contendo o canvas do gráfico -->
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </section>
+          <!-- /.Left col -->
+        </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -93,6 +161,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+
 
 <!-- JS -->
 <?php include('partes/js.php'); ?>
@@ -147,12 +217,33 @@
       maintainAspectRatio     : false,
       datasetFill             : false
     }
-
+    
     new Chart(barChartCanvas, {
       type: 'bar',
       data: barChartData,
       options: barChartOptions
     })
+    //finalizando o primeiro grafico
+
+    const data = {
+      labels: ['portas ocupadas', 'portas livres'],
+      datasets: [{
+        label: 'Dados',
+        data: [40, 60],
+        backgroundColor: ['red', 'green', 'yellow'],
+        borderColor: ['red', 'green'],
+        borderWidth: 1
+      }]
+    };
+
+    const config = {
+      type: 'pie',
+      data: data,
+      options: {}
+    };
+
+    const myChart = new Chart(document.getElementById('barPizza'), config);
+  
 </script>
 
 </body>
