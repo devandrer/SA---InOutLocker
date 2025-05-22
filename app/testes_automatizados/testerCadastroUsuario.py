@@ -44,10 +44,6 @@ email_input.send_keys("jo@teste.com")
 senha_input = modal.find_element(By.NAME, "nSenha")
 senha_input.send_keys("123")
 
-# Preenche o campo matricula
-matricula_input = modal.find_element(By.NAME, "nMatricula")
-matricula_input.send_keys("205206")
-
 # Preenche o campo usuario ativo
 ativo_checkbox = modal.find_element(By.NAME, "nAtivo")
 ativo_checkbox.click()
