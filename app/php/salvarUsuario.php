@@ -31,14 +31,15 @@
     //Validar se é Inclusão ou Alteração ou Exclusão
     if($funcao == "I"){
 
-        //Busca o próximo ID na tabela
+        //Busca o próximo ID e matricula na tabela usuario 
         $idUsuario = proximoID("tb_usuario","id_usuario");
-
+        $matricula   = proximoID("tb_usuario","matricula");
+        
         //INSERT
         $sql = "INSERT INTO tb_usuario(
                 id_usuario,matricula,nome,cpf,cidade,endereco,numero,
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
-                VALUES($idUsuario,'$matricula','$nome','$cpf','$cidade','$endereco',$numero,
+                VALUES($idUsuario,$matricula,'$nome','$cpf','$cidade','$endereco',$numero,
                 '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
         
     }elseif($funcao == "A"){
@@ -53,7 +54,7 @@
         
         //UPDATE
         $sql = "UPDATE tb_usuario
-                SET matricula = '$matricula',
+                SET matricula = $matricula,
                     nome = '$nome',
                     cpf = '$cpf',
                     cidade = '$cidade',

@@ -1,10 +1,23 @@
 <?php
-//Função para listar todas as empresas
+//Função para listar todos os armarios
 function listaArmario(){
 
     include("conexao.php");
-    $sql = "SELECT * FROM tb_armario ORDER BY id_armario;";
-            
+    $sql = "SELECT
+                    tb_armario.id_armario,
+                    tb_armario.id_empresa,
+                    tb_armario.local,
+                    tb_empresa.razao_social,
+                    tb_armario.flg_ativo
+            FROM
+                tb_armario
+            INNER JOIN
+                tb_empresa
+            ON
+                tb_empresa.id_empresa = tb_armario.id_empresa
+            WHERE
+                id_armario;";
+                
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     
@@ -57,13 +70,13 @@ function listaArmario(){
                 .'<div class="modal-dialog modal-lg">'
                     .'<div class="modal-content">'
                         .'<div class="modal-header bg-info">'
-                            .'<h4 class="modal-title">Alterar Empresa</h4>'
+                            .'<h4 class="modal-title">Alterar Armário </h4>'
                             .'<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">'
                                 .'<span aria-hidden="true">&times;</span>'
                             .'</button>'
                         .'</div>'
                         .'<div class="modal-body">'
-                                // Pega a função de alterar no arquivo salvarEmpresa.php
+                                // Pega a função de alterar no arquivo salvarArmario.php
                             .'<form method="POST" action="php/salvarArmario.php?funcao=A&codigo='.$coluna["id_armario"].'" enctype="multipart/form-data">'              
                 
                                 .'<div class="row">'
@@ -81,7 +94,7 @@ function listaArmario(){
                                           .'<option value="'.$coluna["id_empresa"].'">'.razaoempresa($coluna["id_empresa"]).'</option>'
                                           .optionEmpresa()
                                       .'</select>'
-                                  .'</div>'
+                                  .'</div>' //Coluna empresa
                               .'</div>'
                             
                                 .'<div class="col-12">'
@@ -93,8 +106,8 @@ function listaArmario(){
                                  .'</div>'
 
                                  .'<div class="modal-footer">'
-                                .' <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>' // Botão de fechar
-                                 .'<button type="submit" class="btn btn-success">Salvar</button>' // Botão de Salvar
+                                .' <button type="submit" name="btSalvaArmario" value="modal_limpar" class="btn btn-danger" >Fechar</button>' // Botão de Limpar e fechar
+                                .' <button type="submit" name="btSalvaArmario" value="modal_salvar" class="btn btn-success">Salvar</button>' // Botão de Salvar
                                  .'</div>'
                                 
                             .'</form>'
@@ -109,12 +122,12 @@ function listaArmario(){
                     .'<div class="modal-content">'
                         .'<div class="modal-header bg-danger">'
                             .'<h4 class="modal-title">Excluir Armário: '.$coluna["id_armario"].'</h4>'
-                            .'<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">'
+                            .'<button type="submi" class="close text-white" data-dismiss="modal" aria-label="Close">'
                                 .'<span aria-hidden="true">&times;</span>'
                             .'</button>'
                         .'</div>'
                         .'<div class="modal-body">'
-                            // Pega a função de deletar no arquivo salvarEmpresa.php
+                            // Pega a função de deletar no arquivo salvarArmario.php
                             .'<form method="POST" action="php/salvarArmario.php?funcao=D&codigo='.$coluna["id_armario"].'" enctype="multipart/form-data">'              
 
                                 .'<div class="row">'

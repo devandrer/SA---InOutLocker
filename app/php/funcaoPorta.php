@@ -53,9 +53,9 @@ function listaPortaReserva($armario = 1)
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
-                        <!-- slider
+                        <!--
                         <label class="switchCustom">
-                            <input '.$ativo.' class="switchCustom-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
+                            <input id="iSwitch" '.$ativo.' class="switchCustom-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
                             <span class="sliderCustom redondo"></span>
                         </label>
                         -->
@@ -77,7 +77,7 @@ function listaPortaReserva($armario = 1)
                                     <form method="POST" action="php/salvarMovimentacao.php?funcao=Ativo&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
 
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                                            <button type="button" id="iCancelar" class="btn btn-danger" data-dismiss="modal">Não</button>
                                             <button type="submit" name="nAtivo" value="'.$coluna["flg_ativo"].'" class="btn btn-success">Sim</button>
                                         </div>
 
@@ -119,7 +119,7 @@ function listaPortaReserva($armario = 1)
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="iMatricula">Matrícula:</label>
-                                                <input type="text" class="form-control" id="iMatricula" name="nMatricula" maxlength="6">
+                                                <input type="text" class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
                                             </div>
                                         </div>
 
