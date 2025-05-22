@@ -53,7 +53,7 @@
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novaEmpresaModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaEmpresaModal">
                       Nova Empresa
                     </button>
                   </div>
@@ -66,7 +66,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                   <tr> <!-- tabela das informações principais da empresa -->
                       <th>ID</th>
                       <th>Razão Social</th>

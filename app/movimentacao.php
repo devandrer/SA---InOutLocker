@@ -50,7 +50,7 @@
                 <!-- Corpo do card com a tabela -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                     <tr>
                       <th>Nr</th>
                       <th>Data</th>

@@ -53,7 +53,7 @@
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novoUsuarioModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novoUsuarioModal">
                       Novo Usuário
                     </button>
                   </div>
@@ -66,7 +66,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                   <tr>
                       <th>ID</th>
                       <th>Nome</th>
