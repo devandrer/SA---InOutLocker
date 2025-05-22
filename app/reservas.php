@@ -48,9 +48,23 @@ include('php/funcoes.php');
 
                     <!-- /.row -->
                     <!-- Main row -->
+
+                    <div class="row mb-5">
+                        <form action="php/carregaArmarios.php" method="POST">
+                            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                                <?php echo listaArmarioReserva(); ?>
+                            </div>
+                        </form>
+                    </div>
                     <div class="row">
                         <!-- Função que retorna as portas -->
-                        <?php echo listaPortaReserva(); ?>
+                        <?php
+                        if ($_SESSION["carregaArmarios"] <> 0) {
+                            echo listaPortaReserva($_SESSION["carregaArmarios"]);
+                        } else {
+                            echo listaPortaReserva($_SESSION["carregaArmarios"]);
+                        }
+                        ?>
 
                     </div>
                     <!-- /.row (main row) -->
