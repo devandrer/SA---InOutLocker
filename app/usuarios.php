@@ -49,7 +49,7 @@
                 <div class="row">
                   
                   <div class="col-9">
-                    <h3 class="card-title">Usuários</h3>
+                    <h3><i class="fas fa-address-card mr-2"></i>Usuários</h3> 
                   </div>
                   
                   <div class="col-3" align="right">

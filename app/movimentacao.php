@@ -44,7 +44,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Movimentação</h3>
+                <h3><i class="fas fa-sync-alt mr-2"></i>Movimentação</h3>
               </div>
 
                 <!-- Corpo do card com a tabela -->

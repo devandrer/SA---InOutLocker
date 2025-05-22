@@ -49,7 +49,7 @@
                 <div class="row">
                   
                   <div class="col-9">
-                    <h3 class="card-title">Armário</h3>
+                    <h3><i class="fas fa-archive mr-2"></i>Armário</h3>
                   </div>
                   
                   <div class="col-3" align="right">
