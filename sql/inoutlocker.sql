@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/05/2025 às 00:27
+-- Tempo de geração: 22/05/2025 às 00:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `tb_armario` (
 
 INSERT INTO `tb_armario` (`id_armario`, `local`, `flg_ativo`, `id_empresa`) VALUES
 (1, 'Biblioteca', 'S', 1),
-(2, 'Bloco C', 'S', 1);
+(2, 'Bloco C', 'S', 1),
+(3, 'Bloco B', 'S', 1);
 
 -- --------------------------------------------------------
 
@@ -87,8 +88,8 @@ CREATE TABLE `tb_movimentacao` (
 --
 
 INSERT INTO `tb_movimentacao` (`id_movimentacao`, `movimentacao`, `status`, `id_usuario`, `id_porta`) VALUES
-(1, '2025-05-21 19:26:43', 'Entrada', 4, 1),
-(2, '2025-05-21 19:26:46', 'Saída', 4, 1);
+(1, '2025-05-21 19:43:04', 'Entrada', 8, 1),
+(2, '2025-05-21 19:43:06', 'Saída', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,7 @@ INSERT INTO `tb_tipo_usuario` (`id_tipo_usuario`, `descricao`, `flg_ativo`) VALU
 
 CREATE TABLE `tb_usuario` (
   `id_usuario` int(11) NOT NULL COMMENT 'PK -  Número Identificador do Usuário',
-  `matricula` int(11) NOT NULL COMMENT 'Matricula do usuário \r\nAno + Centena\r\nExemplo: 2025001\r\n',
+  `matricula` int(11) NOT NULL COMMENT 'Matricula do usuário \r\nAno + Centena\r\nExemplo: 2025001',
   `nome` varchar(80) NOT NULL COMMENT 'Nome do usuário',
   `cpf` varchar(14) NOT NULL COMMENT 'CPF do usuário',
   `cidade` varchar(80) NOT NULL COMMENT 'Cidade do endereço do usuário',
@@ -167,9 +168,9 @@ CREATE TABLE `tb_usuario` (
 --
 
 INSERT INTO `tb_usuario` (`id_usuario`, `matricula`, `nome`, `cpf`, `cidade`, `endereco`, `numero`, `bairro`, `cep`, `uf`, `foto`, `login`, `senha`, `flg_ativo`, `id_empresa`, `id_tipo_usuario`) VALUES
-(4, 2025001, 'João', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 42, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'j@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 1),
-(5, 2025002, 'Gabriel', '111.222.333-44', 'Joinville', 'Rua Arno Waldemar Dohler', 123, 'Zona Industrial Norte', '89219-510', 'SC', 'dist/img/usuarios/0ad82c07723ecaff6e121f4975a1d348.png', 'g@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 2),
-(6, 2025004, 'Mari', '111.222.333-44', 'Joinville', 'Avenida Santos Dumont', 7199, 'Zona Industrial Norte', '89219-731', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', '', 'd41d8cd98f00b204e9800998ecf8427e', 'S', 1, 3);
+(8, 2025001, 'João', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 123, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'j@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 1),
+(9, 2025002, 'Gabriel', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 42, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', 'g@teste.com', '202cb962ac59075b964b07152d234b70', 'S', 1, 2),
+(10, 2025003, 'Mari', '111.222.333-44', 'Joinville', 'Rua Rouxinol', 1231, 'Aventureiro', '89225-100', 'SC', 'dist/img/usuarios/03db7394c53cf29a9a1e62b30f058d9e.png', '', '202cb962ac59075b964b07152d234b70', 'S', 1, 3);
 
 --
 -- Índices para tabelas despejadas
@@ -214,6 +215,7 @@ ALTER TABLE `tb_tipo_usuario`
 --
 ALTER TABLE `tb_usuario`
   ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `matricula` (`matricula`),
   ADD KEY `id_empresa` (`id_empresa`),
   ADD KEY `id_tipo_usuario` (`id_tipo_usuario`);
 
@@ -225,7 +227,7 @@ ALTER TABLE `tb_usuario`
 -- AUTO_INCREMENT de tabela `tb_armario`
 --
 ALTER TABLE `tb_armario`
-  MODIFY `id_armario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK - Número Identificador do Armário', AUTO_INCREMENT=3;
+  MODIFY `id_armario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK - Número Identificador do Armário', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_empresa`
@@ -255,7 +257,7 @@ ALTER TABLE `tb_tipo_usuario`
 -- AUTO_INCREMENT de tabela `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK -  Número Identificador do Usuário', AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK -  Número Identificador do Usuário', AUTO_INCREMENT=11;
 
 --
 -- Restrições para tabelas despejadas

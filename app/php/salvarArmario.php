@@ -58,7 +58,7 @@ $acao = $_POST['btSalvaArmario'];
       
     }elseif($funcao == "D"){
         //DELETE 
-        // Deleta a empresa
+        // Deleta o armario
         $sql = "DELETE FROM tb_armario 
                 WHERE id_armario = $idArmario;";
     }

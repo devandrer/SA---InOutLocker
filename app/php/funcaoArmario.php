@@ -1,5 +1,5 @@
 <?php
-//Função para listar todas as empresas
+//Função para listar todos os armarios
 function listaArmario(){
 
     include("conexao.php");
@@ -70,7 +70,7 @@ function listaArmario(){
                 .'<div class="modal-dialog modal-lg">'
                     .'<div class="modal-content">'
                         .'<div class="modal-header bg-info">'
-                            .'<h4 class="modal-title">Alterar Armário</h4>'
+                            .'<h4 class="modal-title">Alterar Armário </h4>'
                             .'<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">'
                                 .'<span aria-hidden="true">&times;</span>'
                             .'</button>'
@@ -100,8 +100,8 @@ function listaArmario(){
                                 .'<div class="col-12">'
                                         .'<div class="form-group">'
                                             .'<input type="checkbox" id="iAtivo" name="nAtivo" '.$ativo.'>'
-                                            .'<label for="iAtivo">Armário Ativa</label>'
-                                        .'</div>' //Coluna flg_ativo(verifica se o armário está ativa)
+                                            .'<label for="iAtivo">Empresa Ativa</label>'
+                                        .'</div>' //Coluna flg_ativo(verifica se a empresa está ativa)
                                     .'</div>'
                                  .'</div>'
 
@@ -127,7 +127,7 @@ function listaArmario(){
                             .'</button>'
                         .'</div>'
                         .'<div class="modal-body">'
-                            // Pega a função de deletar no arquivo salvarEmpresa.php
+                            // Pega a função de deletar no arquivo salvarArmario.php
                             .'<form method="POST" action="php/salvarArmario.php?funcao=D&codigo='.$coluna["id_armario"].'" enctype="multipart/form-data">'              
 
                                 .'<div class="row">'
