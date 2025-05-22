@@ -98,7 +98,7 @@
       <div class="modal fade" id="novoUsuarioModal">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header bg-success">
+            <div class="modal-header bg-primary">
               <h4 class="modal-title">Novo Usuário</h4>
               <button type="button" id="novousuario" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -124,6 +124,13 @@
 
                   <div class="col-3">
                     <div class="form-group">
+                      <label for="iMatricula">Matrícula:</label>
+                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-group">
                       <label for="iTipoUsuario">Tipo de Usuário:</label>
                       <select name="nTipoUsuario" id="iTipoUsuario" class="form-control" required>
                         <option value="">Selecione...</option>
@@ -132,7 +139,7 @@
                     </div>
                   </div>
                   
-                  <div class="col-12">
+                  <div class="col-9">
                     <div class="form-group">
                       <label for="iNome">Empresa:</label>
                       <select name="nEmpresa" class="form-control" required>
@@ -157,25 +164,11 @@
                       <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
                     </div>
                   </div>
-
-                  <div class="col-3">
-                    <div class="form-group">
-                      <label for="iMatricula">Matrícula:</label>
-                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
-                    </div>
-                  </div>
                 
                   <div class="col-9">
                     <div class="form-group">
                       <label for="iFoto">Foto:</label>
                       <input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">
-                    </div>
-                  </div>
-                
-                  <div class="col-12">
-                    <div class="form-group">
-                      <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Usuário Ativo</label>
                     </div>
                   </div>
 
@@ -218,6 +211,13 @@
                     <div class="form-group">
                       <label>UF</label>
                       <input required name="UF" type="text" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="checkbox" id="iAtivo" name="nAtivo">
+                      <label for="iAtivo">Usuário Ativo</label>
                     </div>
                   </div>
 
