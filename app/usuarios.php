@@ -98,7 +98,7 @@
       <div class="modal fade" id="novoUsuarioModal">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header bg-success">
+            <div class="modal-header bg-primary">
               <h4 class="modal-title">Novo Usuário</h4>
               <button type="button" id="novousuario" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -171,13 +171,6 @@
                       <input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">
                     </div>
                   </div>
-                
-                  <div class="col-12">
-                    <div class="form-group">
-                      <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Usuário Ativo</label>
-                    </div>
-                  </div>
 
                   <div class="col-3">
                     <div class="form-group">
@@ -218,6 +211,13 @@
                     <div class="form-group">
                       <label>UF</label>
                       <input required name="UF" type="text" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="checkbox" id="iAtivo" name="nAtivo">
+                      <label for="iAtivo">Usuário Ativo</label>
                     </div>
                   </div>
 
