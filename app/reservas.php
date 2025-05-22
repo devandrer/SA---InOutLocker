@@ -51,7 +51,7 @@ include('php/funcoes.php');
 
                     <div class="row mb-5">
                         <form action="php/carregaArmarios.php" method="POST">
-                            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                            <div class="btn-group" role="group">
                                 <?php echo listaArmarioReserva(); ?>
                             </div>
                         </form>
@@ -62,7 +62,7 @@ include('php/funcoes.php');
                         if ($_SESSION["carregaArmarios"] <> 0) {
                             echo listaPortaReserva($_SESSION["carregaArmarios"]);
                         } else {
-                            echo listaPortaReserva($_SESSION["carregaArmarios"]);
+                            echo listaPortaReserva();
                         }
                         ?>
 
@@ -96,7 +96,13 @@ include('php/funcoes.php');
             //Reseta a variavel de sessao
             $_SESSION["portaOcupada"] = FALSE;
         }
+        
+        echo listaJSPorta();
+        
+        
+
         ?>
+        
     </script>
 
 

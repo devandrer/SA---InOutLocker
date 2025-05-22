@@ -57,15 +57,15 @@
     } else if($funcao == "Ativo"){
         //Inverte os valores da variavel ativo
         $ativo = ($ativo == "N") ? "S" : "N";
-        
         //Busca o status do ultimo registro pelo id da porta
         $sql = "SELECT status FROM tb_movimentacao WHERE id_porta = ".$idPorta." ORDER BY id_movimentacao DESC LIMIT 1;";
         $result = mysqli_query($conn,$sql);
+
         foreach ($result as $coluna){
             $status = $coluna["status"];
         }
         //Valida se o status é de saída
-        if($status == "Saída") {
+        if($status == "Saída" || $status == null) {
             //Muda o valor da flag ativo no banco 
             $sql = "UPDATE tb_porta SET flg_ativo = '$ativo' WHERE id_porta = $idPorta AND status <> 'O';";
             $result = mysqli_query($conn,$sql);

@@ -16,7 +16,6 @@ function listaPortaReserva($armario = 1)
     //Define variaveis
     $lista = '';
     $ativo = '';
-    $icone = '';
 
     //Validar se tem retorno do BD
     if (mysqli_num_rows($result) > 0) {
@@ -34,11 +33,11 @@ function listaPortaReserva($armario = 1)
             // PREENCHER QUANTO ESTIVER PRONTO
             if ($coluna["flg_ativo"] == 'S') {
                 $ativo = 'Desativar';
-                // $ativo = 'checked';
+                $check = 'checked';
                 $btnDisabled = '';
             } else {
                 $ativo = 'Ativar';
-                // $ativo = '';
+                $check = '';
                 $status = "background-color: grey;";
                 $btnDisabled = 'disabled';
             }
@@ -53,13 +52,15 @@ function listaPortaReserva($armario = 1)
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                <input id="iSwitch'.$coluna["id_porta"].'" '.$check.' class="custom-control-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
+                                <label class="custom-control-label" for="iSwitch'.$coluna["id_porta"].'"></label>
+                            </label>
+                         </div>
                         <!--
-                        <label class="switchCustom">
-                            <input id="iSwitch" '.$ativo.' class="switchCustom-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
-                            <span class="sliderCustom redondo"></span>
-                        </label>
-                        -->
                         <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
+                        -->
                     </div>
 
                     
@@ -77,7 +78,7 @@ function listaPortaReserva($armario = 1)
                                     <form method="POST" action="php/salvarMovimentacao.php?funcao=Ativo&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
 
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <button type="button" id="iCancelar" class="btn btn-danger" data-dismiss="modal">Não</button>
+                                            <button type="button" id="iCancelar'.$coluna["id_porta"].'" class="btn btn-danger" data-dismiss="modal">Não</button>
                                             <button type="submit" name="nAtivo" value="'.$coluna["flg_ativo"].'" class="btn btn-success">Sim</button>
                                         </div>
 
@@ -109,17 +110,20 @@ function listaPortaReserva($armario = 1)
                                 <form method="POST" action="php/salvarMovimentacao.php?funcao=Entrada&porta='.$coluna["id_porta"].'" enctype="multipart/form-data">
 
                                     <div class="row d-flex justify-content-center">
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label for="iNome">Nome:</label>
-                                                <input type="text" class="form-control" id="iNome" name="nNome" maxlength="50">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4">
+                                      
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label for="iMatricula">Matrícula:</label>
-                                                <input type="text" class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
+                                                <input 
+                                                    type="text" 
+                                                    class="form-control" 
+                                                    id="iMatricula" 
+                                                    name="nMatricula" 
+                                                    maxlength="7" 
+                                                    pattern="[1-9]{7}" 
+                                                    required
+                                                    title="Matricula deve ter 7 digitos"
+                                                >
                                             </div>
                                         </div>
 
@@ -141,19 +145,7 @@ function listaPortaReserva($armario = 1)
                 </div>
             ';
             } else {
-
-                //Abre conexão com o banco
-                // include("conexao.php");
-                // //SELECT
-                // $sql = "SELECT * FROM tb_movimentacao WHERE id_porta = ".$coluna["id_porta"]." ORDER BY id_movimentacao DESC LIMIT 1;";
-
-                // //Executa o comando SQL e armazena o resultado            
-                // $resultMov = mysqli_query($conn, $sql);
-                // //Fecha conexão com banco
-                // mysqli_close($conn);
-
-                foreach ($resultMov as $colunaMov) {
-                }
+                
                 $lista .= '
                         <div class="modal fade" id="fecharRegistroModal'.$coluna["id_porta"].'">
                             <div class="modal-dialog">
@@ -183,6 +175,40 @@ function listaPortaReserva($armario = 1)
                         </div>
                     ';
             }
+        }
+    }
+
+    return $lista;
+}
+
+
+function listaJSPorta(){
+
+    //Abre conexão com o banco
+    include("conexao.php");
+    //Busca todas as portas do determinado armario
+    $sql = "SELECT * FROM tb_porta";
+
+    //Executa o comando SQL e armazena o resultado            
+    $result = mysqli_query($conn, $sql);
+    //Fecha conexão com banco
+    mysqli_close($conn);
+
+    //Define variaveis
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+
+        foreach ($result as $coluna) {
+
+            //Monta os itens da tabela com os dados do BD
+            $lista .= '
+                document.getElementById("iCancelar'.$coluna["id_porta"].'").onclick = () => {
+                let checkbox = document.getElementById("iSwitch'.$coluna["id_porta"].'")
+                checkbox.checked = (checkbox.checked == true) ? false : true
+                }
+            ';
         }
     }
 

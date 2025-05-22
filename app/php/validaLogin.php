@@ -42,6 +42,7 @@
             $_SESSION['Matricula']    = $coluna['matricula'];
             $_SESSION["erroPerfil"] = ""; 
             $_SESSION["erroLogin"] = False; 
+            $_SESSION["carregaArmarios"] = 1; 
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             
