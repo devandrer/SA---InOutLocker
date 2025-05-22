@@ -124,6 +124,13 @@
 
                   <div class="col-3">
                     <div class="form-group">
+                      <label for="iMatricula">Matrícula:</label>
+                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-group">
                       <label for="iTipoUsuario">Tipo de Usuário:</label>
                       <select name="nTipoUsuario" id="iTipoUsuario" class="form-control" required>
                         <option value="">Selecione...</option>
@@ -132,7 +139,7 @@
                     </div>
                   </div>
                   
-                  <div class="col-12">
+                  <div class="col-9">
                     <div class="form-group">
                       <label for="iNome">Empresa:</label>
                       <select name="nEmpresa" class="form-control" required>
@@ -155,13 +162,6 @@
                     <div class="form-group">
                       <label for="iSenhaN">Senha:</label>
                       <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
-                    </div>
-                  </div>
-
-                  <div class="col-3">
-                    <div class="form-group">
-                      <label for="iMatricula">Matrícula:</label>
-                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
                     </div>
                   </div>
                 
