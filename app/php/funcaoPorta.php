@@ -52,16 +52,20 @@ function listaPortaReserva($armario = 1)
                         </button>
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
-                        <div class="form-group">
-                            <label class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                <input id="iSwitch'.$coluna["id_porta"].'" '.$check.' class="custom-control-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
-                                <label class="custom-control-label" for="iSwitch'.$coluna["id_porta"].'"></label>
-                            </label>
-                        </div>
-                        <!--
-                        <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
-                        -->
-                    </div>
+                        <div class="form-group m-0" style="position: absolute; bottom: -15px; right: -10px; padding: 5px;">';
+            if($_SESSION["idEmpresa"] == 1) {
+                $lista .= '
+                        <label class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                            <input id="iSwitch'.$coluna["id_porta"].'" '.$check.' class="custom-control-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
+                            <label class="custom-control-label" for="iSwitch'.$coluna["id_porta"].'"></label>
+                        </label>';
+            }            
+             $lista .= '
+                </div>
+                    <!--
+                    <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
+                    -->
+                </div>
 
                     
                 </div>
