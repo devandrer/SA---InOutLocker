@@ -31,6 +31,9 @@
             $idUsuario = $coluna["id_usuario"];
         }
         //Grava o registro da reserva no banco
+        if($idUsuario == null){
+            header("location: ../reservas.php");
+        }
         $sql = "INSERT INTO tb_movimentacao VALUES($idMov,'$dataMov','$funcao',$idUsuario,$idPorta)";
         $result = mysqli_query($conn,$sql);
         

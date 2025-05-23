@@ -207,11 +207,17 @@ function listaJSPorta(){
         foreach ($result as $coluna) {
 
             //Monta os itens da tabela com os dados do BD
+            // $lista .= '
+            //     document.getElementById("iCancelar'.$coluna["id_porta"].'").onclick = () => {
+            //     let checkbox = document.getElementById("iSwitch'.$coluna["id_porta"].'")
+            //     checkbox.checked = (checkbox.checked == true) ? false : true
+            //     }
+            // ';
             $lista .= '
-                document.getElementById("iCancelar'.$coluna["id_porta"].'").onclick = () => {
-                let checkbox = document.getElementById("iSwitch'.$coluna["id_porta"].'")
-                checkbox.checked = (checkbox.checked == true) ? false : true
-                }
+                $("#modalAtivo'.$coluna["id_porta"].'").on("hidden.bs.modal", function (event) {
+                    let checkbox = document.getElementById("iSwitch'.$coluna["id_porta"].'")
+                    checkbox.checked = (checkbox.checked == true) ? false : true
+                })
             ';
         }
     }
