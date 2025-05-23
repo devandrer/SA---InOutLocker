@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Retorna um lista com as portas do armario indicado
 function listaPortaReserva($armario = 1)
 {
@@ -57,7 +57,7 @@ function listaPortaReserva($armario = 1)
                                 <input id="iSwitch'.$coluna["id_porta"].'" '.$check.' class="custom-control-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
                                 <label class="custom-control-label" for="iSwitch'.$coluna["id_porta"].'"></label>
                             </label>
-                         </div>
+                        </div>
                         <!--
                         <button data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">'.$ativo.'</button>
                         -->
