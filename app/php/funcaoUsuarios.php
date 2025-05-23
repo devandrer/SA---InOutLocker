@@ -1,10 +1,11 @@
 <?php
+session_start();
 //Função para listar todos os usuários
 function listaUsuario(){
     //Abre conexão com o banco
     include("conexao.php");
     //SELECT
-    $sql = "SELECT * FROM tb_usuario ORDER BY id_usuario;";
+    $sql = "SELECT * FROM tb_usuario WHERE id_empresa = ".$_SESSION["idEmpresa"]." ORDER BY id_usuario;";
 
     //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn,$sql);

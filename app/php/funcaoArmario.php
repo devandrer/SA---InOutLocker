@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Função para listar todos os armarios
 function listaArmario(){
 
@@ -16,7 +17,7 @@ function listaArmario(){
             ON
                 tb_empresa.id_empresa = tb_armario.id_empresa
             WHERE
-                id_armario;";
+                tb_armario.id_empresa = ".$_SESSION["idEmpresa"]." ;";
                 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
