@@ -44,3 +44,28 @@ function descrPorta($id){
     return $referencia;
 }
 
+function descrArmario($id){
+
+    $referencia = "";
+
+    include("conexao.php");
+    $sql = "SELECT 
+                arm.local 
+            FROM tb_armario arm
+            inner JOIN tb_porta por
+            on arm.id_armario = por.id_armario
+            WHERE id_porta = $id;";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+                
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+            $referencia = $coluna["local"];
+        }        
+    } 
+
+    return $referencia;
+}
