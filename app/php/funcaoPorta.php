@@ -120,7 +120,7 @@ function listaPortaReserva($armario = 1)
                                                     id="iMatricula" 
                                                     name="nMatricula" 
                                                     maxlength="7" 
-                                                    pattern="[1-9]{7}" 
+                                                    pattern="[0-9]{7}" 
                                                     required
                                                     title="Matricula deve ter 7 digitos"
                                                 >
