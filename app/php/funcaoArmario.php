@@ -2,7 +2,7 @@
 session_start();
 //Função para listar todos os armarios
 function listaArmario(){
-
+    //Busca informacões no banco de dados
     include("conexao.php");
     $sql = "SELECT
                     tb_armario.id_armario,
