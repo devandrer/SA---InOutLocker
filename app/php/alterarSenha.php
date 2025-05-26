@@ -18,7 +18,7 @@ $acao = $_POST['btModal'];
             $senhaR = stripslashes($_POST["nSenhaR"]);
             if (md5($senhaA) == $_SESSION['SenhaLogin']) {
                 if ($senhaN == $senhaR) {
-                    
+                    //Atualiza os dados no banco
                     $sql = "UPDATE tb_usuario "
                         . " SET senha = md5(" . $senhaN . ") "
                         . " WHERE id_usuario = " . $_SESSION['idLogin'] . ";";
