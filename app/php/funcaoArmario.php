@@ -158,7 +158,7 @@ function listaArmario(){
 function listaArmarioReserva(){
 
     include("conexao.php");
-    $sql = "SELECT * FROM tb_armario";
+    $sql = "SELECT * FROM tb_armario WHERE id_empresa='".$_SESSION["idEmpresa"]."'";
                 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -172,7 +172,7 @@ function listaArmarioReserva(){
         foreach ($result as $coluna) {
                       
             //***Verificar os dados da consulta SQL
-            $lista .= '<button class="btn btn-outline-primary" name="nArmario" value='.$coluna["id_armario"].'>'.$coluna["local"].'</button>';            
+            $lista .= '<button class="btn btn-outline-primary" id="iBtnArmario'.$coluna["id_armario"].'" name="nArmario" value='.$coluna["id_armario"].'>'.$coluna["local"].'</button>';            
                        
         }    
     }
