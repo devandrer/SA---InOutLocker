@@ -8,7 +8,6 @@ include("funcaoMenu.php");
 include("funcaoEmpresas.php");
 include("funcaoPorta.php");
 include("funcaoArmario.php");
-include("placeholder-armario.php");
 
 
 
