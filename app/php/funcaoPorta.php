@@ -46,7 +46,7 @@ function listaPortaReserva($armario = 1)
             //Monta os itens da tabela com os dados do BD
             $lista .= '
                 <div class="col-2">
-                    <div class="card border border-dark porta-armario" style="background-color: beige;">
+                    <div class="card border border-dark porta-armario" style="background-color: beige; box-shadow: 3px 3px 3px 3px #999;">
                         <button class="border border-dark porta-armario-botao" style="' . $status . '" data-toggle="modal" data-target="' . $modal . '" '.$btnDisabled.'>
                             '.$coluna["referencia"].'                            
                         </button>
