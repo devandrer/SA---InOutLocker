@@ -161,7 +161,8 @@
                   <div class="col-4">
                     <div class="form-group">
                       <label for="iSenhaN">Senha:</label>
-                      <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
+                      <input type="password" class="form-control" id="iSenhaN" name="nSenha">
+                      <i class="fas fa-eye-slash" id="iSenhaIcon" style="position: absolute; right: 15px; top: 44px;cursor: pointer;"></i>
                     </div>
                   </div>
                 
@@ -274,6 +275,20 @@
     }
   }
 
+  let senhaIcon = document.getElementById("iSenhaIcon");
+  let senhaInput = document.getElementById("iSenhaN");
+  senhaIcon.onclick = () => {
+    if(senhaInput.type == "password"){
+      senhaIcon.className = "fas fa-eye-slash";
+      senhaInput.type = "text"
+    }else{
+      senhaIcon.className = "fas fa-eye";
+      senhaInput.type = "password"
+    }
+
+  }
+
+  <?php echo visibilidadeSenha();?>
 
 
   $(function () {

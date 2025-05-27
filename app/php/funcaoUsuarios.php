@@ -126,7 +126,8 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iSenha">Senha:</label>'
-                                            .'<input type="password" value="" class="form-control" id="iSenha" name="nSenha" maxlength="32">'
+                                            .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" maxlength="32">'
+                                            .'<i class="fas fa-eye-slash" id="iSenhaIcon'.$coluna["id_usuario"].'" style="position: absolute; right: 15px; top: 44px;cursor: pointer;"></i>'
                                         .'</div>'
                                     .'</div>'
                     
@@ -246,6 +247,41 @@ function listaUsuario(){
     
     return $lista;
 }
+
+function visibilidadeSenha(){
+
+    //Abre conexão com o banco
+    include("conexao.php");
+    //SELECT
+    $sql = "SELECT * FROM tb_usuario WHERE id_empresa = ".$_SESSION["idEmpresa"]." ORDER BY id_usuario;";
+
+    //Executa o comando SQL e armazena o resultado            
+    $result = mysqli_query($conn,$sql);
+    //Fecha conexão com banco
+    mysqli_close($conn);
+    
+    //Define variaveis
+    $lista = '';
+
+    foreach($result as $coluna) {
+        $lista.= '
+            let senhaIcon'.$coluna["id_usuario"].' = document.getElementById("iSenhaIcon'.$coluna["id_usuario"].'");
+            let senhaInput'.$coluna["id_usuario"].' = document.getElementById("iSenha'.$coluna["id_usuario"].'");
+            senhaIcon'.$coluna["id_usuario"].'.onclick = () => {
+            if(senhaInput'.$coluna["id_usuario"].'.type == "password"){
+                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye-slash";
+                senhaInput'.$coluna["id_usuario"].'.type = "text"
+            }else{
+                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye";
+                senhaInput'.$coluna["id_usuario"].'.type = "password"
+            }
+        
+            }';
+    }
+
+    return $lista;
+}
+
 
 //Função para retornar a qtd de usuários ativos
 function qtdUsuariosAtivos(){
