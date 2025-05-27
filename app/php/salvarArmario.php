@@ -1,5 +1,6 @@
 <?php
-    
+  //Ação que seleciona o submit entre Salvar e Fechar a Modal na tela Perfil.php
+$acao = $_POST['btSalvaArmario'];  
     include('funcoes.php');
 
     // Declara  as variáveis de acordo com o "name"
@@ -15,30 +16,49 @@
 
     //Validar se é Inclusão ou Alteração
     if($funcao == "I"){
+        //INSERIR
+        
+        switch($acao){
+            //Salva todos os dados escritos ao clicar no botão Salvar
+            case "modal_salvar":
+                    //Busca o próximo ID na tabela
+                $idArmario = proximoID("tb_armario","id_armario");
+                //INSERT
+                //Insere as informações
+                $sql = "INSERT INTO tb_armario(  
+                        id_armario,local,flg_ativo,id_empresa)
+                        VALUES($idArmario,'$local','$ativo','$razao');";
+            case "modal_limpar":
+                header('location: ../armario.php');
+                break;
 
-        //Busca o próximo ID na tabela
-        $idArmario = proximoID("tb_armario","id_armario");
-        //INSERT
-        //Insere as informações
-        $sql = "INSERT INTO tb_armario(  
-                id_armario,local,flg_ativo,id_empresa)
-                VALUES($idArmario,'$local','$ativo','$razao');";
-               
+            default:
+        }     
 
     }elseif($funcao == "A"){
         //UPDATE 
 
-        // Atualiza no banco
-        $sql = "UPDATE tb_armario
+        switch($acao){
+            //Salva todos os dados escritos ao clicar no botão Salvar
+            case "modal_salvar":
+                // Atualiza no banco
+                $sql = "UPDATE tb_armario
                 SET local = '$local',
                     flg_ativo = '$ativo',
                     id_empresa = '$razao'
                 WHERE id_armario = $idArmario;";
+            case "modal_limpar":
+                header('location: ../armario.php');
+                break;
+
+            default:
+        }     
+        
 
       
     }elseif($funcao == "D"){
         //DELETE 
-        // Deleta a empresa
+        // Deleta o armario
         $sql = "DELETE FROM tb_armario 
                 WHERE id_armario = $idArmario;";
     }

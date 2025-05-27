@@ -44,13 +44,13 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Movimentação</h3>
+                <h3><i class="fas fa-sync-alt mr-2"></i>Movimentação</h3>
               </div>
 
                 <!-- Corpo do card com a tabela -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                     <tr>
                       <th>Nr</th>
                       <th>Data</th>

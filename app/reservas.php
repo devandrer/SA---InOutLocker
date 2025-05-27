@@ -48,14 +48,28 @@ include('php/funcoes.php');
 
                     <!-- /.row -->
                     <!-- Main row -->
+
+                    <div class="row mb-5">
+                        <form action="php/carregaArmarios.php" method="POST">
+                            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                                <?php echo listaArmarioReserva(); ?>
+                            </div>
+                        </form>
+                    </div>
                     <div class="row">
-                        
-                            <?php echo listaPortaReserva(); ?>
-                       
+                        <!-- Função que retorna as portas -->
+                        <?php
+                        if ($_SESSION["carregaArmarios"] <> 0) {
+                            echo listaPortaReserva($_SESSION["carregaArmarios"]);
+                        } else {
+                            echo listaPortaReserva($_SESSION["carregaArmarios"]);
+                        }
+                        ?>
+
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
-                
+
             </section>
             <!-- /.content -->
 
@@ -73,18 +87,17 @@ include('php/funcoes.php');
     <!-- JS -->
     <?php include('partes/js.php'); ?>
     <!-- Fim JS -->
-<script>
-    //document.querySelector("#imodal").click();
-    <?php
+    <script>
+        <?php
         //Valida se a variavel é verdadeira
-        if($_SESSION["portaOcupada"]) {
+        if ($_SESSION["portaOcupada"]) {
             //Exibe um alert na tela
             echo "alert('Por favor, desocupe a porta para desabilita-la!!!')";
             //Reseta a variavel de sessao
             $_SESSION["portaOcupada"] = FALSE;
         }
-    ?>
-</script>
+        ?>
+    </script>
 
 
 </body>

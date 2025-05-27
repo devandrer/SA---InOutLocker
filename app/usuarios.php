@@ -49,11 +49,11 @@
                 <div class="row">
                   
                   <div class="col-9">
-                    <h3 class="card-title">Usuários</h3>
+                    <h3><i class="fas fa-address-card mr-2"></i>Usuários</h3> 
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novoUsuarioModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novoUsuarioModal">
                       Novo Usuário
                     </button>
                   </div>
@@ -66,7 +66,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                   <tr>
                       <th>ID</th>
                       <th>Nome</th>
@@ -161,7 +161,7 @@
                   <div class="col-3">
                     <div class="form-group">
                       <label for="iMatricula">Matrícula:</label>
-                      <input type="text" class="form-control" id="iMatricula" name="nMatricula" maxlength="6">
+                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
                     </div>
                   </div>
                 

@@ -53,9 +53,9 @@
           <section class="col-lg-12 connectedSortable">
               
             <!-- Cartão com o gráfico de barras -->
-            <div class="card card-warning">
+            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Usuários</h3>
+                <h3 class="card-title">Portas</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
@@ -80,6 +80,74 @@
           </section>
           <!-- /.Left col -->
         </div>
+
+         <!-- Linha principal -->
+         <div class="row">
+          <!-- Coluna ocupando 100% da largura -->
+          <section class="col-lg-12 connectedSortable">
+              
+            <!-- Cartão com o gráfico de barras -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Portas Livre e Ocupadas</h3>
+
+                 <!-- Botões de colapsar e remover o card -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Corpo do card contendo o canvas do gráfico -->
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </section>
+          <!-- /.Left col -->
+        </div>
+
+        <!-- Linha principal -->
+        <div class="row">
+          <!-- Coluna ocupando 100% da largura -->
+          <section class="col-lg-12 connectedSortable">
+              
+            <!-- Cartão com o gráfico de barras -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Valores do dia atual em tempo real</h3>
+
+                 <!-- Botões de colapsar e remover o card -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Corpo do card contendo o canvas do gráfico -->
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </section>
+          <!-- /.Left col -->
+        </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -94,6 +162,8 @@
 </div>
 <!-- ./wrapper -->
 
+
+
 <!-- JS -->
 <?php include('partes/js.php'); ?>
 <!-- Fim JS -->
@@ -101,32 +171,32 @@
 <script>
   // Dados do gráfico: categorias e valores
     var areaChartData = {
-      labels  : ['Admin','Empresa','Comum'],// Categorias de usuários
-      labels  : ['Admin','Empresa','Comum'],
+      labels  : ['Entrada','Saída'],// Categorias de usuários
+      labels  : ['Entrada','Saída'],
       datasets: [
         
         {
-          label               : 'Ativo',
-          backgroundColor     : 'rgba(60,141,188,0.9)',// Azul
+          label               : 'Disponíveis',
+          backgroundColor     : '#007bff',// Azul
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40]// Quantidades de usuários ativos
+          data                : [28, 48]// Quantidades de usuários ativos
         },
         
         {
-          label               : 'Inativo',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',// Cinza
+          label               : 'Ocupados',
+          backgroundColor     : '#212529',// Cinza
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80]// Quantidades de usuários inativos
+          data                : [65, 59]// Quantidades de usuários inativos
         },
         
       ]
@@ -147,12 +217,33 @@
       maintainAspectRatio     : false,
       datasetFill             : false
     }
-
+    
     new Chart(barChartCanvas, {
       type: 'bar',
       data: barChartData,
       options: barChartOptions
     })
+    //finalizando o primeiro grafico
+
+    const data = {
+      labels: ['portas ocupadas', 'portas livres'],
+      datasets: [{
+        label: 'Dados',
+        data: [40, 60],
+        backgroundColor: ['red', 'green', 'yellow'],
+        borderColor: ['red', 'green'],
+        borderWidth: 1
+      }]
+    };
+
+    const config = {
+      type: 'pie',
+      data: data,
+      options: {}
+    };
+
+    const myChart = new Chart(document.getElementById('barPizza'), config);
+  
 </script>
 
 </body>

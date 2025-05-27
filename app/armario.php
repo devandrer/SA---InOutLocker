@@ -49,11 +49,11 @@
                 <div class="row">
                   
                   <div class="col-9">
-                    <h3 class="card-title">Armário</h3>
+                    <h3><i class="fas fa-archive mr-2"></i>Armário</h3>
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#novoArmarioModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novoArmarioModal">
                       Novo Armário
                     </button>
                   </div>
@@ -66,7 +66,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead>
+                  <thead class="thead-dark">
                   <tr> <!-- tabela das informações principais do armario -->
                       <th>ID</th>
                       <th>Local</th>
@@ -122,7 +122,7 @@
                  <div class="col-12">
                     <div class="form-group">
                       <label for="iRazao">Empresa:</label>
-                      <select name="nRazao" class="form-control" required>
+                      <select name="nRazao" class="form-control">
                         <option value="">Selecione...</option>
                         <?php echo optionEmpresa();?> 
                       </select>
@@ -139,8 +139,8 @@
                 
 
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" id="btDeFecharArmario" name="btSalvaArmario" value="modal_limpar" class="btn btn-danger" >Fechar</button>
+                  <button type="submit" name="btSalvaArmario" value="modal_salvar" class="btn btn-success">Salvar</button>
                 </div>
                 
               </form>
@@ -171,6 +171,15 @@
 <!-- Fim JS -->
 
 <script>
+
+  $('#novoArmarioModal').on('hidden.bs.modal', function (event) {
+    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
+  });
+
+  $('#modalEditArmario').on('hidden.bs.modal', function (event) {
+    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
+  });
+
   $(function () {
     $('#tabela').DataTable({
       "paging": true,
