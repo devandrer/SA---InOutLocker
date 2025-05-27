@@ -17,6 +17,7 @@ function montaMenu($n1,$n2){
     $opcUsuarios        = '';
     $opcEmpresa         = '';
     $opcArmario         = '';
+    $opcPorta         = '';
     
     
     //Primeiro nível do menu
@@ -60,6 +61,10 @@ function montaMenu($n1,$n2){
          case 'armario':
             $opcArmario = 'active';
             break; 
+
+            case 'porta':
+               $opcPorta = 'active';
+               break; 
     
         default:
             # code...
@@ -81,18 +86,18 @@ function montaMenu($n1,$n2){
                         Administrador
                         <i class="right fas fa-angle-left"></i>
                     </p>
-                </a>'
-                
-                /*<ul class="nav nav-treeview">
+                </a>
+                <!-- RIP
+                <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
                         <i class="fas fa-building nav-icon ml-3"></i>
                         <p>Empresas</p>
                         </a>
                     </li>              
-                </ul>*/
-
-                .'<ul class="nav nav-treeview">
+                </ul>
+                -->
+                <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
@@ -106,6 +111,15 @@ function montaMenu($n1,$n2){
                         <a href="./armario.php" class="nav-link '.$opcArmario.'">
                         <i class="fas fa-archive nav-icon ml-3"></i>
                         <p>Armários</p>
+                        </a>
+                    </li>              
+                </ul>
+
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="./porta.php" class="nav-link '.$opcPorta.'">
+                        <i class="bi bi-door-open-fill nav-icon ml-3"></i>
+                        <p> &nbsp Porta</p>
                         </a>
                     </li>              
                 </ul>

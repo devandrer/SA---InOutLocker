@@ -56,7 +56,7 @@ include('php/funcoes.php');
                             </div>
                         </form>
                     </div>
-                    <div class="row">
+                    <div class="row" >
                         <!-- Função que retorna as portas -->
                         <?php
                         if ($_SESSION["carregaArmarios"] <> 0) {
