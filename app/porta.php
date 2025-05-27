@@ -49,7 +49,7 @@
                 <div class="row">
                   
                 <div class="col-9">
-                    <h3><i class="bi bi-door-open-fill nav-icon mr-2"></i>Usuários</h3> 
+                    <h3><i class="bi bi-door-open-fill nav-icon mr-2"></i>Portas</h3> 
                   </div>
                   
                   <div class="col-3" align="right">
