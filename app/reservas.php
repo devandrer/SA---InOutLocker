@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('php/funcoes.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -61,8 +62,6 @@ include('php/funcoes.php');
                         <?php
                         if ($_SESSION["carregaArmarios"] <> 0) {
                             echo listaPortaReserva($_SESSION["carregaArmarios"]);
-                        } else {
-                            echo listaPortaReserva();
                         }
                         ?>
 

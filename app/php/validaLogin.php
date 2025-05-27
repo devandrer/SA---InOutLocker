@@ -23,7 +23,7 @@
     //Executa o comando SQL e armazena o resultado
     $resultLogin = mysqli_query($conn,$sql);
     //Fecha conexão com banco
-    mysqli_close($conn);
+   
 
     //Validar se tem retorno do BD
     if (mysqli_num_rows($resultLogin) > 0) {         
@@ -43,7 +43,16 @@
             $_SESSION['idEmpresa']    = $coluna['id_empresa'];
             $_SESSION["erroPerfil"] = ""; 
             $_SESSION["erroLogin"] = False; 
-            $_SESSION["carregaArmarios"] = 1; 
+            
+            $sql = "SELECT id_armario FROM tb_armario WHERE id_empresa = ".$coluna["id_empresa"]." ORDER BY id_empresa LIMIT 1;";    
+           
+            $resultArm = mysqli_query($conn,$sql);
+            
+            mysqli_close($conn);
+            
+            foreach ($resultArm as $colunaArm) {
+                $_SESSION["carregaArmarios"] = intval($colunaArm["id_armario"],10);
+            }
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             
