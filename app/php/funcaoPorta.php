@@ -53,7 +53,7 @@ function listaPortaReserva($armario = 1)
                         <div class="border-bottom border-dark" style="width: 5rem;">
                         </div>
                         <div class="form-group m-0" style="position: absolute; bottom: -15px; right: -10px; padding: 5px;">';
-            if($_SESSION["idEmpresa"] == 1) {
+            if($_SESSION["idTipoUsuario"] == 1) {
                 $lista .= '
                         <label class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                             <input id="iSwitch'.$coluna["id_porta"].'" '.$check.' class="custom-control-input" type="checkbox" data-toggle="modal" data-target="#modalAtivo'.$coluna["id_porta"].'">
@@ -322,7 +322,7 @@ function listaPortas(){
                                     .'<div class="col-6">'
                                         .'<label>Armário:</label>'
                                         .'<select name="nArmario" class="form-control">'
-                                            .'<option value="'.$coluna["id_armario"].'">'.descrArmario($coluna["id_armario"]).'</option>'
+                                            .'<option value="'.$coluna["id_armario"].'">'.descrArmarioPorta($coluna["id_armario"]).'</option>'
                                             .optionPorta()
                                         .'</select>'
                                     .'</div>'

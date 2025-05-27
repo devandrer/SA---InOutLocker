@@ -50,9 +50,11 @@
         foreach ($result as $coluna){
             $idUsuario = $coluna["id_usuario"];
         }
-        //Grava o registro da reserva no banco
-        $sql = "INSERT INTO tb_movimentacao VALUES($idMov,'$dataMov','$funcao',$idUsuario,$idPorta)";
-        $result = mysqli_query($conn,$sql);
+        if($idUsuario){
+            //Grava o registro da reserva no banco
+            $sql = "INSERT INTO tb_movimentacao VALUES($idMov,'$dataMov','$funcao',$idUsuario,$idPorta)";
+            $result = mysqli_query($conn,$sql);
+        }
         //Atualiza o status da porta para disponivel
         $sql = "UPDATE tb_porta SET status = 'D' WHERE id_porta = $idPorta;";
         $result = mysqli_query($conn,$sql);

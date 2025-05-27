@@ -45,7 +45,7 @@ $acao = $_POST['btSalvaPorta'];
                 // Atualiza no banco
                 $sql = "UPDATE tb_porta
                 SET referencia = '$NrPorta',
-                    status    = '$status',
+                    -- status    = '$status',
                     flg_ativo = '$ativo',
                     id_armario = '$armario'
                 WHERE id_porta = $idPorta;";
