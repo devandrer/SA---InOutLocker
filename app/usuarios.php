@@ -118,7 +118,7 @@
                   <div class="col-4">
                     <div class="form-group">
                       <label for="iCpf">CPF:</label>
-                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14" pattern="\d{3}.\d{3}.\d{3}-\d{2}">
+                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14" pattern="\d{3}.\d{3}.\d{3}-\d{2}" title="Deve ser: 111.111.111-11">
                     </div>
                   </div>
 
