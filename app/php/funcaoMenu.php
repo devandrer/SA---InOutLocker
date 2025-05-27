@@ -87,7 +87,7 @@ function montaMenu($n1,$n2){
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
-                
+                <!-- RIP
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
@@ -96,7 +96,7 @@ function montaMenu($n1,$n2){
                         </a>
                     </li>              
                 </ul>
-
+                -->
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">

@@ -1,7 +1,8 @@
 <?php
+session_start();
 //Função para listar todos os armarios
 function listaArmario(){
-
+    //Busca informacões no banco de dados
     include("conexao.php");
     $sql = "SELECT
                     tb_armario.id_armario,
@@ -16,7 +17,7 @@ function listaArmario(){
             ON
                 tb_empresa.id_empresa = tb_armario.id_empresa
             WHERE
-                id_armario;";
+                tb_armario.id_empresa = ".$_SESSION["idEmpresa"]." ;";
                 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -153,3 +154,55 @@ function listaArmario(){
     return $lista;
 }
 
+//Função para listar todos os armarios na tela de reservas
+function listaArmarioReserva(){
+
+    include("conexao.php");
+    $sql = "SELECT * FROM tb_armario WHERE id_empresa='".$_SESSION["idEmpresa"]."'";
+                
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+        
+        
+        foreach ($result as $coluna) {
+                      
+            //***Verificar os dados da consulta SQL
+            $lista .= '<button class="btn btn-outline-primary" id="iBtnArmario'.$coluna["id_armario"].'" name="nArmario" value='.$coluna["id_armario"].'>'.$coluna["local"].'</button>';            
+                       
+        }    
+    }
+    
+    return $lista;
+}
+
+//Função para buscar a descrição do armario
+function descrArmario($id){
+
+    $referencia = "";
+
+    include("conexao.php");
+    $sql = "SELECT 
+                arm.local 
+            FROM tb_armario arm
+            inner JOIN tb_porta por
+            on arm.id_armario = por.id_armario
+            WHERE id_porta = $id;";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+                
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+            $referencia = $coluna["local"];
+        }        
+    } 
+
+    return $referencia;
+}

@@ -40,8 +40,10 @@
             $_SESSION['EmailLogin']    = $coluna['login'];
             $_SESSION['SenhaLogin']    = $coluna['senha'];
             $_SESSION['Matricula']    = $coluna['matricula'];
+            $_SESSION['idEmpresa']    = $coluna['id_empresa'];
             $_SESSION["erroPerfil"] = ""; 
             $_SESSION["erroLogin"] = False; 
+            $_SESSION["carregaArmarios"] = 1; 
             //Acessar a tela inicial
             header('location: ../dashboard.php');
             

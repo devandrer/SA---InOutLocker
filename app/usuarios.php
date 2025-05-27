@@ -98,7 +98,7 @@
       <div class="modal fade" id="novoUsuarioModal">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header bg-success">
+            <div class="modal-header bg-primary">
               <h4 class="modal-title">Novo Usuário</h4>
               <button type="button" id="novousuario" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -118,7 +118,14 @@
                   <div class="col-4">
                     <div class="form-group">
                       <label for="iCpf">CPF:</label>
-                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14">
+                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14" pattern="\d{3}.\d{3}.\d{3}-\d{2}">
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label for="iMatricula">Matrícula:</label>
+                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
                     </div>
                   </div>
 
@@ -132,7 +139,7 @@
                     </div>
                   </div>
                   
-                  <div class="col-12">
+                  <div class="col-9">
                     <div class="form-group">
                       <label for="iNome">Empresa:</label>
                       <select name="nEmpresa" class="form-control" required>
@@ -157,25 +164,11 @@
                       <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
                     </div>
                   </div>
-
-                  <div class="col-3">
-                    <div class="form-group">
-                      <label for="iMatricula">Matrícula:</label>
-                      <input type="text" value="<?php echo proximoID("tb_usuario","matricula"); ?>" readonly class="form-control" id="iMatricula" name="nMatricula" maxlength="7">
-                    </div>
-                  </div>
                 
                   <div class="col-9">
                     <div class="form-group">
                       <label for="iFoto">Foto:</label>
                       <input type="file" class="form-control" id="iFoto" name="Foto" accept="image/*">
-                    </div>
-                  </div>
-                
-                  <div class="col-12">
-                    <div class="form-group">
-                      <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Usuário Ativo</label>
                     </div>
                   </div>
 
@@ -221,6 +214,13 @@
                     </div>
                   </div>
 
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="checkbox" id="iAtivo" name="nAtivo">
+                      <label for="iAtivo">Usuário Ativo</label>
+                    </div>
+                  </div>
+
                 </div>
 
                 <div class="modal-footer">
@@ -262,11 +262,15 @@
     console.log(optionSelecionado);
     
     if (optionSelecionado == 3) {
-        document.getElementById("iLoginN").disabled = true;
-        document.getElementById("iSenhaN").disabled = true;
+        document.getElementById("iLoginN").hidden = true;
+        document.getElementById("iSenhaN").hidden = true;
+        document.querySelector("label[for='iLoginN']").hidden = true;
+        document.querySelector("label[for='iSenhaN']").hidden = true;
       } else {
-      document.getElementById("iLoginN").disabled = false;
-      document.getElementById("iSenhaN").disabled = false;
+      document.getElementById("iLoginN").hidden = false;
+      document.getElementById("iSenhaN").hidden = false;
+      document.querySelector("label[for='iLoginN']").hidden = false;
+        document.querySelector("label[for='iSenhaN']").hidden = false;
     }
   }
 

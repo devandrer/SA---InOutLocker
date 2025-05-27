@@ -20,11 +20,11 @@ function listaMovimentacao(){
             //***Verificar os dados da consulta SQL
             $lista .= 
             '<tr>'            
-                .'<td align="center">'.$coluna["id_movimentacao"].'</td>'                
-                .'<td>'.date("d/m/Y H:i:s",strtotime($coluna["movimentacao"])).'</td>'
-                .'<td>'.$coluna["status"].'</td>'
-                .'<td align="center">'.descrUsuario($coluna["id_usuario"]).'</td>'
+                .'<td align="center">'.descrArmario($coluna["id_porta"]).'</td>'                
                 .'<td align="center">'.descrPorta($coluna["id_porta"]).'</td>'                
+                .'<td align="center">'.descrUsuario($coluna["id_usuario"]).'</td>'
+                .'<td align="center">'.date("d/m/Y H:i:s",strtotime($coluna["movimentacao"])).'</td>'
+                .'<td align="center">'.$coluna["status"].'</td>'
             .'</tr>';            
         }            
     }   

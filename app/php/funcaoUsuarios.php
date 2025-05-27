@@ -1,10 +1,11 @@
 <?php
+session_start();
 //Função para listar todos os usuários
 function listaUsuario(){
     //Abre conexão com o banco
     include("conexao.php");
     //SELECT
-    $sql = "SELECT * FROM tb_usuario ORDER BY id_usuario;";
+    $sql = "SELECT * FROM tb_usuario WHERE id_empresa = ".$_SESSION["idEmpresa"]." ORDER BY id_usuario;";
 
     //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn,$sql);
@@ -267,4 +268,28 @@ function qtdUsuariosAtivos(){
     
     return $qtd;
 }
+
+//Função para buscar a descrição do usuário
+function descrUsuario($id){
+
+    $nome = "";
+
+    include("conexao.php");  
+
+    $sql = "SELECT nome FROM tb_usuario WHERE id_usuario = $id;";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+                
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+            $nome = $coluna["nome"];
+        }        
+    } 
+
+    return $nome;
+}
+
 ?>
