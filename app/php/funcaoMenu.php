@@ -81,18 +81,18 @@ function montaMenu($n1,$n2){
                         Administrador
                         <i class="right fas fa-angle-left"></i>
                     </p>
-                </a>
+                </a>'
                 
-                <ul class="nav nav-treeview">
+                /*<ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
                         <i class="fas fa-building nav-icon ml-3"></i>
                         <p>Empresas</p>
                         </a>
                     </li>              
-                </ul>
+                </ul>*/
 
-                <ul class="nav nav-treeview">
+                .'<ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
@@ -136,7 +136,7 @@ function montaMenu($n1,$n2){
             </li>
 
 
-            <li class="nav-item fixed-bottom">
+            <li class="fixed-bottom">
                 <a href="php/validaLogoff.php" class="nav-link text-danger">
                 <i class="nav-icon fas fa-power-off"></i>
                 <p>Sair</p>
