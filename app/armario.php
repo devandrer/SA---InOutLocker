@@ -124,7 +124,7 @@
                       <label for="iRazao">Empresa:</label>
                       <select name="nRazao" class="form-control">
                         <option value="">Selecione...</option>
-                        <?php echo optionEmpresa();?> 
+                        <?php echo optionEmpresa();?> <!--php/funcaoEmpresa-->
                       </select>
                     </div>
                   </div>
