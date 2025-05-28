@@ -47,6 +47,71 @@
     <section class="content">
       <div class="container-fluid">
 
+      <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>13</h3>
+
+                <p>Entradas</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>22</h3>
+
+                <p>Saídas</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-box-open"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Portas Livres</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Tempo Médio de uso</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+
          <!-- Linha principal -->
         <div class="row">
           <!-- Coluna ocupando 100% da largura -->
@@ -115,39 +180,7 @@
           <!-- /.Left col -->
         </div>
 
-        <!-- Linha principal -->
-        <div class="row">
-          <!-- Coluna ocupando 100% da largura -->
-          <section class="col-lg-12 connectedSortable">
-              
-            <!-- Cartão com o gráfico de barras -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Valores do dia atual em tempo real</h3>
-
-                 <!-- Botões de colapsar e remover o card -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- Corpo do card contendo o canvas do gráfico -->
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-          </section>
-          <!-- /.Left col -->
-        </div>
+        
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -177,8 +210,8 @@
         
         {
           label               : 'Disponíveis',
-          backgroundColor     : '#007bff',// Azul
-          borderColor         : 'rgba(60,141,188,0.8)',
+          backgroundColor     : '#008000',// verde
+          borderColor         : '#3cbc8b',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
@@ -189,8 +222,8 @@
         
         {
           label               : 'Ocupados',
-          backgroundColor     : '#212529',// Cinza
-          borderColor         : 'rgba(210, 214, 222, 1)',
+          backgroundColor     : '#ff0000',// Vermelho
+          borderColor         : '#d2d6de',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
@@ -223,14 +256,14 @@
       data: barChartData,
       options: barChartOptions
     })
-    //finalizando o primeiro grafico
+    //Segundo Gráfico
 
     const data = {
-      labels: ['portas ocupadas', 'portas livres'],
+      labels: ['portas livres', 'portas ocupadas'],
       datasets: [{
         label: 'Dados',
         data: [40, 60],
-        backgroundColor: ['red', 'green', 'yellow'],
+        backgroundColor: ['red', 'green'],
         borderColor: ['red', 'green'],
         borderWidth: 1
       }]
