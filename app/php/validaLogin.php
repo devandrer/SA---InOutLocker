@@ -22,7 +22,7 @@
             ." AND id_tipo_usuario <> 3";
     //Executa o comando SQL e armazena o resultado
     $resultLogin = mysqli_query($conn,$sql);
-    //Fecha conexão com banco
+    
    
 
     //Validar se tem retorno do BD
@@ -47,7 +47,7 @@
             $sql = "SELECT id_armario FROM tb_armario WHERE id_empresa = ".$coluna["id_empresa"]." ORDER BY id_empresa LIMIT 1;";    
            
             $resultArm = mysqli_query($conn,$sql);
-            
+            //Fecha conexão com banco
             mysqli_close($conn);
             
             foreach ($resultArm as $colunaArm) {
