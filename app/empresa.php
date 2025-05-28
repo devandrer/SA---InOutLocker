@@ -119,28 +119,28 @@
                     </div>
                   </div>
 
-                  <div class="col-8">
+                  <div class="col-4">
                     <div class="form-group">
                       <label for="iCnpj">CNPJ:</label>
                       <input type="text" class="form-control" id="iCnpj" name="nCnpj" maxlength="50">
                     </div>
                   </div>
 
-                  <div class="col-9">
+                  <div class="col-8">
                     <div class="form-group">
                       <label>Endereço</label>
                       <input required name="Endereco" type="text" class="form-control">
                     </div>
                   </div>
 
-                  <div class="col-5">
+                  <div class="col-4">
                     <div class="form-group">
                       <label>Cidade</label>
                       <input required name="Cidade" type="text" class="form-control">
                     </div>
                   </div>
 
-                  <div class="col-2">
+                  <div class="col-1">
                     <div class="form-group">
                       <label>UF</label>
                       <input required name="UF" type="text" class="form-control">

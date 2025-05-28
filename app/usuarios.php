@@ -118,7 +118,7 @@
                   <div class="col-4">
                     <div class="form-group">
                       <label for="iCpf">CPF:</label>
-                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14">
+                      <input type="text" class="form-control" id="iCpf" name="nCpf" maxlength="14" pattern="\d{3}.\d{3}.\d{3}-\d{2}" title="Deve ser: 111.111.111-11">
                     </div>
                   </div>
 
@@ -161,7 +161,8 @@
                   <div class="col-4">
                     <div class="form-group">
                       <label for="iSenhaN">Senha:</label>
-                      <input type="text" class="form-control" id="iSenhaN" name="nSenha" maxlength="6">
+                      <input type="password" class="form-control" id="iSenhaN" name="nSenha">
+                      <i class="fas fa-eye-slash" id="iSenhaIcon" style="position: absolute; right: 15px; top: 44px;cursor: pointer;"></i>
                     </div>
                   </div>
                 
@@ -262,14 +263,32 @@
     console.log(optionSelecionado);
     
     if (optionSelecionado == 3) {
-        document.getElementById("iLoginN").disabled = true;
-        document.getElementById("iSenhaN").disabled = true;
+        document.getElementById("iLoginN").hidden = true;
+        document.getElementById("iSenhaN").hidden = true;
+        document.querySelector("label[for='iLoginN']").hidden = true;
+        document.querySelector("label[for='iSenhaN']").hidden = true;
       } else {
-      document.getElementById("iLoginN").disabled = false;
-      document.getElementById("iSenhaN").disabled = false;
+      document.getElementById("iLoginN").hidden = false;
+      document.getElementById("iSenhaN").hidden = false;
+      document.querySelector("label[for='iLoginN']").hidden = false;
+        document.querySelector("label[for='iSenhaN']").hidden = false;
     }
   }
 
+  let senhaIcon = document.getElementById("iSenhaIcon");
+  let senhaInput = document.getElementById("iSenhaN");
+  senhaIcon.onclick = () => {
+    if(senhaInput.type == "password"){
+      senhaIcon.className = "fas fa-eye-slash";
+      senhaInput.type = "text"
+    }else{
+      senhaIcon.className = "fas fa-eye";
+      senhaInput.type = "password"
+    }
+
+  }
+
+  <?php echo visibilidadeSenha();?>
 
 
   $(function () {

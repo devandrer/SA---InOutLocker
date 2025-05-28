@@ -52,11 +52,11 @@
                 <table id="tabela" class="table table-bordered table-hover">
                   <thead class="thead-dark">
                     <tr>
-                      <th>Nr</th>
-                      <th>Data</th>
-                      <th>Status</th>
-                      <th>Usuário</th>
-                      <th>Porta</th>
+                      <th style='text-align:center'>Armario</th>
+                      <th style='text-align:center'>Porta</th>
+                      <th style='text-align:center'>Usuário</th>
+                      <th style='text-align:center'>Data</th>
+                      <th style='text-align:center'>Status</th>
                     </tr>
                   </thead>
                   <tbody>

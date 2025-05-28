@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
-  <title>Armários</title>
+  <title>Portas</title>
 
   <!-- CSS -->
   <?php include('partes/css.php'); ?>
@@ -26,8 +26,8 @@
   <!-- Sidebar -->
   <?php 
     $_SESSION['menu-n1'] = 'administrador';
-    $_SESSION['menu-n2'] = 'armario';
-    include('partes/sidebar.php'); 
+    $_SESSION['menu-n2'] = 'porta';
+    include('partes/sidebar.php');
   ?>
   <!-- Fim Sidebar -->
 
@@ -48,13 +48,13 @@
               <div class="card-header">
                 <div class="row">
                   
-                  <div class="col-9">
-                    <h3><i class="fas fa-archive mr-2"></i>Armário</h3>
+                <div class="col-9">
+                    <h3><i class="bi bi-door-open-fill nav-icon mr-2"></i>Portas</h3> 
                   </div>
                   
                   <div class="col-3" align="right">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novoArmarioModal">
-                      Novo Armário
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaPortaModal">
+                      Nova Porta
                     </button>
                   </div>
 
@@ -67,17 +67,18 @@
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
                   <thead class="thead-dark">
-                  <tr> <!-- tabela das informações principais do armario -->
+                  <tr> <!-- tabela das informações principais da portas -->
                       <th>ID</th>
-                      <th>Local</th>
-                      <th>Empresa</th>  
-                      <th>Ativo</th>              
+                      <th>Nr da Porta</th>
+                      <th>Armario</th>
+                      <th>Status</th>
+                      <th>Ativo</th>
                       <th>Ações</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos do armario (funcaoArmario.php) -->
+                  <?php echo listaPortas(); ?> <!-- faz o select no banco de dados, puxando as infos da portas -->
                   
                   </tbody>
                   
@@ -95,52 +96,61 @@
       <!-- /.container-fluid -->
        
 
-      <!-- modal de adicionar novo armario -->
+      <!-- modal de adicionar nova porta -->
 
-      <div class="modal fade" id="novoArmarioModal">
+      <div class="modal fade" id="novaPortaModal">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header bg-primary">
-              <h4 class="modal-title">Novo Armário</h4>
+            <div class="modal-header bg-success">
+              <h4 class="modal-title">Nova Porta</h4>
               <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="php/salvarArmario.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de um novo armario -->              
+              <form method="POST" action="php/salvarPorta.php?funcao=I" enctype="multipart/form-data"><!-- faz a inserção de uma nova porta -->              
                 
                 <div class="row">
                   <div class="col-8">
                     <div class="form-group">
-                      <label for="iRazao">Local</label>
-                      <input type="text" class="form-control" id="iLocal" name="nLocal" maxlength="50">
+                      <label for="iNrPorta">Nr da Porta:</label>
+                      <input type="text" class="form-control" id="iNrPorta" name="nNrPorta" maxlength="50">
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="iArmario">Armário:</label>
+                      <select name="nArmario" id="iArmario" class="form-control" required>
+                        <option value="">Selecione um armário</option>
+                        <?php echo optionPorta(); ?>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="iStatus">Status:</label>
+                      <select name="nStatus" id="iStatus" class="form-control" required>
+                        <option value="D">Disponível</option>
+                        <option value="I">Indisponível</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-2">
+                    <div class="form-group">
+                      <input type="checkbox" id="iAtivo" name="nAtivo" checked>
+                      <label for="iAtivo">Porta Ativa</label>
                     </div>
                   </div>
                 </div>
 
-                 
-                 <div class="col-12">
-                    <div class="form-group">
-                      <label for="iRazao">Empresa:</label>
-                      <select name="nRazao" class="form-control">
-                        <option value="">Selecione...</option>
-                        <?php echo optionEmpresa();?> 
-                      </select>
-                    </div>
-                  </div>
-               
-                  <div class="col-12">
-                    <div class="form-group">
-                      <input type="checkbox" id="iAtivo" name="nAtivo">
-                      <label for="iAtivo">Armário Ativo</label>
-                    </div>
-                  </div>
-
-                
+                </div>
 
                 <div class="modal-footer">
-                  <button type="submit" id="btDeFecharArmario" name="btSalvaArmario" value="modal_limpar" class="btn btn-danger" >Fechar</button>
-                  <button type="submit" name="btSalvaArmario" value="modal_salvar" class="btn btn-success">Salvar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                  <button type="submit" name="btSalvaPorta" value="modal_salvar" class="btn btn-success">Salvar</button>
                 </div>
                 
               </form>
@@ -171,15 +181,6 @@
 <!-- Fim JS -->
 
 <script>
-
-  $('#novoArmarioModal').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
-  });
-
-  $('#modalEditArmario').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
-  });
-
   $(function () {
     $('#tabela').DataTable({
       "paging": true,
