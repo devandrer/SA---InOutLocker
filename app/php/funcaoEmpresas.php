@@ -187,7 +187,7 @@ function optionEmpresa(){
     $option = "";
 
     include("conexao.php");
-    $sql = "SELECT id_empresa, razao_social FROM tb_empresa ORDER BY razao_social;";        
+    $sql = "SELECT id_empresa, razao_social FROM tb_empresa WHERE id_empresa = ".$_SESSION["idEmpresa"].";";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
