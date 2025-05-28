@@ -1,8 +1,8 @@
 <?php
 session_start();
 // Retorna um lista com as portas do armario indicado
-function listaPortaReserva($armario = 1)
-{
+function listaPortaReserva($armario = 1){
+
     //Abre conexão com o banco
     include("conexao.php");
     //Busca todas as portas do determinado armario
@@ -251,7 +251,23 @@ function descrPorta($id){
 function listaPortas(){
     include("conexao.php");
 
-    $sql = "SELECT * FROM tb_porta ORDER BY id_porta;";
+    $sql = "SELECT
+                tb_porta.id_porta,
+                tb_porta.referencia,
+                tb_porta.status,
+                tb_porta.flg_ativo,
+                tb_armario.local,
+                tb_armario.id_armario,
+                tb_armario.id_empresa
+            FROM
+                tb_porta
+            INNER JOIN
+                tb_armario
+            ON
+                tb_porta.id_armario = tb_armario.id_armario
+            WHERE
+                tb_armario.id_empresa = ".$_SESSION["idEmpresa"]." ;";
+    
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     

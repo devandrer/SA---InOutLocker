@@ -77,7 +77,7 @@
                   </thead>
                   <tbody>
 
-                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos do armario -->
+                  <?php echo listaArmario(); ?> <!-- faz o select no banco de dados, puxando as infos do armario (funcaoArmario.php) -->
                   
                   </tbody>
                   
