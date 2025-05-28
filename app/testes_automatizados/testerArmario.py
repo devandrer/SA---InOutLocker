@@ -14,11 +14,8 @@ driver.get("http://localhost:8080/inoutlocker/app/armario.php")
 time.sleep(4)
 
 #vai acessar o sistema
-novoarmario_button = driver.find_element(By.CSS_SELECTOR,"button[data-toggle='modal']")
+novoarmario_button = driver.find_element(By.CSS_SELECTOR,"button[data-target='#novoArmarioModal']")
 novoarmario_button.click()
-
-print(novoarmario_button)
-
 
 modal= WebDriverWait(driver,5).until(
     EC.visibility_of_element_located((By.ID, "novoArmarioModal"))
