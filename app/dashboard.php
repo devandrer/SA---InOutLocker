@@ -55,14 +55,14 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-success">
               <div class="inner">
-                <h3>13</h3>
+                <h3><?php echo getEntradas();?></h3>
 
                 <p>Entradas</p>
               </div>
               <div class="icon">
-                <i class="fas fa-users"></i>
+                <i class="far fa-arrow-alt-circle-up"></i>
               </div>
             </div>
           </div>
@@ -70,14 +70,14 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-danger">
               <div class="inner">
-                <h3>22</h3>
+                <h3><?php echo getSaidas();?></h3>
 
                 <p>Saídas</p>
               </div>
               <div class="icon">
-                <i class="fas fa-box-open"></i>
+                <i class="far fa-arrow-alt-circle-down"></i>
               </div>
             </div>
           </div>
@@ -86,26 +86,26 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo getPortasAbertas();?></h3>
 
                 <p>Portas Livres</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-door-open"></i>
               </div>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-primary">
               <div class="inner">
                 <h3>65</h3>
 
                 <p>Tempo Médio de uso</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-hourglass-half"></i>
               </div>
             </div>
           </div>
@@ -204,12 +204,11 @@
 <script>
   // Dados do gráfico: categorias e valores
     var areaChartData = {
-      labels  : ['Entrada','Saída'],// Categorias de usuários
-      labels  : ['Entrada','Saída'],
+      labels  : ['Biblioteca'],// Categorias de usuários
       datasets: [
         
         {
-          label               : 'Disponíveis',
+          label               : 'Entradas',
           backgroundColor     : '#008000',// verde
           borderColor         : '#3cbc8b',
           pointRadius          : false,
@@ -217,11 +216,11 @@
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48]// Quantidades de usuários ativos
+          data                : [<?php echo getEntradas();?> ]// Quantidades de usuários ativos
         },
         
         {
-          label               : 'Ocupados',
+          label               : 'Saídas',
           backgroundColor     : '#ff0000',// Vermelho
           borderColor         : '#d2d6de',
           pointRadius         : false,
@@ -229,7 +228,7 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59]// Quantidades de usuários inativos
+          data                : [<?php echo getSaidas();?> ]// Quantidades de usuários inativos
         },
         
       ]

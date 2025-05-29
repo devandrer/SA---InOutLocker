@@ -42,6 +42,61 @@ function listaMovimentacao(){
     }   
     return $lista;
 }
+
+function getEntradas(){
+    
+    include("conexao.php");
+    $dataAtual = date("Y-m-d H:i:s");
+
+    $sql = "SELECT count(status) as sta FROM tb_movimentacao mov
+            INNER JOIN tb_usuario usu ON mov.id_usuario = usu.id_usuario
+            WHERE usu.id_empresa=".$_SESSION["idEmpresa"]."
+            AND mov.status = 'Entrada'
+            AND mov.movimentacao = '$dataAtual';";
+     
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {        
+       
+        foreach ($result as $coluna) {        
+            //***Verificar os dados da consulta SQL
+            $lista = $coluna['sta'];         
+        }            
+    }   
+    return $lista;
+}
+
+function getSaidas(){
+    
+    include("conexao.php");
+    $dataAtual = date("Y-m-d H:i:s");
+
+    $sql = "SELECT count(status) as sta FROM tb_movimentacao mov
+            INNER JOIN tb_usuario usu ON mov.id_usuario = usu.id_usuario
+            WHERE usu.id_empresa=".$_SESSION["idEmpresa"]."
+            AND mov.status = 'Saída'
+            AND mov.movimentacao = '$dataAtual';";
+     
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {        
+       
+        foreach ($result as $coluna) {        
+            //***Verificar os dados da consulta SQL
+            $lista = $coluna['sta'];         
+        }            
+    }   
+    return $lista;
+}
+
 ?>
 
 
