@@ -13,11 +13,15 @@ function montaMenu($n1,$n2){
     $acaoMovimentacao   = '';
     $menuReservas       = '';
     $acaoReservas       = '';
+    $menuRelatorio      = '';
+    $acaoRelatorio      = '';
+
 
     $opcUsuarios        = '';
     $opcEmpresa         = '';
     $opcArmario         = '';
     $opcPorta         = '';
+    $opcRelatorio       = '';
     
     
     //Primeiro nível do menu
@@ -40,6 +44,11 @@ function montaMenu($n1,$n2){
         case 'movimentacao':
             $menuMovimentacao = 'menu-open';
             $acaoMovimentacao = 'active';
+            break; 
+
+        case 'relatorio':
+            $menuRelatorio = 'menu-open';
+            $acaoRelatorio = 'active';
             break; 
         
         default:
@@ -65,6 +74,7 @@ function montaMenu($n1,$n2){
             case 'porta':
                $opcPorta = 'active';
                break; 
+
     
         default:
             # code...
@@ -150,6 +160,35 @@ function montaMenu($n1,$n2){
             </li>
 
 
+            <li class="fixed-bottom">
+                <a href="php/validaLogoff.php" class="nav-link text-danger">
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>Sair</p>
+                </a>
+            </li>
+        
+        </ul>
+    </nav>';
+
+    return $html;
+
+    $html .=        
+            '<li class="nav-item '.$menuRelatorio.'">
+                <a href="./relatorio-movi.php" class="nav-link '.$acaoRelatorio.'">
+                <i class="far fa-chart-bar nav-icon"></i>
+                <p>Relatórios</p>
+                </a>
+            </li>   
+
+            <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
+                        <i class="fas fa-address-card nav-icon ml-3"></i>
+                        <p>Movimentaçõe</p>
+                        </a>
+                    </li>              
+                </ul>
+    
             <li class="fixed-bottom">
                 <a href="php/validaLogoff.php" class="nav-link text-danger">
                 <i class="nav-icon fas fa-power-off"></i>

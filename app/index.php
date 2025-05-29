@@ -17,10 +17,12 @@ $erro = $_SESSION["erroLogin"];
 
 	<!-- Ícone da aba do navegador -->
 	<link rel="shortcut icon" type="image/ico" href="dist/img/Logo_InOutLocker.ico">
+	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
 	<!-- Estilos CSS embutidos -->
 	<style>
 		/* Estilização do corpo da página */
-		body {
+		.containerLogin {
 			font-family: Arial, Helvetica, sans-serif;
 			background-image: url('dist/img/armario.jpg');
 			/* Imagem de fundo */
@@ -32,7 +34,7 @@ $erro = $_SESSION["erroLogin"];
 		}
 
 		/* Estilo da caixa de login */
-		div {
+		.boxLogin {
 			background-color: rgba(0, 0, 0, 0.8);
 			/* Fundo preto translúcido */
 			position: absolute;
@@ -47,7 +49,7 @@ $erro = $_SESSION["erroLogin"];
 		}
 
 		/* Estilo dos inputs (email e senha) */
-		input {
+		.inputLogin {
 			padding: 10px;
 			border: none;
 			outline: none;
@@ -56,7 +58,7 @@ $erro = $_SESSION["erroLogin"];
 		}
 
 		/* Estilo da mensagem de erro */
-		p {
+		.msgErro {
 			color: red;
 			font-size: 12px;
 			line-height: 32px;
@@ -65,7 +67,7 @@ $erro = $_SESSION["erroLogin"];
 		}
 
 		/* Estilo do botão */
-		button {
+		.btnSubmit {
 			background-color: dodgerblue;
 			border: none;
 			padding: 15px;
@@ -76,16 +78,21 @@ $erro = $_SESSION["erroLogin"];
 		}
 
 		/* Efeito ao passar o mouse no botão */
-		button:hover {
+		.btnSubmit:hover {
 			background-color: deepskyblue;
 			cursor: pointer;
 		}
 	</style>
+
+	<!-- CSS -->
+	<?php //include('partes/css.php'); 
+	?>
+	<!-- Fim CSS -->
 </head>
 
-<body>
+<body class="containerLogin">
 	<!-- Caixa central de login -->
-	<div>
+	<div class="boxLogin">
 		<!-- Formulário que envia os dados para validação -->
 		<form action="php/validaLogin.php" method="POST">
 			<!-- Logotipo do sistema -->
@@ -93,24 +100,41 @@ $erro = $_SESSION["erroLogin"];
 			<img src="dist/img/nick-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 60%;">
 
 			<!-- Campo de email -->
-			<input type="email" placeholder="E-mail" name="nNome">
+			<input class="inputLogin" type="email" id="iEmailInput" placeholder="E-mail" name="nNome">
 			<br><br>
 			<!-- Campo de senha -->
-			<input type="password" placeholder="Senha" name="nSenha">
-			<i class="fas fa-eye-slash" id="iSenhaIconA" style="position: absolute; right: 150px; top: 360px;cursor: pointer;"></i>
-			<p>
-
+			<input class="inputLogin" type="password" id="iSenhaInput" placeholder="Senha" name="nSenha">
+			<i class="fas fa-eye-slash" id="iSenhaIcon" style="position: absolute; right: 95px; top: 375px;cursor: pointer; color:black;"></i>
+			<p class="msgErro" id="iMsgErro">
+				&nbsp;
 				<!-- Mensagem de erro, se o login falhar -->
-				<?php if ($erro) {
+				<?php 
+				if ($erro) {
 					echo 'E-mail ou senha estão incorretos, tente novamente!!!';
 				} else {
 					echo '&nbsp;';
 				}
 				?>
 			</p>
-			<button type="submit">ACESSO</button>
+			<button class="btnSubmit" id="iBtnSubmit" type="submit">ACESSO</button>
 		</form>
 	</div>
 </body>
+
+<script>
+	let senhaIcon = document.getElementById("iSenhaIcon");
+	let senhaInput = document.getElementById("iSenhaInput");
+	senhaIcon.onclick = () => {
+		if (senhaInput.type == "password") {
+			senhaIcon.className = "fas fa-eye-slash";
+			senhaInput.type = "text"
+		} else {
+			senhaIcon.className = "fas fa-eye";
+			senhaInput.type = "password"
+		}
+
+	}
+
+</script>
 
 </html>

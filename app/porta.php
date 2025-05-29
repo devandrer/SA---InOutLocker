@@ -78,7 +78,7 @@
                   </thead>
                   <tbody>
 
-                  <?php echo listaPortas(); ?> <!-- faz o select no banco de dados, puxando as infos da portas -->
+                  <?php echo listaPortas(); ?> <!-- faz o select no banco de dados, puxando as infos da portas (php/funcaoProta.php)-->
                   
                   </tbody>
                   
@@ -123,7 +123,7 @@
                       <label for="iArmario">Armário:</label>
                       <select name="nArmario" id="iArmario" class="form-control" required>
                         <option value="">Selecione um armário</option>
-                        <?php echo optionPorta(); ?>
+                        <?php echo optionPorta(); ?> <!-- Busca e mostra as portas dos armários cadastrados na mesma empresa que o usuario logado (php/funcaoPorta.php) -->
                       </select>
                     </div>
                   </div>
