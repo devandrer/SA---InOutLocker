@@ -449,13 +449,14 @@ function getPortasAbertas(){
     include("conexao.php");
 
 
-    $sql = "SELECT count(por.status) as sta FROM tb_porta por
-            INNER JOIN tb_armario arm ON por.id_armario = arm.id_armario
-            INNER JOIN tb_movimentacao mov on por.id_porta = mov.id_porta
-            WHERE arm.id_empresa=".$_SESSION["idEmpresa"]."
-            AND por.status = 'D'
-            AND mov.movimentacao = (SELECT MAX(m.movimentacao) FROM tb_movimentacao m WHERE m.id_porta = por.id_porta);";
-     
+    $sql = "SELECT count(por.referencia) as ref 
+            FROM tb_armario arm
+            INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
+            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
+            AND por.status = 'D'";
+    //  var_dump($sql);
+    //  die();
+
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     
@@ -466,7 +467,7 @@ function getPortasAbertas(){
        
         foreach ($result as $coluna) {        
             //***Verificar os dados da consulta SQL
-            $lista = $coluna['sta'];         
+            $lista = $coluna['ref'];         
         }            
     }   
     return $lista;
