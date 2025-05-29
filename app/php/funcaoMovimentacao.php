@@ -97,6 +97,30 @@ function getSaidas(){
     return $lista;
 }
 
+function optionMovimentacao(){
+
+    $lista = "";
+
+    include("conexao.php");
+    $sql = "SELECT id_movimentacao, status FROM tb_movimentacao ORDER BY status;";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+        
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+            $lista .= '<option value="'.$coluna['id_movimentacao'].'">'.$coluna['status'].'</option>';
+        }        
+    } 
+
+    return $lista;
+
+}
+
+
+
 ?>
 
 
