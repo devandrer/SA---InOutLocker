@@ -53,10 +53,10 @@
         ." INNER JOIN categoria cat "
         ." ON cat.idCategoria = pro.idCategoria" 
         ." WHERE 1 = 1 "
-        .$whereDescricao
-        .$whereIdCategoria
-        .$whereQtdMin
-        .$whereQtdMax.";";
+        .$whereArmario
+        .$wherePorta
+        .$whereTipoMovi
+        .$wherePeriodo.";";
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
