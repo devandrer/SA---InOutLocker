@@ -6,10 +6,10 @@
     include('funcoes.php');
 
     //Filtros de tela
-    $descricao   = $_POST["nDescricao"];
-    $idCategoria = $_POST["nCategoria"];
-    $qtdMin      = $_POST["nQtdMin"];
-    $qtdMax      = $_POST["nQtdMax"];
+    $armario= $_POST["nArmario"];
+    $porta = $_POST["nPorta"];
+    $tipomovi      = $_POST["nTipoMovi"];
+    $periodo      = $_POST["nPeriodo"];
 
     //Campos para WHERE
     $whereDescricao   = '';
