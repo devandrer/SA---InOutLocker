@@ -35,10 +35,10 @@ function listaPortas(){
             $lista .= 
             '<tr>'            
                 .'<td align="center">'.$coluna["id_porta"].'</td>'
-                .'<td>'.htmlspecialchars($coluna["referencia"]).'</td>'           
+                .'<td align="center">'.htmlspecialchars($coluna["referencia"]).'</td>'           
                 .'<td align="center">'.descrArmario($coluna["id_armario"]).'</td>'  
-                .'<td>'.$status.'</td>' 
-                .'<td>'.$icone.'</td>' 
+                .'<td align="center">'.$status.'</td>' 
+                .'<td align="center">'.$icone.'</td>' 
                 .'<td>'
                     .'<div class="row" align="center">'
                         .'<div class="col-6">'
