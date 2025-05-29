@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/Sao_Paulo');
 // Retorna um lista com as portas do armario indicado
 function listaPortaReserva($armario = 1){
 
@@ -442,4 +443,34 @@ function optionPorta() {
 
     return $options;
 }
+
+function getPortasAbertas(){
+    
+    include("conexao.php");
+
+
+    $sql = "SELECT count(por.status) as sta FROM tb_porta por
+            INNER JOIN tb_armario arm ON por.id_armario = arm.id_armario
+            INNER JOIN tb_movimentacao mov on por.id_porta = mov.id_porta
+            WHERE arm.id_empresa=".$_SESSION["idEmpresa"]."
+            AND por.status = 'D'
+            AND mov.movimentacao = (SELECT MAX(m.movimentacao) FROM tb_movimentacao m WHERE m.id_porta = por.id_porta);";
+     
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {        
+       
+        foreach ($result as $coluna) {        
+            //***Verificar os dados da consulta SQL
+            $lista = $coluna['sta'];         
+        }            
+    }   
+    return $lista;
+}
+
+
 ?>
