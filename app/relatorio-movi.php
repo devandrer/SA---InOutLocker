@@ -62,35 +62,28 @@
                   <div class="row">
                     <div class="col-5">
                       <div class="form-group">
-                        <label for="iDescricao">Descrição:</label>
-                        <input type="text" class="form-control" id="iDescricao" name="nDescricao" maxlength="80" value="<?php echo $_SESSION['relatProdutosDescr'];?>">
+                        <label for="iDescricao">Armário:</label>
+                        <input type="text" class="form-control" id="iArmario" name="nArmario" maxlength="80" value="<?php echo $_SESSION['relatProdutosDescr'];?>">
+                      </div>
+                    </div>
+
+                    <div class="col-2">
+                      <div class="form-group">
+                        <label for="iQtdMin">Porta:</label>
+                        <input type="text" class="form-control" id="iPorta" name="nPorta" value="<?php echo $_SESSION['relatProdutosMin'];?>">
                       </div>
                     </div>
 
                     <div class="col-3">
                       <div class="form-group">
-                        <label for="iCategoria">Categoria:</label>
-                        <select name="nCategoria" id="iCategoria" class="form-control">
+                        <label for="iCategoria">Tipo de Movimentação:</label>
+                        <select name="nTipoMovi" id="iTipoMovi" class="form-control">
                           <?php if($_SESSION['relatProdutosIdCat'] != '0' && $_SESSION['relatProdutosIdCat'] != ''){ ?>
                             <option value="<?php echo $_SESSION['relatProdutosIdCat']; ?>"><?php echo descrCategoria($_SESSION['relatProdutosIdCat']); ?></option>
                           <?php } ?>
                           <option value="0">Todas</option>
-                          <?php echo optionCategoria();?>
+                          <?php echo optionMovimentacao();?>
                         </select>
-                      </div>
-                    </div>
-
-                    <div class="col-2">
-                      <div class="form-group">
-                        <label for="iQtdMin">Qtd. Mínima:</label>
-                        <input type="number" class="form-control" id="iQtdMin" name="nQtdMin" min="0" value="<?php echo $_SESSION['relatProdutosMin'];?>">
-                      </div>
-                    </div>
-
-                    <div class="col-2">
-                      <div class="form-group">
-                        <label for="iQtdMax">Qtd. Máxima:</label>
-                        <input type="number" class="form-control" id="iQtdMax" name="nQtdMax" min="0" value="<?php echo $_SESSION['relatProdutosMax'];?>">
                       </div>
                     </div>
 
@@ -118,10 +111,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                      <th>ID</th>
-                      <th>Produto</th>
-                      <th>Categoria</th>
-                      <th>Quantidade</th>    
+                      <th>Armario</th>
+                      <th>Porta</th>
+                      <th>Tipo de Movimentação</th>
+                      <th>Período</th>    
                   </tr>
                   </thead>
                   <tbody>

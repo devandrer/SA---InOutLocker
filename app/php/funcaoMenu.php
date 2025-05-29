@@ -20,7 +20,7 @@ function montaMenu($n1,$n2){
     $opcUsuarios        = '';
     $opcEmpresa         = '';
     $opcArmario         = '';
-    $opcPorta         = '';
+    $opcPorta           = '';
     $opcRelatorio       = '';
     
     
@@ -67,13 +67,17 @@ function montaMenu($n1,$n2){
             $opcEmpresa = 'active';
             break; 
 
-         case 'armario':
+        case 'armario':
             $opcArmario = 'active';
             break; 
 
-            case 'porta':
-               $opcPorta = 'active';
-               break; 
+        case 'porta':
+            $opcPorta = 'active';
+            break; 
+
+        case 'relatorio-movi':
+            $opcRelatorio = 'active';
+            break;
 
     
         default:
@@ -184,7 +188,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
-                        <p>Movimentaçõe</p>
+                        <p>Movimentações</p>
                         </a>
                     </li>              
                 </ul>

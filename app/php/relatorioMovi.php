@@ -6,39 +6,39 @@
     include('funcoes.php');
 
     //Filtros de tela
-    $descricao   = $_POST["nDescricao"];
-    $idCategoria = $_POST["nCategoria"];
-    $qtdMin      = $_POST["nQtdMin"];
-    $qtdMax      = $_POST["nQtdMax"];
+    $armario= $_POST["nArmario"];
+    $porta = $_POST["nPorta"];
+    $tipomovi      = $_POST["nTipoMovi"];
+    $periodo      = $_POST["nPeriodo"];
 
     //Campos para WHERE
-    $whereDescricao   = '';
-    $whereIdCategoria = '';
-    $whereQtdMin      = '';
-    $whereQtdMax      = '';
+    $whereArmario   = '';
+    $wherePorta = '';
+    $whereTipoMovi     = '';
+    $wherePeriodo      = '';
 
     //Sessões para retorno
-    $_SESSION['relatProdutos']      = '';
-    $_SESSION['relatProdutosDescr'] = '';
-    $_SESSION['relatProdutosIdCat'] = '';
-    $_SESSION['relatProdutosMin']   = '';
-    $_SESSION['relatProdutosMax']   = '';
+    $_SESSION['relatMovi']      = '';
+    $_SESSION['relatMoviArmario'] = '';
+    $_SESSION['relatMoviPorta'] = '';
+    $_SESSION['relatMoviTipo']   = '';
+    $_SESSION['relatMoviPeriodo']   = '';
 
     //Validar filtros
-    if($descricao != '') {
-        $whereDescricao = " AND pro.Descricao LIKE '%".$descricao."%' ";
+    if($armario != '') {
+        $whereArmario = " AND arm.local LIKE '%".$armario."%' ";
     }
 
-    if($idCategoria != '0') {
-        $whereIdCategoria = " AND pro.idCategoria = ".$idCategoria;
+    if($porta != '') {
+        $wherePorta = " AND por.referencia = ".$porta;
     }
 
-    if($qtdMin != '') {
-        $whereQtdMin = " AND pro.Quantidade >= ".$qtdMin;
+    if($tipomovi != '') {
+        $whereTipoMovi = " AND movi.status >= ".$tipomovi;
     }
 
-    if($qtdMax != '') {
-        $whereQtdMax = " AND pro.Quantidade <= ".$qtdMax;
+    if($periodo != '') {
+        $wherePeriodo = " AND movi.movimentacao <= ".$periodo;
     }
 
 
@@ -71,20 +71,20 @@
             //***Verificar os dados da consulta SQL
             $lista .= 
             '<tr>'
-                .'<td>'.$coluna["idProduto"].'</td>'
-                .'<td>'.$coluna["Produto"].'</td>'
-                .'<td>'.$coluna["Categoria"].'</td>'
-                .'<td>'.$coluna["Quantidade"].'</td>'
+                .'<td>'.$coluna["local"].'</td>'
+                .'<td>'.$coluna["referencia"].'</td>'
+                .'<td>'.$coluna["status"].'</td>'
+                .'<td>'.$coluna["movimentacao"].'</td>'
             .'</tr>';             
                       
         }    
     }
     
     $_SESSION['relatProdutos']      = $lista;
-    $_SESSION['relatProdutosDescr'] = $descricao;
-    $_SESSION['relatProdutosIdCat'] = $idCategoria;
-    $_SESSION['relatProdutosMin']   = $qtdMin;
-    $_SESSION['relatProdutosMax']   = $qtdMax;
+    $_SESSION['relatMoviArmario'] = $armario;
+    $_SESSION['relatMoviPorta'] = $porta;
+    $_SESSION['relatMoviTipo']   = $tipomovi;
+    $_SESSION['relatMoviPeriodo']   = $periodo;
 
     header("location: ../relatorio-movi.php");
 
