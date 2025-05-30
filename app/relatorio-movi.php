@@ -60,32 +60,49 @@
                 <form method="POST" action="php/relatorioMovi.php" enctype="multipart/form-data">              
                   
                   <div class="row">
-                    <div class="col-5">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="iDescricao">Armário:</label>
-                        <input type="text" class="form-control" id="iArmario" name="nArmario" maxlength="80" value="<?php echo $_SESSION['relatProdutosDescr'];?>">
+                        <label for="iArmario">Armário:</label>
+                        <input type="text" class="form-control" id="iArmario" name="nArmario" maxlength="80" value="<?php echo $_SESSION['relatMoviArmario'];?>">
                       </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="iQtdMin">Porta:</label>
-                        <input type="text" class="form-control" id="iPorta" name="nPorta" value="<?php echo $_SESSION['relatProdutosMin'];?>">
+                        <label for="iPorta">Porta:</label>
+                        <input type="text" class="form-control" id="iPorta" name="nPorta" value="<?php echo $_SESSION['relatMoviPorta'];?>">
                       </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-4">
                       <div class="form-group">
-                        <label for="iCategoria">Tipo de Movimentação:</label>
+                        <label for="iTipoMovi">Tipo de Movimentação:</label>
                         <select name="nTipoMovi" id="iTipoMovi" class="form-control">
-                          <?php if($_SESSION['relatProdutosIdCat'] != '0' && $_SESSION['relatProdutosIdCat'] != ''){ ?>
-                            <option value="<?php echo $_SESSION['relatProdutosIdCat']; ?>"><?php echo descrCategoria($_SESSION['relatProdutosIdCat']); ?></option>
+                        <?php if($_SESSION['relatMoviTipo'] != '0' && $_SESSION['relatMoviTipo'] != ''){ ?>
+                          <option value="<?php echo $_SESSION['relatMoviTipo']; ?>"></option>
                           <?php } ?>
                           <option value="0">Todas</option>
-                          <?php echo optionMovimentacao();?>
+                          <option value="Entrada">Entrada</option>
+                          <option value="Saída">Saída</option>
                         </select>
                       </div>
                     </div>
+
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="iDataInicio">Data Início:</label>
+                        <input type="datetime-local" class="form-control" id="iDataInicio" name="nPeriodoInicio" value="<?php echo $_SESSION['relatMoviPeriodoInicio'];?>">
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                      <div class="form-group">
+                        <label for="iDataFinal">Data Fim:</label>
+                        <input type="datetime-local" class="form-control" id="iDataFinal" name="nPeriodoFim" value="<?php echo $_SESSION['relatMoviPeriodoFim'];?>">
+                      </div>
+                    </div>
+
+
 
                   </div>
 
@@ -109,7 +126,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                  <thead>
+                  <thead class="thead-dark">
                   <tr>
                       <th>Armario</th>
                       <th>Porta</th>
@@ -119,7 +136,7 @@
                   </thead>
                   <tbody>
 
-                  <?php echo $_SESSION['relatProdutos']; ?>
+                  <?php echo $_SESSION['relatMovi']; ?>
                   
                   </tbody>
                   

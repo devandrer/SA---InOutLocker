@@ -97,6 +97,33 @@ function getSaidas(){
     return $lista;
 }
 
+function optionMovimentacao(){
+
+    $lista = "";
+
+    include("conexao.php");
+    $sql = "SELECT movi.id_movimentacao, 
+                   movi.status 
+                   FROM tb_porta AS por 
+                   INNER JOIN 
+                   tb_movimentacao AS movi 
+                   ON movi.id_porta = por.id_porta ORDER BY status DESC";        
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+        
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+            $lista .= '<option value="'.$coluna['id_movimentacao'].'">'.$coluna['status'].'</option>';
+        }        
+    } 
+
+    return $lista;
+
+}
+
 ?>
 
 
