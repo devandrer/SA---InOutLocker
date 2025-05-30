@@ -31,7 +31,7 @@
     }
 
     if($porta != '') {
-        $wherePorta = " AND por.referencia = ".$porta;
+        $wherePorta = " AND por.referencia LIKE '%".$porta."%' ";
     }
 
     if($tipomovi != '') {
@@ -42,6 +42,7 @@
         $wherePeriodoInicio = " AND movi.movimentacao >= ".$periodo;
     }
 
+
     if($periodo != '') {
         $wherePeriodoFinal = " AND movi.movimentacao <= ".$periodo;
     }
@@ -50,22 +51,19 @@
     include("conexao.php");
 
     $sql = "SELECT 
-            arm.local,
-            por.referencia, 
-            movi.status, 
-            movi.movimentacao 
-            FROM tb_movimentacao AS movi 
-            INNER JOIN 
-            tb_porta AS por 
-            ON movi.id_porta = por.id_porta 
-            INNER JOIN 
-            tb_armario AS arm 
-            ON por.id_armario = arm.id_armario WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."; "
+        arm.local,
+        por.referencia, 
+        movi.status, 
+        movi.movimentacao 
+        FROM tb_movimentacao AS movi 
+        INNER JOIN tb_porta AS por ON movi.id_porta = por.id_porta 
+        INNER JOIN tb_armario AS arm ON por.id_armario = arm.id_armario 
+        WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]
         .$whereArmario
         .$wherePorta
         .$whereTipoMovi
         .$wherePeriodoInicio
-        .$wherePeriodoFinal.";";
+        .$wherePeriodoFinal;
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
