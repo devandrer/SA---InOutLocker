@@ -102,7 +102,12 @@ function optionMovimentacao(){
     $lista = "";
 
     include("conexao.php");
-    $sql = "SELECT id_movimentacao, status FROM tb_movimentacao ORDER BY status;";        
+    $sql = "SELECT movi.id_movimentacao, 
+                   movi.status 
+                   FROM tb_porta AS por 
+                   INNER JOIN 
+                   tb_movimentacao AS movi 
+                   ON movi.id_porta = por.id_porta ORDER BY status DESC";        
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -118,8 +123,6 @@ function optionMovimentacao(){
     return $lista;
 
 }
-
-
 
 ?>
 

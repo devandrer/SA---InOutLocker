@@ -15,7 +15,8 @@
     $whereArmario   = '';
     $wherePorta = '';
     $whereTipoMovi     = '';
-    $wherePeriodo      = '';
+    $wherePeriodoInicio      = '';
+    $wherePeriodoFinal     = '';
 
     //Sessões para retorno
     $_SESSION['relatMovi']      = '';
@@ -34,29 +35,37 @@
     }
 
     if($tipomovi != '') {
-        $whereTipoMovi = " AND movi.status >= ".$tipomovi;
+        $whereTipoMovi = " AND movi.status = ".$tipomovi;
     }
 
     if($periodo != '') {
-        $wherePeriodo = " AND movi.movimentacao <= ".$periodo;
+        $wherePeriodoInicio = " AND movi.movimentacao >= ".$periodo;
+    }
+
+    if($periodo != '') {
+        $wherePeriodoFinal = " AND movi.movimentacao <= ".$periodo;
     }
 
 
     include("conexao.php");
 
-    $sql = "SELECT pro.idProduto, "
-            ." pro.Descricao AS Produto, "
-            ." pro.idCategoria, "
-            ." cat.Descricao AS Categoria, "
-            ." pro.Quantidade "
-        ." FROM produto pro "
-        ." INNER JOIN categoria cat "
-        ." ON cat.idCategoria = pro.idCategoria" 
-        ." WHERE 1 = 1 "
+    $sql = "SELECT 
+            arm.local,
+            por.referencia, 
+            movi.status, 
+            movi.movimentacao 
+            FROM tb_movimentacao AS movi 
+            INNER JOIN 
+            tb_porta AS por 
+            ON movi.id_porta = por.id_porta 
+            INNER JOIN 
+            tb_armario AS arm 
+            ON por.id_armario = arm.id_armario WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."; "
         .$whereArmario
         .$wherePorta
         .$whereTipoMovi
-        .$wherePeriodo.";";
+        .$wherePeriodoInicio
+        .$wherePeriodoFinal.";";
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -80,7 +89,7 @@
         }    
     }
     
-    $_SESSION['relatProdutos']      = $lista;
+    $_SESSION['relatMovi']      = $lista;
     $_SESSION['relatMoviArmario'] = $armario;
     $_SESSION['relatMoviPorta'] = $porta;
     $_SESSION['relatMoviTipo']   = $tipomovi;
