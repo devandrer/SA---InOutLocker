@@ -82,7 +82,8 @@
                           <option value="<?php echo $_SESSION['relatMoviTipo']; ?>"></option>
                           <?php } ?>
                           <option value="0">Todas</option>
-                          <?php echo optionMovimentacao();?>
+                          <option value="Entrada">Entrada</option>
+                          <option value="Saída">Saída</option>
                         </select>
                       </div>
                     </div>
@@ -90,14 +91,14 @@
                     <div class="col-4">
                       <div class="form-group">
                         <label for="iDataInicio">Data Início:</label>
-                        <input type="datetime-local" class="form-control" id="iDataInicio" name="nPeriodo" value="<?php echo $_SESSION['relatMoviPeriodo'];?>">
+                        <input type="datetime-local" class="form-control" id="iDataInicio" name="nPeriodoInicio" value="<?php echo $_SESSION['relatMoviPeriodoInicio'];?>">
                       </div>
                     </div>
 
                     <div class="col-4">
                       <div class="form-group">
                         <label for="iDataFinal">Data Fim:</label>
-                        <input type="datetime-local" class="form-control" id="iDataFinal" name="nPeriodo" value="<?php echo $_SESSION['relatMoviPeriodo'];?>">
+                        <input type="datetime-local" class="form-control" id="iDataFinal" name="nPeriodoFim" value="<?php echo $_SESSION['relatMoviPeriodoFim'];?>">
                       </div>
                     </div>
 

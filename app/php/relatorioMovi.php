@@ -9,7 +9,8 @@
     $armario= $_POST["nArmario"];
     $porta = $_POST["nPorta"];
     $tipomovi      = $_POST["nTipoMovi"];
-    $periodo      = $_POST["nPeriodo"];
+    $periodoinicio      = $_POST["nPeriodoInicio"];
+    $periodofim      = $_POST["nPeriodoFim"];
 
     //Campos para WHERE
     $whereArmario   = '';
@@ -23,7 +24,8 @@
     $_SESSION['relatMoviArmario'] = '';
     $_SESSION['relatMoviPorta'] = '';
     $_SESSION['relatMoviTipo']   = '';
-    $_SESSION['relatMoviPeriodo']   = '';
+    $_SESSION['relatMoviPeriodoInicio']   = '';
+    $_SESSION['relatMoviPeriodoFim']   = '';
 
     //Validar filtros
     if($armario != '') {
@@ -34,17 +36,17 @@
         $wherePorta = " AND por.referencia LIKE '%".$porta."%' ";
     }
 
-    if($tipomovi != '') {
-        $whereTipoMovi = " AND movi.status = ".$tipomovi;
+    if($tipomovi != '0') {
+        $whereTipoMovi = " AND movi.status = '".$tipomovi."' ";
     }
 
-    if($periodo != '') {
-        $wherePeriodoInicio = " AND movi.movimentacao >= ".$periodo;
+    if($periodoinicio != '') {
+        $wherePeriodoInicio = " AND movi.movimentacao >= '".$periodoinicio."' ";
     }
 
 
-    if($periodo != '') {
-        $wherePeriodoFinal = " AND movi.movimentacao <= ".$periodo;
+    if($periodofim != '') {
+        $wherePeriodoFinal = " AND movi.movimentacao <= '".$periodofim."' ";
     }
 
 
