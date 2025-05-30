@@ -300,11 +300,11 @@ function listaPortas(){
             $lista .= 
             '<tr>'            
                 .'<td align="center">'.$coluna["id_porta"].'</td>'
-                .'<td>'.htmlspecialchars($coluna["referencia"]).'</td>'           
+                .'<td align="center">'.htmlspecialchars($coluna["referencia"]).'</td>'           
                 .'<td align="center">'.descrArmarioPorta($coluna["id_armario"]).'</td>'  
-                .'<td>'.$status.'</td>' 
-                .'<td>'.$icone.'</td>' 
-                .'<td>'
+                .'<td align="center">'.$status.'</td>' 
+                .'<td align="center">'.$icone.'</td>' 
+                .'<td align="center">'
                     .'<div class="row" align="center">'
                         .'<div class="col-6">'
                             .'<a href="#modalEditPorta'.$coluna["id_porta"].'" data-toggle="modal">'
@@ -453,7 +453,8 @@ function getPortasAbertas(){
             FROM tb_armario arm
             INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
             WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
-            AND por.status = 'D'";
+            AND por.status = 'D'
+            AND por.flg_ativo = 'S'";
     //  var_dump($sql);
     //  die();
 

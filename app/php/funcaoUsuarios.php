@@ -36,9 +36,9 @@ function listaUsuario(){
             $lista .= 
             '<tr>'
                 .'<td align="center">'.$coluna["id_usuario"].'</td>'
-                .'<td>'.$coluna["nome"].'</td>'
+                .'<td align="center">'.$coluna["nome"].'</td>'
                 .'<td align="center">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</td>'
-                .'<td>'.$coluna["matricula"].'</td>'
+                .'<td align="center">'.$coluna["matricula"].'</td>'
                 .'<td align="center">'.$icone.'</td>'
                 .'<td>'
                     .'<div class="row" align="center">'

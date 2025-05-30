@@ -166,16 +166,19 @@ $erro = $_SESSION["erroPerfil"];
                         echo '';
                       } ?>
                       </label><br>
-                    <input type="text" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
+                    <input type="password" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
                       <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
                         echo 'style="border-color: #ced4da;" ' ;
                       } ?>
-                      > <br>
+                      >
+                      <i class="fas fa-eye-slash" id="iSenhaIconA" style="position: absolute; right: 30px; top: 55px;cursor: pointer;"></i> 
+                      <br>
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
-                    <input type="text" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
+                    <input type="password" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
+                    <i class="fas fa-eye-slash" id="iSenhaIconN" style="position: absolute; right: 30px; top: 125px;cursor: pointer;"></i>
                     <label for="iSenhaR" style="color:red;">
                     <?php if ($erro == "erroSenhaR") { //Se a senha nova estiver errada, cria uma label 'As senhas não coincidem!' 
                         echo 'As senhas não coincidem!';
@@ -183,13 +186,14 @@ $erro = $_SESSION["erroPerfil"];
                         echo '' ;
                       } ?>
                       </label><br>
-                    <input type="text" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
+                    <input type="password" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
                       <?php if ($erro == "erroSenhaR") { //Se a senha nova no campo "Repetir Senha" estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
                         echo 'style="border-color: #ced4da;" ';
                       } ?>
                       >
+                      <i class="fas fa-eye-slash" id="iSenhaIconR" style="position: absolute; right: 30px; top: 204px;cursor: pointer;"></i>
                   </div>
               </div>
 
@@ -218,6 +222,45 @@ $erro = $_SESSION["erroPerfil"];
   <!-- Fim JS -->
 
   <script>
+
+    let senhaIconA = document.getElementById("iSenhaIconA");
+    let senhaInputA = document.getElementById("iSenhaA");
+    senhaIconA.onclick = () => {
+      if(senhaInputA.type == "password"){
+        senhaIconA.className = "fas fa-eye-slash";
+        senhaInputA.type = "text"
+      }else{
+        senhaIconA.className = "fas fa-eye";
+        senhaInputA.type = "password"
+      }
+
+    }
+    let senhaIconN = document.getElementById("iSenhaIconN");
+    let senhaInputN = document.getElementById("iSenhaN");
+    senhaIconN.onclick = () => {
+      if(senhaInputN.type == "password"){
+        senhaIconN.className = "fas fa-eye-slash";
+        senhaInputN.type = "text"
+      }else{
+        senhaIconN.className = "fas fa-eye";
+        senhaInputN.type = "password"
+      }
+
+    }
+    let senhaIconR = document.getElementById("iSenhaIconR");
+    let senhaInputR = document.getElementById("iSenhaR");
+    senhaIconR.onclick = () => {
+      if(senhaInputR.type == "password"){
+        senhaIconR.className = "fas fa-eye-slash";
+        senhaInputR.type = "text"
+      }else{
+        senhaIconR.className = "fas fa-eye";
+        senhaInputR.type = "password"
+      }
+
+    }
+
+
     <?php if ($erro == "erroSenhaR" || $erro == "erroSenhaA" || $erro == "erroNone") { //Se a senha atual estiver errada muda a borda para vermelho
       echo 'document.getElementById("btnSenha").click();';
     }
