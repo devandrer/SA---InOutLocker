@@ -454,8 +454,6 @@ function getPortasAbertas(){
             INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
             WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
             AND por.status = 'D'";
-    //  var_dump($sql);
-    //  die();
 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -471,6 +469,103 @@ function getPortasAbertas(){
         }            
     }   
     return $lista;
+}
+
+function getPortasFechadas(){
+    
+    include("conexao.php");
+
+
+    $sql = "SELECT count(por.referencia) as ref 
+            FROM tb_armario arm
+            INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
+            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
+            AND por.status = 'O'";
+
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    
+    $lista = '';
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {        
+       
+        foreach ($result as $coluna) {        
+            //***Verificar os dados da consulta SQL
+            $lista = $coluna['ref'];         
+        }            
+    }   
+    return $lista;
+}
+
+function portaAtivasInativas(){
+
+    $somaAtivo  = 0;
+    $somaInativo = 0;
+
+    include("conexao.php");
+    $sql = "SELECT * 
+            FROM tb_armario arm
+            INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
+            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."";
+            
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+        
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+
+            if($coluna['flg_ativo'] == 'S'){
+                $somaAtivo++;
+            }else{
+                $somaInativo++;
+            }
+
+        }   
+
+    } 
+    $retorno = $somaAtivo.",".$somaInativo;
+
+    return $retorno;
+
+}
+
+function portaLivreOcupado(){
+
+    $somaDisponivel  = 0;
+    $somaOcupado = 0;
+
+    include("conexao.php");
+    $sql = "SELECT * 
+            FROM tb_armario arm
+            INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
+            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."";
+            
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+
+    //Validar se tem retorno do BD
+    if (mysqli_num_rows($result) > 0) {
+        
+        foreach ($result as $coluna) {            
+            //***Verificar os dados da consulta SQL
+
+            if($coluna['flg_ativo'] == 'D'){
+                $somaDisponivel++;
+            }else{
+                $somaOcupado++;
+            }
+
+        }   
+
+    } 
+    $retorno = $somaDisponivel.",".$somaOcupado;
+
+    return $retorno;
+
 }
 
 

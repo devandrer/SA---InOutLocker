@@ -115,7 +115,7 @@
          <!-- Linha principal -->
         <div class="row">
           <!-- Coluna ocupando 100% da largura -->
-          <section class="col-lg-12 connectedSortable">
+          <section class="col-lg-6 connectedSortable">
               
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
@@ -144,12 +144,12 @@
 
           </section>
           <!-- /.Left col -->
-        </div>
+        <!-- </div> -->
 
          <!-- Linha principal -->
-         <div class="row">
+         <!-- <div class="row"> -->
           <!-- Coluna ocupando 100% da largura -->
-          <section class="col-lg-12 connectedSortable">
+          <section class="col-lg-6 connectedSortable">
               
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
@@ -169,7 +169,7 @@
               <!-- Corpo do card contendo o canvas do gráfico -->
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="barPizza" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
+                  <canvas id="donutChart" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
                 </div>
               </div>
               <!-- /.card-body -->
@@ -208,7 +208,7 @@
       datasets: [
         
         {
-          label               : 'Entradas',
+          label               : 'Livres',
           backgroundColor     : '#008000',// verde
           borderColor         : '#3cbc8b',
           pointRadius          : false,
@@ -216,7 +216,7 @@
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [<?php echo getEntradas();?> ]// Quantidades de usuários ativos
+          data                : [<?php echo getPortasAbertas();?> ]// Quantidades de usuários ativos
         },
         
         {
@@ -228,7 +228,7 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [<?php echo getSaidas();?> ]// Quantidades de usuários inativos
+          data                : [<?php echo getPortasFechadas();?> ]// Quantidades de usuários inativos
         },
         
       ]
@@ -255,27 +255,31 @@
       data: barChartData,
       options: barChartOptions
     })
-    //Segundo Gráfico
-
-    const data = {
-      labels: ['portas livres', 'portas ocupadas'],
-      datasets: [{
-        label: 'Dados',
-        data: [40, 60],
-        backgroundColor: ['red', 'green'],
-        borderColor: ['red', 'green'],
-        borderWidth: 1
-      }]
-    };
-
-    const config = {
-      type: 'pie',
-      data: data,
-      options: {}
-    };
-
-    const myChart = new Chart(document.getElementById('barPizza'), config);
-  
+    
+    //- DONUT ou PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: ['Ativos','Inativos'],
+      datasets: [
+        {
+          data: [<?php echo portaAtivasInativas();?>],
+          backgroundColor : ['#00a65a', '#f56954'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
 </script>
 
 </body>

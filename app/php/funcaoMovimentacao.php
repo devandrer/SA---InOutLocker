@@ -46,13 +46,13 @@ function listaMovimentacao(){
 function getEntradas(){
     
     include("conexao.php");
-    $dataAtual = date("Y-m-d H:i:s");
+    $dataAtual = date("Y-m-d");
 
     $sql = "SELECT count(status) as sta FROM tb_movimentacao mov
             INNER JOIN tb_usuario usu ON mov.id_usuario = usu.id_usuario
             WHERE usu.id_empresa=".$_SESSION["idEmpresa"]."
             AND mov.status = 'Entrada'
-            AND mov.movimentacao = '$dataAtual';";
+            AND mov.movimentacao >= '$dataAtual';";
      
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -73,13 +73,13 @@ function getEntradas(){
 function getSaidas(){
     
     include("conexao.php");
-    $dataAtual = date("Y-m-d H:i:s");
+    $dataAtual = date("Y-m-d");
 
     $sql = "SELECT count(status) as sta FROM tb_movimentacao mov
             INNER JOIN tb_usuario usu ON mov.id_usuario = usu.id_usuario
             WHERE usu.id_empresa=".$_SESSION["idEmpresa"]."
             AND mov.status = 'Saída'
-            AND mov.movimentacao = '$dataAtual';";
+            AND mov.movimentacao >= '$dataAtual';";
      
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);

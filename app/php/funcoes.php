@@ -8,8 +8,6 @@ include("funcaoMenu.php");
 include("funcaoEmpresas.php");
 include("funcaoPorta.php");
 include("funcaoArmario.php");
-include("funcaoPortas.php");
-
 
 
 function proximoID($tabela,$campo){
