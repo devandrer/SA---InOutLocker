@@ -101,8 +101,8 @@ function listaArmario(){
                                 .'<div class="col-12">'
                                         .'<div class="form-group">'
                                             .'<input type="checkbox" id="iAtivo" name="nAtivo" '.$ativo.'>'
-                                            .'<label for="iAtivo">Empresa Ativa</label>'
-                                        .'</div>' //Coluna flg_ativo(verifica se a empresa está ativa)
+                                            .'<label for="iAtivo">Armário Ativo</label>'
+                                        .'</div>' //Coluna flg_ativo(verifica se o armario esta ativo)
                                     .'</div>'
                                  .'</div>'
 
