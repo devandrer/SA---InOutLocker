@@ -55,6 +55,7 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="movimentacao.php">
             <div class="small-box bg-success">
               <div class="inner">
                 <h3><?php echo getEntradas();?></h3>
@@ -65,25 +66,29 @@
                 <i class="far fa-arrow-alt-circle-up"></i>
               </div>
             </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="movimentacao.php">
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php echo getSaidas();?></h3>
-
+                
                 <p>Saídas</p>
               </div>
               <div class="icon">
                 <i class="far fa-arrow-alt-circle-down"></i>
               </div>
             </div>
+          </a>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="reservas.php">
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php echo getPortasAbertas();?></h3>
@@ -94,10 +99,12 @@
                 <i class="fas fa-door-open"></i>
               </div>
             </div>
+            </a>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="movimentacao.php">
             <div class="small-box bg-primary">
               <div class="inner">
                 <h3>65</h3>
@@ -108,6 +115,7 @@
                 <i class="fas fa-hourglass-half"></i>
               </div>
             </div>
+            </a>
           </div>
           <!-- ./col -->
         </div>
@@ -120,7 +128,7 @@
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Portas</h3>
+                <h3 class="card-title">Portas Livres e Ocupados</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
@@ -154,7 +162,7 @@
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Portas Livre e Ocupadas</h3>
+                <h3 class="card-title">Portas Ativas e Inativas</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
@@ -220,7 +228,7 @@
         },
         
         {
-          label               : 'Saídas',
+          label               : 'Ocupados',
           backgroundColor     : '#ff0000',// Vermelho
           borderColor         : '#d2d6de',
           pointRadius         : false,
@@ -247,13 +255,24 @@
     var barChartOptions = {
       responsive              : true,
       maintainAspectRatio     : false,
-      datasetFill             : false
+      datasetFill             : false,
+      scales: {
+        yAxes:[{
+          ticks: {
+            suggestedMax: 6,
+            suggestedMin: 0,
+
+          }          
+        }]
+      }
+    
     }
     
     new Chart(barChartCanvas, {
       type: 'bar',
       data: barChartData,
-      options: barChartOptions
+      options: barChartOptions,
+
     })
     
     //- DONUT ou PIE CHART -
@@ -265,7 +284,7 @@
       datasets: [
         {
           data: [<?php echo portaAtivasInativas();?>],
-          backgroundColor : ['#00a65a', '#f56954'],
+          backgroundColor : ['#008000', '#ff0000'],//verde e vermelho
         }
       ]
     }
