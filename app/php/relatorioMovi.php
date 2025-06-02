@@ -51,7 +51,7 @@
 
 
     include("conexao.php");
-
+    // script sql para puxar as infos do banco
     $sql = "SELECT 
         arm.local,
         por.referencia, 
@@ -89,6 +89,7 @@
         }    
     }
     
+    // variaveis de retorno são passadas para as variaveis com os "names", para poder aparer na tela
     $_SESSION['relatMovi']      = $lista;
     $_SESSION['relatMoviArmario'] = $armario;
     $_SESSION['relatMoviPorta'] = $porta;
