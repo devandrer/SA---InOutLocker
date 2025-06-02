@@ -201,8 +201,8 @@ function listaUsuario(){
                                 .'</div>'
                 
                                 .'<div class="modal-footer">'
-                                    .'<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>'
-                                    .'<button type="submit" class="btn btn-success">Salvar</button>'
+                                    .'<button type="submit" name="btSalvaUsuario" value="modal_limpar" class="btn btn-danger" >Fechar</button>'
+                                    .'<button type="submit" name="btSalvaUsuario" value="modal_salvar" class="btn btn-success">Salvar</button>'
                                 .'</div>'
                                 
                             .'</form>'

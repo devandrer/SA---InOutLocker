@@ -1,5 +1,6 @@
 <?php
     //Importa as funções
+$acao = $_POST['btSalvaUsuario'];
     include('funcoes.php');
     
     //Pega os valores do formulario que serão inseridos no banco
@@ -43,32 +44,44 @@
                 '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
         
     }elseif($funcao == "A"){
-        //Verifica se a valor na variavel senha
-        //Caso haja, faz um SET na senha
-        //Caso esteja vazio não faz o SET 
-        if($senha == ''){ 
-            $setSenha = ''; 
-        }else{ 
-            $setSenha = " senha = md5('$senha'), ";
+
+        switch($acao){
+            //Salva todos os dados escritos ao clicar no botão Salvar
+            case "modal_salvar":
+
+                //Verifica se a valor na variavel senha
+                //Caso haja, faz um SET na senha
+                //Caso esteja vazio não faz o SET 
+                if($senha == ''){ 
+                    $setSenha = ''; 
+                }else{ 
+                    $setSenha = " senha = md5('$senha'), ";
+                }
+                
+                //UPDATE
+                $sql = "UPDATE tb_usuario
+                        SET matricula = $matricula,
+                            nome = '$nome',
+                            cpf = '$cpf',
+                            cidade = '$cidade',
+                            endereco = '$endereco',
+                            numero = '$numero',
+                            bairro = '$bairro',
+                            cep = '$cep',
+                            uf = '$uf',
+                            login = '$login',
+                            $setSenha
+                            flg_ativo = '$ativo',
+                            id_empresa = '$empresa',
+                            id_tipo_usuario = $tipoUsuario
+                        WHERE id_usuario = $idUsuario";
+
+            case "modal_limpar":
+                header('location: ../usuarios.php');
+                break;
+
+            default:
         }
-        
-        //UPDATE
-        $sql = "UPDATE tb_usuario
-                SET matricula = $matricula,
-                    nome = '$nome',
-                    cpf = '$cpf',
-                    cidade = '$cidade',
-                    endereco = '$endereco',
-                    numero = '$numero',
-                    bairro = '$bairro',
-                    cep = '$cep',
-                    uf = '$uf',
-                    login = '$login',
-                    $setSenha
-                    flg_ativo = '$ativo',
-                    id_empresa = '$empresa',
-                    id_tipo_usuario = $tipoUsuario
-                WHERE id_usuario = $idUsuario";
         
     }elseif($funcao == "D"){
         //DELETE
