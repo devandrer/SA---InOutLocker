@@ -356,7 +356,7 @@ function listaPortas(){
                                     .'</div>'
                                 .'</div>'
                                 .'<div class="modal-footer">'
-                                    .'<button type="button" name="btSalvaPorta" value="modal_limpar" class="btn btn-danger" data-dismiss="modal">Fechar</button>'
+                                    .'<button type="submit" id="btDeFecharPorta" name="btSalvaPorta" value="modal_limpar" class="btn btn-danger">Fechar</button>'
                                     .'<button type="submit" name="btSalvaPorta" value="modal_salvar" class="btn btn-success">Salvar</button>'
                                 .'</div>'
                             .'</form>'

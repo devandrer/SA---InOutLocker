@@ -121,7 +121,7 @@
                   <div class="col-6">
                     <div class="form-group">
                       <label for="iArmario">Armário:</label>
-                      <select name="nArmario" id="iArmario" class="form-control" required>
+                      <select name="nArmario" id="iArmario" class="form-control" >
                         <option value="">Selecione um armário</option>
                         <?php echo optionPorta(); ?> <!-- Busca e mostra as portas dos armários cadastrados na mesma empresa que o usuario logado (php/funcaoPorta.php) -->
                       </select>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                  <button type="submit" id="btDeFecharPorta" name="btSalvaPorta" value="modal_limpar" class="btn btn-danger">Fechar</button>
                   <button type="submit" name="btSalvaPorta" value="modal_salvar" class="btn btn-success">Salvar</button>
                 </div>
                 
@@ -181,6 +181,7 @@
 <!-- Fim JS -->
 
 <script>
+
   $(function () {
     $('#tabela').DataTable({
       "paging": true,

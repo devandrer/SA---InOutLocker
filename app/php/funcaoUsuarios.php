@@ -145,13 +145,6 @@ function listaUsuario(){
                                         .'</div>'
                                     .'</div>'
                                     
-                                    .'<div class="col-12">'
-                                        .'<div class="form-group">'
-                                            .'<input type="checkbox" id="iAtivo" name="nAtivo" '.$ativo.'>'
-                                            .'<label for="iAtivo">Usuário Ativo</label>'
-                                        .'</div>'
-                                    .'</div>'
-                                    
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iCep">CEP:</label>'
@@ -196,13 +189,20 @@ function listaUsuario(){
                                             .'<input type="text" value="'.$coluna["uf"].'" class="form-control" id="iUf" name="UF" maxlength="2">'
                                         .'</div>'
                                     .'</div>'
+
+                                    .'<div class="col-12">'
+                                        .'<div class="form-group">'
+                                            .'<input type="checkbox" id="iAtivo" name="nAtivo" '.$ativo.'>'
+                                            .'<label for="iAtivo">Usuário Ativo</label>'
+                                        .'</div>'
+                                    .'</div>'
                                     
                 
                                 .'</div>'
                 
                                 .'<div class="modal-footer">'
-                                    .'<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>'
-                                    .'<button type="submit" class="btn btn-success">Salvar</button>'
+                                    .'<button type="submit" name="btSalvaUsuario" value="modal_limpar" class="btn btn-danger" >Fechar</button>'
+                                    .'<button type="submit" name="btSalvaUsuario" value="modal_salvar" class="btn btn-success">Salvar</button>'
                                 .'</div>'
                                 
                             .'</form>'
