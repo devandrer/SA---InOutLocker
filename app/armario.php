@@ -171,15 +171,6 @@
 <!-- Fim JS -->
 
 <script>
-
-  $('#novoArmarioModal').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
-  });
-
-  $('#modalEditArmario').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFecharArmario').click()//limpa dados da Modal ao clickar o icone "x" da modal
-  });
-
   $(function () {
     $('#tabela').DataTable({
       "paging": true,
