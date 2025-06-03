@@ -269,10 +269,10 @@ function visibilidadeSenha(){
             let senhaInput'.$coluna["id_usuario"].' = document.getElementById("iSenha'.$coluna["id_usuario"].'");
             senhaIcon'.$coluna["id_usuario"].'.onclick = () => {
             if(senhaInput'.$coluna["id_usuario"].'.type == "password"){
-                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye-slash";
+                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye";
                 senhaInput'.$coluna["id_usuario"].'.type = "text"
             }else{
-                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye";
+                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye-slash";
                 senhaInput'.$coluna["id_usuario"].'.type = "password"
             }
         
