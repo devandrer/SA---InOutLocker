@@ -1,5 +1,10 @@
 <?php 
+if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
+}
+if ($_SESSION['idTipoUsuario'] != 1) {
+  header('location: dashboard.php');
+}
   include('php/funcoes.php');
 ?>
 
