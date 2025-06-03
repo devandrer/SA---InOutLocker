@@ -279,10 +279,10 @@
   let senhaInput = document.getElementById("iSenhaN");
   senhaIcon.onclick = () => {
     if(senhaInput.type == "password"){
-      senhaIcon.className = "fas fa-eye-slash";
+      senhaIcon.className = "fas fa-eye";
       senhaInput.type = "text"
     }else{
-      senhaIcon.className = "fas fa-eye";
+      senhaIcon.className = "fas fa-eye-slash";
       senhaInput.type = "password"
     }
 
