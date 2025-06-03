@@ -107,7 +107,7 @@
             <a href="movimentacao.php">
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>65</h3>
+                <h3><?php echo getTempoMedio();?></h3>
 
                 <p>Tempo Médio de uso</p>
               </div>
