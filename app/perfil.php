@@ -227,10 +227,10 @@ $erro = $_SESSION["erroPerfil"];
     let senhaInputA = document.getElementById("iSenhaA");
     senhaIconA.onclick = () => {
       if(senhaInputA.type == "password"){
-        senhaIconA.className = "fas fa-eye-slash";
+        senhaIconA.className = "fas fa-eye";
         senhaInputA.type = "text"
       }else{
-        senhaIconA.className = "fas fa-eye";
+        senhaIconA.className = "fas fa-eye-slash";
         senhaInputA.type = "password"
       }
 
@@ -239,10 +239,10 @@ $erro = $_SESSION["erroPerfil"];
     let senhaInputN = document.getElementById("iSenhaN");
     senhaIconN.onclick = () => {
       if(senhaInputN.type == "password"){
-        senhaIconN.className = "fas fa-eye-slash";
+        senhaIconN.className = "fas fa-eye";
         senhaInputN.type = "text"
       }else{
-        senhaIconN.className = "fas fa-eye";
+        senhaIconN.className = "fas fa-eye-slash";
         senhaInputN.type = "password"
       }
 
@@ -251,10 +251,10 @@ $erro = $_SESSION["erroPerfil"];
     let senhaInputR = document.getElementById("iSenhaR");
     senhaIconR.onclick = () => {
       if(senhaInputR.type == "password"){
-        senhaIconR.className = "fas fa-eye-slash";
+        senhaIconR.className = "fas fa-eye";
         senhaInputR.type = "text"
       }else{
-        senhaIconR.className = "fas fa-eye";
+        senhaIconR.className = "fas fa-eye-slash";
         senhaInputR.type = "password"
       }
 
