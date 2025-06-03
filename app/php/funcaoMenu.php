@@ -96,7 +96,7 @@ function montaMenu($n1,$n2){
         '<li class="nav-item '.$menuAdmin.'">
                 <a href="#" class="nav-link '.$acaoAdmin.'">
                     <i class="nav-icon fas fa-user-tie"></i>
-                    <p>
+                    <p class="text-white">
                         Administrador
                         <i class="right fas fa-angle-left"></i>
                     </p>
@@ -106,7 +106,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
                         <i class="fas fa-building nav-icon ml-3"></i>
-                        <p>Empresas</p>
+                        <p class="text-white">Empresas</p>
                         </a>
                     </li>              
                 </ul>
@@ -115,7 +115,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
-                        <p>Usuários</p>
+                        <p class="text-white">Usuários</p>
                         </a>
                     </li>              
                 </ul>
@@ -124,7 +124,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./armario.php" class="nav-link '.$opcArmario.'">
                         <i class="fas fa-archive nav-icon ml-3"></i>
-                        <p>Armários</p>
+                        <p class="text-white">Armários</p>
                         </a>
                     </li>              
                 </ul>
@@ -145,28 +145,28 @@ function montaMenu($n1,$n2){
             '<li class="nav-item '.$menuDashboard.'">
                 <a href="./dashboard.php" class="nav-link '.$acaoDashboard.'">
                 <i class="far fa-chart-bar nav-icon"></i>
-                <p>Dashboard</p>
+                <p class="text-white">Dashboard</p>
                 </a>
             </li>   
         
             <li class="nav-item '.$menuReservas.'">
                 <a href="./reservas.php" class="nav-link '.$acaoReservas.'">
                 <i class="fas fa-clipboard-check nav-icon"></i>
-                <p>Reservas</p>
+                <p class="text-white">Reservas</p>
                 </a>
             </li>  
 
             <li class="nav-item '.$menuMovimentacao.'">
                     <a href="./movimentacao.php" class="nav-link '.$acaoMovimentacao.'">
                     <i class="fas fa-sync-alt nav-icon"></i>
-                    <p>Movimentação</p>
+                    <p class="text-white">Movimentação</p>
                     </a>
             </li>
 
             <li class="nav-item '.$menuRelatorio.'">
                 <a href="#" class="nav-link '.$acaoRelatorio.'">
                     <i class="nav-icon fas fa-print"></i>
-                    <p>
+                    <p class="text-white">
                         Relatórios
                         <i class="right fas fa-angle-left"></i>
                     </p>
@@ -176,14 +176,14 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
                         <i class="fas fa-file-alt nav-icon ml-3"></i>
-                        <p>Movimentações</p>
+                        <p class="text-white">Movimentações</p>
                         </a>
                     </li>              
                 </ul>
 
 
             <li class="fixed-bottom">
-                <a href="php/validaLogoff.php" class="nav-link text-danger">
+                <a href="php/validaLogoff.php" class="nav-link text-primary">
                 <i class="nav-icon fas fa-power-off"></i>
                 <p>Sair</p>
                 </a>
