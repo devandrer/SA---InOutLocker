@@ -149,6 +149,10 @@ function getTempoMedio(){
    
     mysqli_close($conn);
 
+    if($resultEntradas->num_rows == 0 || $resultSaidas->num_rows == 0){
+        return 0 . " h";
+    }
+
     $valoresEntrada = [];
     $valoresSaida = [];
     $somaEntrada = 0;
