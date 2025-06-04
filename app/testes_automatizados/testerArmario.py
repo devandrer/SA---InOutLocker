@@ -13,7 +13,7 @@ driver.get("http://localhost:8080/inoutlocker/app/index.php")
 
 time.sleep(1)
 
-#Tela de Login
+#Tela de Login ------------------
 
 #preenche o campo login com o e-mail já cadastrado
 email_input = driver.find_element(By.NAME, "nNome") 
@@ -31,6 +31,8 @@ submit_button.click()
 #vai aguardar o resultado por 8 seg.
 time.sleep(2)
 
+# Dashboard ------------------
+
 admin_link = driver.find_element(By.ID,"adminLink")
 admin_link.click()
 
@@ -40,6 +42,9 @@ armario_link = driver.find_element(By.ID,"armarioLink")
 armario_link.click()
 
 time.sleep(2)
+
+#Tela de armarios --------------------
+
 # #vai acessar o sistema
 novoarmario_button = driver.find_element(By.CSS_SELECTOR,"button[data-target='#novoArmarioModal']")
 novoarmario_button.click()
