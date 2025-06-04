@@ -94,7 +94,7 @@ function montaMenu($n1,$n2){
     if($_SESSION["idTipoUsuario"] == 1) {
         $html .=
         '<li class="nav-item '.$menuAdmin.'">
-                <a href="#" class="nav-link '.$acaoAdmin.'">
+                <a href="#" id="adminLink" class="nav-link '.$acaoAdmin.'">
                     <i class="nav-icon fas fa-user-tie"></i>
                     <p class="text-white">
                         Administrador
@@ -122,7 +122,7 @@ function montaMenu($n1,$n2){
 
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./armario.php" class="nav-link '.$opcArmario.'">
+                        <a href="./armario.php" id="armarioLink" class="nav-link '.$opcArmario.'">
                         <i class="fas fa-archive nav-icon ml-3"></i>
                         <p class="text-white">Armários</p>
                         </a>

@@ -127,7 +127,7 @@ if ($_SESSION['idTipoUsuario'] != 1) {
                  <div class="col-12">
                     <div class="form-group">
                       <label for="iRazao">Empresa:</label>
-                      <select name="nRazao" class="form-control">
+                      <select id="iEmpresa" name="nRazao" class="form-control">
                         <option value="">Selecione...</option>
                         <?php echo optionEmpresa();?> <!--php/funcaoEmpresa-->
                       </select>
