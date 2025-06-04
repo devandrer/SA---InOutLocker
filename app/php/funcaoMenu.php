@@ -106,7 +106,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./empresa.php" class="nav-link '.$opcEmpresa.'">
                         <i class="fas fa-building nav-icon ml-3"></i>
-                        <p class="text-white">Empresas</p>
+                        <p>Empresas</p>
                         </a>
                     </li>              
                 </ul>
@@ -115,7 +115,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./usuarios.php" id="usuarioLink" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
-                        <p class="text-white">Usuários</p>
+                        <p">Usuários</p>
                         </a>
                     </li>              
                 </ul>
@@ -124,7 +124,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./armario.php" id="armarioLink" class="nav-link '.$opcArmario.'">
                         <i class="fas fa-archive nav-icon ml-3"></i>
-                        <p class="text-white">Armários</p>
+                        <p>Armários</p>
                         </a>
                     </li>              
                 </ul>
@@ -176,7 +176,7 @@ function montaMenu($n1,$n2){
                     <li class="nav-item">
                         <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
                         <i class="fas fa-file-alt nav-icon ml-3"></i>
-                        <p class="text-white">Movimentações</p>
+                        <p>Movimentações</p>
                         </a>
                     </li>              
                 </ul>
