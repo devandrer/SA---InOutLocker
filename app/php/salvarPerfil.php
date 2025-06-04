@@ -37,6 +37,7 @@
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
         $_SESSION['FotoLogin'] = $diretorioImg;
+        $_SESSION["msgSucesso"] = true;
     }
     //Gravação no BD
     include('conexao.php');
@@ -46,6 +47,7 @@
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     $_SESSION['EmailLogin'] = $email;
+    $_SESSION["msgSucesso"] = true;
 
     header('location: '.$_SERVER['HTTP_REFERER']);
 
