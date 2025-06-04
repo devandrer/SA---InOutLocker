@@ -36,23 +36,39 @@
   <!-- Fim Sidebar -->
 
   <!-- Área que contém o conteúdo da página -->
-  <div class="content-wrapper" style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
+  <div class="content-wrapper bg-white">
     <!-- Cabeçalho da página -->
-    <div class="content-header" style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
+    <div class="content-header bg-white">
       <!-- Espaço -->
     </div>
     <!-- /.content-header -->
 
      <!-- Conteúdo principal -->
-    <section class="content"  style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
-      <div class="container-fluid">
-
-      <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
+     <section class="content bg-white" >
+       <div class="container-fluid">
+         
+         <!-- Main content -->
+         <section class="content">
+           <div class="container-fluid">
+             
+             <!-- Small boxes (Stat box) -->
+             <div class="row">
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a href="reservas.php">
+            <div class="small-box" style="background-color:color-mix(in srgb,#D98324, black 10%)";>
+              <div class="inner">
+                <h3 class="text-white"><?php echo getPortasAbertas();?></h3>
+     
+                <p class="text-white">Portas Livres</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-door-open"></i>
+              </div>
+            </div>
+            </a>
+          </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <a href="movimentacao.php">
@@ -88,26 +104,10 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <a href="reservas.php">
-            <div class="small-box" style="background-color:color-mix(in srgb,#D98324, black 10%)";>
-              <div class="inner">
-                <h3 class="text-white"><?php echo getPortasAbertas();?></h3>
-
-                <p class="text-white">Portas Livres</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-door-open"></i>
-              </div>
-            </div>
-            </a>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <a href="movimentacao.php">
+            <a href="movimentacao.php" >
             <div class="small-box" style="background-color:color-mix(in srgb, #607D8B , black 30%)";>
               <div class="inner">
-                <h3><?php echo getTempoMedio();?></h3>
+                <h3 class="text-white"><?php echo getTempoMedio();?></h3>
 
                 <p class="text-white">Tempo Médio de uso</p>
               </div>
@@ -141,7 +141,7 @@
                 </div>
               </div>
               <!-- Corpo do card contendo o canvas do gráfico -->
-              <div class="card-body">
+              <div class="card-body" style="background-color:#eeebeb";>
                 <div class="chart">
                   <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
@@ -175,7 +175,7 @@
                 </div>
               </div>
               <!-- Corpo do card contendo o canvas do gráfico -->
-              <div class="card-body" style="background-color: #dde9f3";>
+              <div class="card-body" style="background-color:#eeebeb";>
                 <div class="chart">
                   <canvas id="donutChart" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
                 </div>
@@ -269,7 +269,7 @@
           ticks: {
             suggestedMax: 6,
             suggestedMin: 0,
-            fontColor: '#27548A' // White font color for y-axis labels
+            fontColor: ' #27548A' // White font color for y-axis labels
           },
           gridLines: {
             color: '#27548A' // White grid lines for y-axis
@@ -307,6 +307,13 @@
     var donutOptions     = {
       maintainAspectRatio : false,
       responsive : true,
+      plugins: {
+        legend: {
+          labels: {
+            fontColor: '#000' // Define a cor do texto da legenda como branco
+          }
+        }
+      }
     }
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
