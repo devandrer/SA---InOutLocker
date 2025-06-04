@@ -182,8 +182,8 @@ function montaMenu($n1,$n2){
                 </ul>
 
 
-            <li class="fixed-bottom">
-                <a href="php/validaLogoff.php" class="nav-link text-primary">
+            <li class="" >
+                <a href="php/validaLogoff.php" class="nav-link text-primary fixed-bottom" style="width:fit-content">
                 <i class="nav-icon fas fa-power-off"></i>
                 <p>Sair</p>
                 </a>

@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container 181515-->
-<aside class="main-sidebar sidebar-dark-primary  elevation-4" style="background-color:#24242a ">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 " style="background-color:color-mix(in srgb, #27548A, black 30%);">
     <!-- Brand Logo -->
     <a href="../app/dashboard.php" class="brand-link d-flex justify-content-around" style="border-bottom:1px solid #007bff">
       <img src="dist/img/door-blue.png" alt="AdminLTE Logo" class=" " style="opacity: .8; width: 30%; padding:8px">
