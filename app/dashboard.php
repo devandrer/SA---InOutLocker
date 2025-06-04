@@ -36,15 +36,15 @@
   <!-- Fim Sidebar -->
 
   <!-- Área que contém o conteúdo da página -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
     <!-- Cabeçalho da página -->
-    <div class="content-header">
+    <div class="content-header" style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
       <!-- Espaço -->
     </div>
     <!-- /.content-header -->
 
      <!-- Conteúdo principal -->
-    <section class="content">
+    <section class="content"  style="background-color:color-mix(in srgb, #60B5FF, black 30%)";>
       <div class="container-fluid">
 
       <!-- Main content -->
@@ -56,11 +56,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <a href="movimentacao.php">
-            <div class="small-box bg-success">
+            <div class="small-box" style="background-color:color-mix(in srgb, #28A745, black 30%)";>
               <div class="inner">
-                <h3><?php echo getEntradas();?></h3>
+                <h3 class="text-white"><?php echo getEntradas();?></h3>
 
-                <p>Entradas</p>
+                <p class="text-white">Entradas</p>
               </div>
               <div class="icon">
                 <i class="far fa-arrow-alt-circle-up"></i>
@@ -73,11 +73,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <a href="movimentacao.php">
-            <div class="small-box bg-danger">
+            <div class="small-box" style="background-color:color-mix(in srgb, #DC3545, black 30%)";>
               <div class="inner">
-                <h3><?php echo getSaidas();?></h3>
+                <h3 class="text-white"><?php echo getSaidas();?></h3>
                 
-                <p>Saídas</p>
+                <p class="text-white">Saídas</p>
               </div>
               <div class="icon">
                 <i class="far fa-arrow-alt-circle-down"></i>
@@ -89,11 +89,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <a href="reservas.php">
-            <div class="small-box bg-warning">
+            <div class="small-box" style="background-color:color-mix(in srgb,#D98324, black 10%)";>
               <div class="inner">
-                <h3><?php echo getPortasAbertas();?></h3>
+                <h3 class="text-white"><?php echo getPortasAbertas();?></h3>
 
-                <p>Portas Livres</p>
+                <p class="text-white">Portas Livres</p>
               </div>
               <div class="icon">
                 <i class="fas fa-door-open"></i>
@@ -105,11 +105,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <a href="movimentacao.php">
-            <div class="small-box bg-primary">
+            <div class="small-box" style="background-color:color-mix(in srgb, #607D8B , black 30%)";>
               <div class="inner">
-                <h3>65</h3>
+                <h3 class="text-white">65</h3>
 
-                <p>Tempo Médio de uso</p>
+                <p class="text-white">Tempo Médio de uso</p>
               </div>
               <div class="icon">
                 <i class="fas fa-hourglass-half"></i>
@@ -127,15 +127,15 @@
               
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
-              <div class="card-header">
+              <div class="card-header" style="background-color:color-mix(in srgb, #27548A, black 30%);">
                 <h3 class="card-title">Portas Livres e Ocupados</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                  <button type="button" class="btn btn-tool text-white" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                  <button type="button" class="btn btn-tool text-white" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
@@ -161,21 +161,21 @@
               
             <!-- Cartão com o gráfico de barras -->
             <div class="card card-primary">
-              <div class="card-header">
+              <div class="card-header" style="background-color:color-mix(in srgb, #27548A, black 30%);">
                 <h3 class="card-title">Portas Ativas e Inativas</h3>
 
                  <!-- Botões de colapsar e remover o card -->
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="collapse">
+                  <button type="button" class="btn btn-tool text-white" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool text-dark" data-card-widget="remove">
+                  <button type="button" class="btn btn-tool text-white" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
               </div>
               <!-- Corpo do card contendo o canvas do gráfico -->
-              <div class="card-body">
+              <div class="card-body" style="background-color: #dde9f3";>
                 <div class="chart">
                   <canvas id="donutChart" style="min-height: 250px; height: 200px; width: 1000px; max-width: 100%;"></canvas>
                 </div>
@@ -218,11 +218,11 @@
         {
           label               : 'Livres',
           backgroundColor     : '#008000',// verde
-          borderColor         : '#3cbc8b',
+          borderColor         : ' #000',
           pointRadius          : false,
-          pointColor          : '#3b8bba',
+          pointColor          : ' #3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
+          pointHighlightFill  : '#000',
           pointHighlightStroke: 'rgba(60,141,188,1)',
           data                : [<?php echo getPortasAbertas();?> ]// Quantidades de usuários ativos
         },
@@ -230,11 +230,11 @@
         {
           label               : 'Ocupados',
           backgroundColor     : '#ff0000',// Vermelho
-          borderColor         : '#d2d6de',
+          borderColor         : '#000',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
+          pointHighlightFill  : '#000',
           pointHighlightStroke: 'rgba(220,220,220,1)',
           data                : [<?php echo getPortasFechadas();?> ]// Quantidades de usuários inativos
         },
@@ -257,15 +257,30 @@
       maintainAspectRatio     : false,
       datasetFill             : false,
       scales: {
+        xAxes: [{ // Add this for x-axis labels
+          ticks: {
+            fontColor: '#27548A' // White font color for x-axis labels
+          },
+          gridLines: {
+            color: '#27548A' // White grid lines for x-axis
+          }
+        }],
         yAxes:[{
           ticks: {
             suggestedMax: 6,
             suggestedMin: 0,
-
-          }          
+            fontColor: '#27548A' // White font color for y-axis labels
+          },
+          gridLines: {
+            color: '#27548A' // White grid lines for y-axis
+          }
         }]
+      },
+      legend: { // For the legend (labels like 'Livres', 'Ocupados')
+        labels: {
+          fontColor: '#27548A' // White font color for legend labels
+        }
       }
-    
     }
     
     new Chart(barChartCanvas, {
@@ -285,6 +300,7 @@
         {
           data: [<?php echo portaAtivasInativas();?>],
           backgroundColor : ['#008000', '#ff0000'],//verde e vermelho
+          borderColor: ['#fff','#fff'],
         }
       ]
     }
