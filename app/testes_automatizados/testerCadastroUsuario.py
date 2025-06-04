@@ -9,9 +9,39 @@ options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
 
 #executara o projeto na tela inicial do login
-driver.get("http://localhost:8080/inoutlocker/app/usuarios.php")
+driver.get("http://localhost:8080/inoutlocker/app/index.php")
 
 time.sleep(4)
+
+#Tela de Login ------------------
+
+#preenche o campo login com o e-mail já cadastrado
+email_input = driver.find_element(By.NAME, "nNome") 
+email_input.send_keys("j@teste.com")
+
+
+#preenche o campo senha já cadastrada
+senha_input = driver.find_element(By.NAME, "nSenha")
+senha_input.send_keys("123")
+
+#vai acessar o sistema
+submit_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
+submit_button.click()
+
+#vai aguardar o resultado por 8 seg.
+time.sleep(2)
+
+# Dashboard ------------------
+
+admin_link = driver.find_element(By.ID,"adminLink")
+admin_link.click()
+
+time.sleep(1)
+
+armario_link = driver.find_element(By.ID,"usuarioLink")
+armario_link.click()
+
+time.sleep(2)
 
 #vai acessar o sistema
 novousuario_button = driver.find_element(By.CSS_SELECTOR,"button[data-toggle='modal']")
@@ -27,7 +57,7 @@ nome_input.send_keys("Joao")
 
 # Preenche o campo CPF
 cpf_input = modal.find_element(By.NAME, "nCpf")
-cpf_input.send_keys("12345678912")
+cpf_input.send_keys("123.456.789-12")
 
 #preenche o campo tipo usuario
 select_tipo = Select(modal.find_element(By.NAME, "nTipoUsuario"))

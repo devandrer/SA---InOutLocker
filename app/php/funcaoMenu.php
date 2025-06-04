@@ -113,7 +113,7 @@ function montaMenu($n1,$n2){
                 -->
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
+                        <a href="./usuarios.php" id="usuarioLink" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
                         <p class="text-white">Usuários</p>
                         </a>
@@ -131,7 +131,7 @@ function montaMenu($n1,$n2){
 
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./porta.php" class="nav-link '.$opcPorta.'">
+                        <a href="./porta.php" id="portaLink" class="nav-link '.$opcPorta.'">
                         <i class="bi bi-door-open-fill nav-icon ml-3"></i>
                         <p> &nbsp Porta</p>
                         </a>
