@@ -33,8 +33,8 @@
   ?>
 
   <!-- Content Wrapper -->
-  <div class="content-wrapper">
-    <div class="content-header">
+  <div class="content-wrapper bg-white">
+    <div class="content-header bg-white">
       <!-- Cabeçalho vazio -->
     </div>
 

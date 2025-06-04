@@ -37,9 +37,9 @@ if ($_SESSION['idTipoUsuario'] != 1) {
   <!-- Fim Sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper bg-white">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header bg-white">
       <!-- Espaço -->
     </div>
     <!-- /.content-header -->
