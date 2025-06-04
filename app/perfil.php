@@ -110,7 +110,14 @@ $erro = $_SESSION["erroPerfil"];
                                         <button type="button" class="btn btn-secondary" id="btnSenha" data-toggle="modal" data-target="#modalRedefinirSenha">
                                           Redefinir Senha
                                         </button>
-
+                                        <?php
+                                          if($_SESSION["msgSucesso"]) {
+                                            echo '<span id="msgSucesso" class="text-success">Sucesso!!</span>';
+                                            $_SESSION["msgSucesso"] = false;
+                                          } else {
+                                            echo '';
+                                          }                                         
+                                        ?>
                                       </div>
                                     </div>
                                   </div>
@@ -268,19 +275,6 @@ $erro = $_SESSION["erroPerfil"];
     $('#modalRedefinirSenha').on('hidden.bs.modal', function (event) {
     document.getElementById('btDeFechar').click()//limpa dados da Modal ao clickar o icone "x" da modal
     });
-    //document.getElementById("btnSenha").click(); Abrir a modal com JS
-
-    // $(function() {
-    //   $('#tabela').DataTable({
-    //     "paging": true,
-    //     "lengthChange": true,
-    //     "searching": true,
-    //     "ordering": true,
-    //     "info": true,
-    //     "autoWidth": false,
-    //     "responsive": true,
-    //   });
-    // });
   </script>
 
 </body>

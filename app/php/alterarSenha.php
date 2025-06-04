@@ -27,6 +27,7 @@ $acao = $_POST['btModal'];
                     mysqli_close($conn);
                     $_SESSION['SenhaLogin'] = md5($senhaN);
                     $_SESSION["erroPerfil"] = "";
+                    $_SESSION['msgSucesso'] = true;
                 } else {
                     //colocar uma label de erro acima do campo "Repetir Senha"
                     $_SESSION["erroPerfil"] = "erroSenhaR";
