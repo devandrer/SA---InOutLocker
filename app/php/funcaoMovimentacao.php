@@ -1,5 +1,7 @@
 <?php
 session_start();
+date_default_timezone_set('America/Sao_Paulo');
+
 //Função para listar todos as movimentaçoens
 function listaMovimentacao(){
 
@@ -122,6 +124,61 @@ function optionMovimentacao(){
 
     return $lista;
 
+}
+
+
+function getTempoMedio(){
+
+    include("conexao.php");
+    $dataAtual = date("Y-m-d");
+    $sql = 'SELECT 
+                TIME_TO_SEC(movimentacao) as entradaSum
+            FROM tb_movimentacao
+            WHERE movimentacao BETWEEN "'.$dataAtual.' 00:00:00" AND "'.$dataAtual.' 23:59:59"
+            AND status = "Entrada" ORDER BY id_movimentacao';
+    
+    $resultEntradas = mysqli_query($conn,$sql);
+    
+    $sql = 'SELECT 
+                TIME_TO_SEC(movimentacao) as saidaSum
+            FROM tb_movimentacao
+            WHERE movimentacao BETWEEN "'.$dataAtual.' 00:00:00" AND "'.$dataAtual.' 23:59:59"
+            AND status = "Saída" ORDER BY id_movimentacao';
+            
+    $resultSaidas = mysqli_query($conn,$sql);
+   
+    mysqli_close($conn);
+
+    $valoresEntrada = [];
+    $valoresSaida = [];
+    $somaEntrada = 0;
+    $somaSaida = 0;
+
+    foreach($resultEntradas as $colunaEntrada) {
+        array_push($valoresEntrada,intval($colunaEntrada["entradaSum"]) );
+    }
+    foreach($resultSaidas as $colunaSaida) {
+        array_push($valoresSaida,intval($colunaSaida["saidaSum"]) );
+    }
+
+    if(count($valoresEntrada) > count($valoresSaida)) {
+        for ($i=0; $i < count($valoresEntrada) - 1; $i++) { 
+            $somaEntrada =  $somaEntrada + $valoresEntrada[$i];
+            $somaSaida = $somaSaida + $valoresSaida[$i];
+        }
+    } else {
+        for ($i=0; $i < count($valoresSaida); $i++) { 
+            $somaEntrada =  $somaEntrada + $valoresEntrada[$i];
+            $somaSaida = $somaSaida + $valoresSaida[$i];
+        }
+    }
+
+    $somaEntrada = $somaEntrada / 3600;
+    $somaSaida = $somaSaida / 3600;
+
+    $mediaUso = round(($somaSaida - $somaEntrada) / $resultSaidas->num_rows,2);
+
+    return $mediaUso . " h";
 }
 
 ?>

@@ -94,7 +94,7 @@ function montaMenu($n1,$n2){
     if($_SESSION["idTipoUsuario"] == 1) {
         $html .=
         '<li class="nav-item '.$menuAdmin.'">
-                <a href="#" class="nav-link '.$acaoAdmin.'">
+                <a href="#" id="adminLink" class="nav-link '.$acaoAdmin.'">
                     <i class="nav-icon fas fa-user-tie"></i>
                     <p class="text-white">
                         Administrador
@@ -113,7 +113,7 @@ function montaMenu($n1,$n2){
                 -->
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./usuarios.php" class="nav-link '.$opcUsuarios.'">
+                        <a href="./usuarios.php" id="usuarioLink" class="nav-link '.$opcUsuarios.'">
                         <i class="fas fa-address-card nav-icon ml-3"></i>
                         <p class="text-white">Usuários</p>
                         </a>
@@ -122,7 +122,7 @@ function montaMenu($n1,$n2){
 
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./armario.php" class="nav-link '.$opcArmario.'">
+                        <a href="./armario.php" id="armarioLink" class="nav-link '.$opcArmario.'">
                         <i class="fas fa-archive nav-icon ml-3"></i>
                         <p class="text-white">Armários</p>
                         </a>
@@ -131,7 +131,7 @@ function montaMenu($n1,$n2){
 
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./porta.php" class="nav-link '.$opcPorta.'">
+                        <a href="./porta.php" id="portaLink" class="nav-link '.$opcPorta.'">
                         <i class="bi bi-door-open-fill nav-icon ml-3"></i>
                         <p> &nbsp Porta</p>
                         </a>

@@ -107,7 +107,7 @@
             <a href="movimentacao.php">
             <div class="small-box" style="background-color:color-mix(in srgb, #607D8B , black 30%)";>
               <div class="inner">
-                <h3 class="text-white">65</h3>
+                <h3><?php echo getTempoMedio();?></h3>
 
                 <p class="text-white">Tempo Médio de uso</p>
               </div>

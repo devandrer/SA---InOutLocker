@@ -13,7 +13,7 @@ driver.get("http://localhost:8080/inoutlocker/app/index.php")
 
 time.sleep(1)
 
-#Tela de Login
+#Tela de Login ------------------
 
 #preenche o campo login com o e-mail já cadastrado
 email_input = driver.find_element(By.NAME, "nNome") 
@@ -38,31 +38,36 @@ admin_link.click()
 
 time.sleep(1)
 
-armario_link = driver.find_element(By.ID,"armarioLink")
-armario_link.click()
+porta_link = driver.find_element(By.ID,"portaLink")
+porta_link.click()
 
 time.sleep(2)
 
-#Tela de armarios -------------------
+#Tela de armarios --------------------
 
 # #vai acessar o sistema
-novoarmario_button = driver.find_element(By.CSS_SELECTOR,"button[data-target='#novoArmarioModal']")
+novoarmario_button = driver.find_element(By.CSS_SELECTOR,"button[data-target='#novaPortaModal']")
 novoarmario_button.click()
 
 modal= WebDriverWait(driver,5).until(
-    EC.visibility_of_element_located((By.ID, "novoArmarioModal"))
+    EC.visibility_of_element_located((By.ID, "novaPortaModal"))
 )
 
 # Preenche o campo Nome
-local_input = modal.find_element(By.ID, "iLocal")
-local_input.send_keys("Bloco G")
+nr_local_input = modal.find_element(By.ID, "iNrPorta")
+nr_local_input.send_keys("Z001")
 
 # Preenche o campo CPF
-select_empresa = Select(modal.find_element(By.ID, "iEmpresa"))
-select_empresa.select_by_index(1)
-# Preenche o campo usuario ativo
-ativo_checkbox = modal.find_element(By.NAME, "nAtivo")
-ativo_checkbox.click()
+select_armario = Select(modal.find_element(By.ID, "iArmario"))
+select_armario.select_by_index(1)
+
+# Preenche o campo CPF
+select_status = Select(modal.find_element(By.ID, "iStatus"))
+select_status.select_by_index(1)
+
+# # Preenche o campo usuario ativo
+# ativo_checkbox = modal.find_element(By.NAME, "nAtivo")
+# ativo_checkbox.click()
 
 btn_submit = modal.find_element(By.CSS_SELECTOR,"button[value='modal_salvar']")
 btn_submit.click()
