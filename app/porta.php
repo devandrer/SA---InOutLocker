@@ -171,7 +171,7 @@ include('php/funcoes.php');
     </div>
     <!-- /.modal -->
     <div class="modal fade" id="alertModalPorta">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <strong>Cuidado!</strong> Você esta tentando deletar uma porta que possui registros!
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">

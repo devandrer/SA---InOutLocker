@@ -77,7 +77,7 @@ $erro = $_SESSION["erroPerfil"];
                               <div class="row">
                                 <div class="col-3 text-center">
                                   <div class="foto-perfil mx-auto">
-                                     <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="foto"> <!-- Campo que puxa a foto do usuário-->
+                                    <img src="<?php echo $_SESSION['FotoLogin']; ?>" class="foto"> <!-- Campo que puxa a foto do usuário-->
                                     <div class="trocar-imagem">
                                       <i class="fas fa-camera upload-button"></i>
                                       <p>Alterar Foto</p>
@@ -110,14 +110,6 @@ $erro = $_SESSION["erroPerfil"];
                                         <button type="button" class="btn btn-secondary" id="btnSenha" data-toggle="modal" data-target="#modalRedefinirSenha">
                                           Redefinir Senha
                                         </button>
-                                        <?php
-                                          if($_SESSION["msgSucesso"]) {
-                                            echo '<span id="msgSucesso" class="text-success">Sucesso!!</span>';
-                                            $_SESSION["msgSucesso"] = false;
-                                          } else {
-                                            echo '';
-                                          }                                         
-                                        ?>
                                       </div>
                                     </div>
                                   </div>
@@ -162,56 +154,67 @@ $erro = $_SESSION["erroPerfil"];
                 </button>
               </div>
               <div class="modal-body">
-                <form method="POST" id=""action="php/alterarSenha.php">
+                <form method="POST" id="" action="php/alterarSenha.php">
                   <div style="border: none ; padding: 7px;">
                     <label for="iSenhaA" style="color:red;">
-                    <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada, cria uma label 'Senha incorreta!' ou  'Preencha todos os campos.'
+                      <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada, cria uma label 'Senha incorreta!' ou  'Preencha todos os campos.'
                         echo 'Senha incorreta!';
-                      } elseif ($erro == "erroNone"){
-                        echo 'Preencha todos os campos.' ;
-                      }else{
+                      } elseif ($erro == "erroNone") {
+                        echo 'Preencha todos os campos.';
+                      } else {
                         echo '';
                       } ?>
-                      </label><br>
+                    </label><br>
                     <input type="password" class="form-control form-control-sm" name="nSenha" id="iSenhaA" value="" placeholder="Senha Atual"
                       <?php if ($erro == "erroSenhaA") { //Se a senha atual estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
-                        echo 'style="border-color: #ced4da;" ' ;
-                      } ?>
-                      >
-                      <i class="fas fa-eye-slash" id="iSenhaIconA" style="position: absolute; right: 30px; top: 55px;cursor: pointer;"></i> 
-                      <br>
+                        echo 'style="border-color: #ced4da;" ';
+                      } ?>>
+                    <i class="fas fa-eye-slash" id="iSenhaIconA" style="position: absolute; right: 30px; top: 55px;cursor: pointer;"></i>
+                    <br>
                   </div>
                   <div style="border-radius: 10px ; padding: 7px;  background-color: #F4F6F9;">
-                    <input type="password" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha" > <br>
+                    <input type="password" class="form-control form-control-sm" name="nSenhaN" id="iSenhaN" value="" placeholder="Nova senha"> <br>
                     <i class="fas fa-eye-slash" id="iSenhaIconN" style="position: absolute; right: 30px; top: 125px;cursor: pointer;"></i>
                     <label for="iSenhaR" style="color:red;">
-                    <?php if ($erro == "erroSenhaR") { //Se a senha nova estiver errada, cria uma label 'As senhas não coincidem!' 
+                      <?php if ($erro == "erroSenhaR") { //Se a senha nova estiver errada, cria uma label 'As senhas não coincidem!' 
                         echo 'As senhas não coincidem!';
                       } else {
-                        echo '' ;
+                        echo '';
                       } ?>
-                      </label><br>
+                    </label><br>
                     <input type="password" class="form-control form-control-sm" name="nSenhaR" id="iSenhaR" value="" placeholder="Repetir senha"
                       <?php if ($erro == "erroSenhaR") { //Se a senha nova no campo "Repetir Senha" estiver errada muda a borda para vermelho
                         echo 'style="border-color: red;" ';
                       } else {
                         echo 'style="border-color: #ced4da;" ';
-                      } ?>
-                      >
-                      <i class="fas fa-eye-slash" id="iSenhaIconR" style="position: absolute; right: 30px; top: 204px;cursor: pointer;"></i>
+                      } ?>>
+                    <i class="fas fa-eye-slash" id="iSenhaIconR" style="position: absolute; right: 30px; top: 204px;cursor: pointer;"></i>
                   </div>
               </div>
 
               <div class="modal-footer">
                 <button type="submit" id="btDeFechar" name="btModal" value="modal_limpar" class="btn btn-secondary">Fechar</button>
-                <button type="submit" name="btModal" value="modal_salvar"  class="btn btn-primary">Salvar</button>
+                <button type="submit" name="btModal" value="modal_salvar" class="btn btn-primary">Salvar</button>
               </div>
               </form>
             </div>
           </div>
         </div>
+        <div class="modal fade" id="alertModalPerfil">
+          <div class="modal-dialog modal-sm">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Sucesso!</strong> Dados alterados!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <input type="button" id="btnModalAlertPerfil" data-toggle="modal" data-target="#alertModalPerfil" hidden>
       </section>
       <!-- /.content -->
     </div>
@@ -229,14 +232,13 @@ $erro = $_SESSION["erroPerfil"];
   <!-- Fim JS -->
 
   <script>
-
     let senhaIconA = document.getElementById("iSenhaIconA");
     let senhaInputA = document.getElementById("iSenhaA");
     senhaIconA.onclick = () => {
-      if(senhaInputA.type == "password"){
+      if (senhaInputA.type == "password") {
         senhaIconA.className = "fas fa-eye";
         senhaInputA.type = "text"
-      }else{
+      } else {
         senhaIconA.className = "fas fa-eye-slash";
         senhaInputA.type = "password"
       }
@@ -245,10 +247,10 @@ $erro = $_SESSION["erroPerfil"];
     let senhaIconN = document.getElementById("iSenhaIconN");
     let senhaInputN = document.getElementById("iSenhaN");
     senhaIconN.onclick = () => {
-      if(senhaInputN.type == "password"){
+      if (senhaInputN.type == "password") {
         senhaIconN.className = "fas fa-eye";
         senhaInputN.type = "text"
-      }else{
+      } else {
         senhaIconN.className = "fas fa-eye-slash";
         senhaInputN.type = "password"
       }
@@ -257,24 +259,30 @@ $erro = $_SESSION["erroPerfil"];
     let senhaIconR = document.getElementById("iSenhaIconR");
     let senhaInputR = document.getElementById("iSenhaR");
     senhaIconR.onclick = () => {
-      if(senhaInputR.type == "password"){
+      if (senhaInputR.type == "password") {
         senhaIconR.className = "fas fa-eye";
         senhaInputR.type = "text"
-      }else{
+      } else {
         senhaIconR.className = "fas fa-eye-slash";
         senhaInputR.type = "password"
       }
 
     }
 
-
     <?php if ($erro == "erroSenhaR" || $erro == "erroSenhaA" || $erro == "erroNone") { //Se a senha atual estiver errada muda a borda para vermelho
       echo 'document.getElementById("btnSenha").click();';
     }
     ?>
-    $('#modalRedefinirSenha').on('hidden.bs.modal', function (event) {
-    document.getElementById('btDeFechar').click()//limpa dados da Modal ao clickar o icone "x" da modal
+    $('#modalRedefinirSenha').on('hidden.bs.modal', function(event) {
+      document.getElementById('btDeFechar').click() //limpa dados da Modal ao clickar o icone "x" da modal
     });
+
+    <?php
+      if ($_SESSION["msgSucesso"]) {
+        echo 'document.getElementById("btnModalAlertPerfil").click()';
+        $_SESSION["msgSucesso"] = false;
+      }
+    ?>
   </script>
 
 </body>
