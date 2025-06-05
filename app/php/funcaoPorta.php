@@ -453,7 +453,8 @@ function getPortasAbertas(){
             FROM tb_armario arm
             INNER JOIN tb_porta por ON por.id_armario = arm.id_armario
             WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
-            AND por.status = 'D'";
+            AND por.status = 'D'
+            AND por.flg_ativo= 'S'";
 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
