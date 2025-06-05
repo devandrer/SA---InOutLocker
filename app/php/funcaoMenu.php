@@ -141,7 +141,26 @@ function montaMenu($n1,$n2){
             </li>';
     }
             
-    $html .=        
+    $html .=     
+    
+            ' <li class="nav-item '.$menuRelatorio.'">
+                <a href="#" class="nav-link '.$acaoRelatorio.'">
+                    <i class="nav-icon fas fa-print"></i>
+                    <p class="text-white">
+                        Relatórios
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>  
+
+            <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
+                        <i class="fas fa-file-alt nav-icon ml-3"></i>
+                        <p>Movimentações</p>
+                        </a>
+                    </li>              
+                </ul>'.
+
             '<li class="nav-item '.$menuDashboard.'">
                 <a href="./dashboard.php" class="nav-link '.$acaoDashboard.'">
                 <i class="far fa-chart-bar nav-icon"></i>
@@ -163,25 +182,7 @@ function montaMenu($n1,$n2){
                     </a>
             </li>
 
-            <li class="nav-item '.$menuRelatorio.'">
-                <a href="#" class="nav-link '.$acaoRelatorio.'">
-                    <i class="nav-icon fas fa-print"></i>
-                    <p class="text-white">
-                        Relatórios
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>  
-
-            <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="./relatorio-movi.php" class="nav-link '.$opcRelatorio.'">
-                        <i class="fas fa-file-alt nav-icon ml-3"></i>
-                        <p>Movimentações</p>
-                        </a>
-                    </li>              
-                </ul>
-
-
+            
             <li class="" >
                 <a href="php/validaLogoff.php" class="nav-link text-primary fixed-bottom" style="width:fit-content">
                 <i class="nav-icon fas fa-power-off"></i>
