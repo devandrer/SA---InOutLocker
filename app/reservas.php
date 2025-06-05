@@ -80,13 +80,12 @@ include('php/funcoes.php');
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
-
-
+    <!-- ./wrapper -->                  
     <!-- JS -->
     <?php include('partes/js.php'); ?>
     <!-- Fim JS -->
     <script>
+
         <?php
         //Valida se a variavel é verdadeira
         if ($_SESSION["portaOcupada"]) {

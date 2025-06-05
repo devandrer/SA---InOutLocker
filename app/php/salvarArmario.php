@@ -28,6 +28,7 @@ $acao = $_POST['btSalvaArmario'];
                 $sql = "INSERT INTO tb_armario(  
                         id_armario,local,flg_ativo,id_empresa)
                         VALUES($idArmario,'$local','$ativo','$razao');";
+                $result = mysqli_query($conn,$sql);
             case "modal_limpar":
                 header('location: ../armario.php');
                 break;
@@ -47,6 +48,7 @@ $acao = $_POST['btSalvaArmario'];
                     flg_ativo = '$ativo',
                     id_empresa = '$razao'
                 WHERE id_armario = $idArmario;";
+                $result = mysqli_query($conn,$sql);
             case "modal_limpar":
                 header('location: ../armario.php');
                 break;
@@ -59,11 +61,26 @@ $acao = $_POST['btSalvaArmario'];
     }elseif($funcao == "D"){
         //DELETE 
         // Deleta o armario
-        $sql = "DELETE FROM tb_armario 
-                WHERE id_armario = $idArmario;";
+
+        $sqlMov = "SELECT * 
+                FROM tb_movimentacao mov
+                INNER JOIN tb_porta por ON mov.id_porta = por.id_porta
+                INNER JOIN tb_armario arm ON arm.id_armario = por.id_armario
+                WHERE arm.id_armario = $idArmario";
+
+        $resultMov = mysqli_query($conn,$sqlMov);
+
+        if($resultMov->num_rows > 0){
+            $_SESSION["deleteArmario"] = true;
+        } else {
+            $sql = "DELETE FROM tb_armario 
+                    WHERE id_armario = $idArmario;";
+            $result = mysqli_query($conn,$sql);
+        }
+
     }
     
-    $result = mysqli_query($conn,$sql);
+    
     mysqli_close($conn);
 
     header("location: ../armario.php");
