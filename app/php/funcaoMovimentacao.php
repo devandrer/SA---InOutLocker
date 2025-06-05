@@ -18,7 +18,8 @@ function listaMovimentacao(){
             ON mov.id_porta = por.id_porta
             INNER JOIN tb_armario arm
             ON arm.id_armario = por.id_armario
-            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"].";";
+            WHERE arm.id_empresa = ".$_SESSION["idEmpresa"]."
+            ORDER BY mov.movimentacao DESC;";
             
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -177,12 +178,9 @@ function getTempoMedio(){
         }
     }
 
-    $somaEntrada = $somaEntrada / 3600;
-    $somaSaida = $somaSaida / 3600;
-
     $mediaUso = round(($somaSaida - $somaEntrada) / $resultSaidas->num_rows,2);
 
-    return $mediaUso . " h";
+    return gmdate("H:i:s", $mediaUso);
 }
 
 ?>
