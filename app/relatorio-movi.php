@@ -76,6 +76,13 @@
 
                     <div class="col-4">
                       <div class="form-group">
+                        <label for="iMatricula">Matrícula:</label>
+                        <input type="text" class="form-control" id="iMatricula" name="nMatricula" value="<?php echo $_SESSION['relatMoviMatricula'];?>">
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                      <div class="form-group">
                         <label for="iTipoMovi">Tipo de Movimentação:</label>
                         <select name="nTipoMovi" id="iTipoMovi" class="form-control">
                         <?php if($_SESSION['relatMoviTipo'] != '0' && $_SESSION['relatMoviTipo'] != ''){ ?>
@@ -128,8 +135,9 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead class="thead-dark">
                   <tr>
-                      <th>Armario</th>
+                      <th>Armário</th>
                       <th>Porta</th>
+                      <th>Matrícula</th>
                       <th>Tipo de Movimentação</th>
                       <th>Período</th>    
                   </tr>
