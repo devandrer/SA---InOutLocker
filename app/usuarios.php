@@ -282,11 +282,13 @@ include('php/funcoes.php');
       if (optionSelecionado == 3) {
         document.getElementById("iLoginN").hidden = true;
         document.getElementById("iSenhaN").hidden = true;
+        document.getElementById("iSenhaIcon").hidden = true;
         document.querySelector("label[for='iLoginN']").hidden = true;
         document.querySelector("label[for='iSenhaN']").hidden = true;
       } else {
         document.getElementById("iLoginN").hidden = false;
         document.getElementById("iSenhaN").hidden = false;
+        document.getElementById("iSenhaIcon").hidden = false;
         document.querySelector("label[for='iLoginN']").hidden = false;
         document.querySelector("label[for='iSenhaN']").hidden = false;
       }
