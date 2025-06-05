@@ -7,7 +7,7 @@ function listaPortaReserva($armario = 1){
     //Abre conexão com o banco
     include("conexao.php");
     //Busca todas as portas do determinado armario
-    $sql = "SELECT * FROM tb_porta WHERE id_armario = $armario ORDER BY id_porta;";
+    $sql = "SELECT arm.id_empresa, por.flg_ativo, por.referencia, por.status, por.id_armario, por.id_porta FROM tb_porta AS por INNER JOIN tb_armario AS arm ON arm.id_armario = por.id_armario WHERE por.id_armario = $armario AND arm.id_empresa ='".$_SESSION["idEmpresa"]."';";
 
     //Executa o comando SQL e armazena o resultado            
     $result = mysqli_query($conn, $sql);
