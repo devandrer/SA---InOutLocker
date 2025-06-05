@@ -36,11 +36,13 @@ function listaPortaReserva($armario = 1){
                 $ativo = 'Desativar';
                 $check = 'checked';
                 $btnDisabled = '';
+                $corHeader = 'danger';
             } else {
                 $ativo = 'Ativar';
                 $check = '';
                 $status = "background-color: grey;";
                 $btnDisabled = 'disabled';
+                $corHeader = 'success';
             }
 
 
@@ -73,7 +75,7 @@ function listaPortaReserva($armario = 1){
                 <div class="modal fade" id="modalAtivo'.$coluna["id_porta"].'">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header bg-danger">
+                                <div class="modal-header bg-'.$corHeader.'">
                                     <h4 class="modal-title">'.$ativo.' porta</h4>
                                     <button type="button" id="ativo" class="close text-white" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
