@@ -42,7 +42,8 @@ $acao = $_POST['btSalvaUsuario'];
                 bairro,cep,uf,login,senha,flg_ativo,id_empresa,id_tipo_usuario)
                 VALUES($idUsuario,$matricula,'$nome','$cpf','$cidade','$endereco',$numero,
                 '$bairro','$cep','$uf','$login',md5('$senha'),'$ativo','$empresa',$tipoUsuario);";
-        
+        //Executa o comando SQL e armazena o resultado
+        $result = mysqli_query($conn,$sql);
     }elseif($funcao == "A"){
 
         switch($acao){
@@ -75,7 +76,8 @@ $acao = $_POST['btSalvaUsuario'];
                             id_empresa = '$empresa',
                             id_tipo_usuario = $tipoUsuario
                         WHERE id_usuario = $idUsuario";
-
+                //Executa o comando SQL e armazena o resultado
+                $result = mysqli_query($conn,$sql);
             case "modal_limpar":
                 header('location: ../usuarios.php');
                 break;
@@ -84,13 +86,22 @@ $acao = $_POST['btSalvaUsuario'];
         }
         
     }elseif($funcao == "D"){
+
+        $sqlMov = "SELECT * FROM tb_movimentacao WHERE id_usuario = $idUsuario";
+        $resultMov = mysqli_query($conn,$sqlMov);
+
         //DELETE
-        $sql = "DELETE FROM tb_usuario 
-                WHERE id_usuario = $idUsuario;";
+        if($resultMov->num_rows > 0){
+            $_SESSION["deleteUsuario"] = true;
+        } else {
+            $sql = "DELETE FROM tb_usuario 
+                    WHERE id_usuario = $idUsuario;";
+            //Executa o comando SQL e armazena o resultado
+            $result = mysqli_query($conn,$sql);
+        }
     }
 
-    //Executa o comando SQL e armazena o resultado
-    $result = mysqli_query($conn,$sql);
+    
     //Fecha conexão com banco
     mysqli_close($conn);
 

@@ -28,7 +28,7 @@ $acao = $_POST['btSalvaPorta'];
                 //Insere as informações
                 $sql = "INSERT INTO tb_porta(id_porta, referencia, status, flg_ativo, id_armario)
                     VALUES ($idPorta, '$NrPorta','$status', '$ativo', '$armario');";
-
+                 $result = mysqli_query($conn,$sql);
             case "modal_limpar":
                 header('location: ../porta.php');
                 break;
@@ -49,6 +49,7 @@ $acao = $_POST['btSalvaPorta'];
                     flg_ativo = '$ativo',
                     id_armario = '$armario'
                 WHERE id_porta = $idPorta;";
+                 $result = mysqli_query($conn,$sql);
                 break;
 
             case "modal_limpar":
@@ -61,13 +62,23 @@ $acao = $_POST['btSalvaPorta'];
 
       
     }elseif($funcao == "D"){
+        $sqlMov = "SELECT * FROM tb_movimentacao WHERE id_porta = $idPorta";
+        $resultMov = mysqli_query($conn,$sqlMov);
+
+        //DELETE
+        if($resultMov->num_rows > 0){
+            $_SESSION["deletePorta"] = true;
+        } else {
+            $sql = "DELETE FROM tb_porta
+                WHERE id_porta = $idPorta;";
+            //Executa o comando SQL e armazena o resultado
+            $result = mysqli_query($conn,$sql);
+        }
         //DELETE 
         // Deleta o Porta
-        $sql = "DELETE FROM tb_porta
-                WHERE id_porta = $idPorta;";
+        
     }
     
-    $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
     header("location: ../porta.php");

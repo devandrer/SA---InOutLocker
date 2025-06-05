@@ -57,7 +57,7 @@ include('php/funcoes.php');
                             </div>
                         </form>
                     </div>
-                    <div class="row" >
+                    <div class="row">
                         <!-- Função que retorna as portas -->
                         <?php
                         if ($_SESSION["carregaArmarios"] <> 0) {
@@ -68,7 +68,19 @@ include('php/funcoes.php');
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
-
+                <div class="modal fade" id="alertModalReservas">
+                    <div class="modal-dialog modal-lg">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Cuidado!</strong> Você está tentando desativar uma porta que está sendo ocupada!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <input type="button" id="btnModalAlertReservas" data-toggle="modal" data-target="#alertModalReservas" hidden>
             </section>
             <!-- /.content -->
 
@@ -80,27 +92,23 @@ include('php/funcoes.php');
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->                  
+    <!-- ./wrapper -->
     <!-- JS -->
     <?php include('partes/js.php'); ?>
     <!-- Fim JS -->
     <script>
-
         <?php
         //Valida se a variavel é verdadeira
         if ($_SESSION["portaOcupada"]) {
-            //Exibe um alert na tela
-            echo "alert('Por favor, desocupe a porta para desabilita-la!!!')";
-            //Reseta a variavel de sessao
-            $_SESSION["portaOcupada"] = FALSE;
+            echo 'document.getElementById("btnModalAlertReservas").click()';
+            $_SESSION["portaOcupada"] = false;
         }
-        
+
         echo listaJSPorta();
-        
-        
+
+
 
         ?>
-        
     </script>
 
 

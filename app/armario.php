@@ -162,6 +162,19 @@ include('php/funcoes.php');
         </div>
         <!-- /.modal -->
 
+        <div class="modal fade" id="alertModal">
+          <div class="modal-dialog modal-lg">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Cuidado!</strong> Você esta tentando deletar um armário que possui registros!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <input type="button" id="btnModalAlert" data-toggle="modal" data-target="#alertModal" hidden>
       </section>
       <!-- /.content -->
     </div>
@@ -179,6 +192,14 @@ include('php/funcoes.php');
   <!-- Fim JS -->
 
   <script>
+
+    <?php 
+      if($_SESSION["deleteArmario"]) {
+        echo 'document.getElementById("btnModalAlert").click()';
+        $_SESSION["deleteArmario"] = false;
+      }
+    ?>
+    
     $(function() {
       $('#tabela').DataTable({
         "paging": true,
