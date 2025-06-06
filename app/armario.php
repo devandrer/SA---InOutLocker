@@ -1,10 +1,13 @@
 <?php
+//Inicia a sessão caso não esteja
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
 }
+//Faz retornal para o dashboard caso o usuário não seja adm
 if ($_SESSION['idTipoUsuario'] != 1) {
   header('location: dashboard.php');
 }
+//Importa funções
 include('php/funcoes.php');
 ?>
 
@@ -75,7 +78,7 @@ include('php/funcoes.php');
                   <table id="tabela" class="table table-bordered table-hover">
                     <thead class="thead-dark">
                       <tr> <!-- tabela das informações principais do armario -->
-                        <th>ID</th>
+                        <!--<th>ID</th>-->
                         <th>Local</th>
                         <th>Empresa</th>
                         <th>Ativo</th>
@@ -162,6 +165,7 @@ include('php/funcoes.php');
         </div>
         <!-- /.modal -->
 
+        <!-- Modal do alert -->
         <div class="modal fade" id="alertModal">
           <div class="modal-dialog">
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -174,6 +178,7 @@ include('php/funcoes.php');
           </div>
           <!-- /.modal-dialog -->
         </div>
+        <!-- Botão escondido que ativa a modal -->
         <input type="button" id="btnModalAlert" data-toggle="modal" data-target="#alertModal" hidden>
       </section>
       <!-- /.content -->
@@ -192,7 +197,7 @@ include('php/funcoes.php');
   <!-- Fim JS -->
 
   <script>
-
+    //Verifica e ativa a modal
     <?php 
       if($_SESSION["deleteArmario"]) {
         echo 'document.getElementById("btnModalAlert").click()';

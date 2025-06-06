@@ -73,7 +73,7 @@ include('php/funcoes.php');
                   <table id="tabela" class="table table-bordered table-hover">
                     <thead class="thead-dark">
                       <tr>
-                        <th>ID</th>
+                        <!-- <th>ID</th>-->
                         <th>Nome</th>
                         <th>Tipo de Usuário</th>
                         <th>Matricula</th>

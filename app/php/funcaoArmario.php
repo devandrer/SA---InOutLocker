@@ -46,7 +46,7 @@ function listaArmario(){
             //***Verificar os dados da consulta SQL
             $lista .=   
             '<tr>'   // Monta a tabela de armarios com as informações do banco
-                .'<td align="center">'.$coluna["id_armario"].'</td>'
+                //.'<td align="center">'.$coluna["id_armario"].'</td>'
                 .'<td>'.$coluna["local"].'</td>'
                 .'<td>'.$coluna["razao_social"].'</td>'
                 .'<td align="center">'.$icone.'</td>'
