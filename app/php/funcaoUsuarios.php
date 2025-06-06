@@ -31,6 +31,11 @@ function listaUsuario(){
                 $icone = '<h6><i class="fas fa-times-circle text-danger"></i></h6>';
             } 
             
+            if($coluna["id_tipo_usuario"] == 3) {
+                $camposDisabled = "disabled";
+            } else {
+                $camposDisabled = "";
+            }
 
             //Monta os itens da tabela com os dados do BD
             $lista .= 
@@ -71,16 +76,6 @@ function listaUsuario(){
                             .'<form method="POST" action="php/salvarUsuario.php?funcao=A&codigo='.$coluna["id_usuario"].'" enctype="multipart/form-data">'              
                 
                                     .'<div class="row">'
-                                    // .'<div class="col-5">'
-                                    //     .'<div class="form-group">'
-                                    //         .'<label for="iTipoUsuario">Tipo de Usuário:</label>'
-                                    //         .'<select name="nTipoUsuario" class="form-control" required>'
-                                    //             .'<option value="'.$coluna["id_tipo_usuario"].'">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</option>'
-                                    //             .optionTipoUsuario()
-                                    //         .'</select>'
-                                    //     .'</div>'
-                                    // .'</div>'
-                    
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iNome">Nome:</label>'
@@ -119,14 +114,14 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iLogin'.$coluna["id_usuario"].'">Login:</label>'
-                                            .'<input type="text" value="'.$coluna["login"].'" class="form-control" id="iLogin'.$coluna["id_usuario"].'" name="nLogin" maxlength="80">'
+                                            .'<input type="text" value="'.$coluna["login"].'" class="form-control" id="iLogin'.$coluna["id_usuario"].'" name="nLogin" '.$camposDisabled.'  maxlength="80">'
                                         .'</div>'
                                     .'</div>'
                     
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iSenha'.$coluna["id_usuario"].'">Senha:</label>'
-                                            .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" maxlength="32">'
+                                            .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" '.$camposDisabled.' maxlength="32">'
                                             .'<i class="fas fa-eye-slash" id="iSenhaIcon'.$coluna["id_usuario"].'" style="position: absolute; right: 15px; top: 44px;cursor: pointer;"></i>'
                                         .'</div>'
                                     .'</div>'
