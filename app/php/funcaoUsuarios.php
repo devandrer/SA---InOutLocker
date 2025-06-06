@@ -31,6 +31,11 @@ function listaUsuario(){
                 $icone = '<h6><i class="fas fa-times-circle text-danger"></i></h6>';
             } 
             
+            if($coluna["id_tipo_usuario"] == 3) {
+                $camposDisabled = "disabled";
+            } else {
+                $camposDisabled = "";
+            }
 
             //Monta os itens da tabela com os dados do BD
             $lista .= 
@@ -71,16 +76,6 @@ function listaUsuario(){
                             .'<form method="POST" action="php/salvarUsuario.php?funcao=A&codigo='.$coluna["id_usuario"].'" enctype="multipart/form-data">'              
                 
                                     .'<div class="row">'
-                                    // .'<div class="col-5">'
-                                    //     .'<div class="form-group">'
-                                    //         .'<label for="iTipoUsuario">Tipo de Usuário:</label>'
-                                    //         .'<select name="nTipoUsuario" class="form-control" required>'
-                                    //             .'<option value="'.$coluna["id_tipo_usuario"].'">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</option>'
-                                    //             .optionTipoUsuario()
-                                    //         .'</select>'
-                                    //     .'</div>'
-                                    // .'</div>'
-                    
                                     .'<div class="col-6">'
                                         .'<div class="form-group">'
                                             .'<label for="iNome">Nome:</label>'
@@ -98,14 +93,14 @@ function listaUsuario(){
                                     .'<div class="col-3">'
                                         .'<div class="form-group">'
                                             .'<label for="iTipoUsuario">Tipo de Usuário:</label>'
-                                            .'<select name="nTipoUsuario" class="form-control" required>'
+                                            .'<select name="nTipoUsuario" id="iTipoUsuario'.$coluna["id_usuario"].'" class="form-control" required>'
                                                 .'<option value="'.$coluna["id_tipo_usuario"].'">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</option>'
                                                 .optionTipoUsuario()
                                             .'</select>'
                                         .'</div>'
                                     .'</div>'
 
-                                    .'<div class="col-6">'
+                                    .'<div class="col-12">'
                                         .'<div class="form-group">'
                                             .'<label for="iEmpresa">Empresa:</label>'
                                             .'<select name="nEmpresa" class="form-control" required>'
@@ -116,17 +111,17 @@ function listaUsuario(){
                                     .'</div>'
 
                     
-                                    .'<div class="col-3">'
+                                    .'<div class="col-8">'
                                         .'<div class="form-group">'
-                                            .'<label for="iLogin">Login:</label>'
-                                            .'<input type="text" value="'.$coluna["login"].'" class="form-control" id="iLogin" name="nLogin" maxlength="80">'
+                                            .'<label for="iLogin'.$coluna["id_usuario"].'">Login:</label>'
+                                            .'<input type="text" value="'.$coluna["login"].'" class="form-control" id="iLogin'.$coluna["id_usuario"].'" name="nLogin" '.$camposDisabled.'  maxlength="80">'
                                         .'</div>'
                                     .'</div>'
                     
-                                    .'<div class="col-3">'
+                                    .'<div class="col-4">'
                                         .'<div class="form-group">'
-                                            .'<label for="iSenha">Senha:</label>'
-                                            .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" maxlength="32">'
+                                            .'<label for="iSenha'.$coluna["id_usuario"].'">Senha:</label>'
+                                            .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" '.$camposDisabled.' maxlength="32">'
                                             .'<i class="fas fa-eye-slash" id="iSenhaIcon'.$coluna["id_usuario"].'" style="position: absolute; right: 15px; top: 44px;cursor: pointer;"></i>'
                                         .'</div>'
                                     .'</div>'
@@ -267,16 +262,34 @@ function visibilidadeSenha(){
         $lista.= '
             let senhaIcon'.$coluna["id_usuario"].' = document.getElementById("iSenhaIcon'.$coluna["id_usuario"].'");
             let senhaInput'.$coluna["id_usuario"].' = document.getElementById("iSenha'.$coluna["id_usuario"].'");
+            let loginInput'.$coluna["id_usuario"].' = document.getElementById("iLogin'.$coluna["id_usuario"].'");
+             
             senhaIcon'.$coluna["id_usuario"].'.onclick = () => {
-            if(senhaInput'.$coluna["id_usuario"].'.type == "password"){
-                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye";
-                senhaInput'.$coluna["id_usuario"].'.type = "text"
-            }else{
-                senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye-slash";
-                senhaInput'.$coluna["id_usuario"].'.type = "password"
+                if(senhaInput'.$coluna["id_usuario"].'.type == "password"){
+                    senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye";
+                    senhaInput'.$coluna["id_usuario"].'.type = "text"
+                }else{
+                    senhaIcon'.$coluna["id_usuario"].'.className = "fas fa-eye-slash";
+                    senhaInput'.$coluna["id_usuario"].'.type = "password"
+                }
             }
-        
-            }';
+            
+            let select'.$coluna["id_usuario"].' = document.getElementById("iTipoUsuario'.$coluna["id_usuario"].'")
+            select'.$coluna["id_usuario"].'.onchange = () => {
+            const optionSelecionado'.$coluna["id_usuario"].' = select'.$coluna["id_usuario"].'.options[select'.$coluna["id_usuario"].'.selectedIndex].value;
+            let emailAntigo'.$coluna["id_usuario"].' = "'.$coluna["login"].'"
+                if (optionSelecionado'.$coluna["id_usuario"].' == 3) {
+                    loginInput'.$coluna["id_usuario"].'.value = ""
+                    loginInput'.$coluna["id_usuario"].'.disabled = true
+                    senhaInput'.$coluna["id_usuario"].'.disabled = true
+                } else {
+                    loginInput'.$coluna["id_usuario"].'.disabled = false
+                    senhaInput'.$coluna["id_usuario"].'.disabled = false
+                    loginInput'.$coluna["id_usuario"].'.value = emailAntigo'.$coluna["id_usuario"].'
+                }
+            }
+
+            ';
     }
 
     return $lista;
