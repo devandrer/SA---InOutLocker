@@ -75,7 +75,7 @@ include('php/funcoes.php');
                   <table id="tabela" class="table table-bordered table-hover">
                     <thead class="thead-dark">
                       <tr> <!-- tabela das informações principais do armario -->
-                        <th>ID</th>
+                        <!--<th>ID</th>-->
                         <th>Local</th>
                         <th>Empresa</th>
                         <th>Ativo</th>

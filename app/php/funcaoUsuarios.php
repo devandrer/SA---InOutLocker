@@ -35,7 +35,7 @@ function listaUsuario(){
             //Monta os itens da tabela com os dados do BD
             $lista .= 
             '<tr>'
-                .'<td align="center">'.$coluna["id_usuario"].'</td>'
+                //.'<td align="center">'.$coluna["id_usuario"].'</td>'
                 .'<td align="center">'.$coluna["nome"].'</td>'
                 .'<td align="center">'.descrTipoUsuario($coluna["id_tipo_usuario"]).'</td>'
                 .'<td align="center">'.$coluna["matricula"].'</td>'
