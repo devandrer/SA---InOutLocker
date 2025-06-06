@@ -73,7 +73,7 @@ include('php/funcoes.php');
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table id="tabela" class="table table-bordered table-hover">
-                    <thead class="thead-dark">
+                    <thead class="thead-white text-white" style="background-color:color-mix(in srgb, #27548A, black 30%);" align="center">
                       <tr> <!-- tabela das informações principais da portas -->
                         <!--<th>ID</th>-->
                         <th>Nr da Porta</th>

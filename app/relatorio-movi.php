@@ -133,7 +133,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                  <thead class="thead-dark">
+                  <thead class="thead-white text-white" style="background-color:color-mix(in srgb, #27548A, black 30%);"  align="center">
                   <tr>
                       <th>Armário</th>
                       <th>Porta</th>

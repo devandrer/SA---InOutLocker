@@ -50,7 +50,7 @@
                 <!-- Corpo do card com a tabela -->
               <div class="card-body">
                 <table id="tabela" class="table table-bordered table-hover">
-                  <thead class="thead-dark">
+                  <thead class="thead-white text-white" style="background-color:color-mix(in srgb, #27548A, black 30%);">
                     <tr>
                       <th style='text-align:center'>Armario</th>
                       <th style='text-align:center'>Porta</th>
