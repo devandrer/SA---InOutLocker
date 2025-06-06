@@ -47,8 +47,8 @@ function listaArmario(){
             $lista .=   
             '<tr>'   // Monta a tabela de armarios com as informações do banco
                 //.'<td align="center">'.$coluna["id_armario"].'</td>'
-                .'<td>'.$coluna["local"].'</td>'
-                .'<td>'.$coluna["razao_social"].'</td>'
+                .'<td align="center">'.$coluna["local"].'</td>'
+                .'<td align="center">'.$coluna["razao_social"].'</td>'
                 .'<td align="center">'.$icone.'</td>'
                 .'<td>'
                     .'<div class="row" align="center">'
