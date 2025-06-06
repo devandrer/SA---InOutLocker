@@ -100,7 +100,7 @@ function listaUsuario(){
                                         .'</div>'
                                     .'</div>'
 
-                                    .'<div class="col-6">'
+                                    .'<div class="col-12">'
                                         .'<div class="form-group">'
                                             .'<label for="iEmpresa">Empresa:</label>'
                                             .'<select name="nEmpresa" class="form-control" required>'
@@ -111,14 +111,14 @@ function listaUsuario(){
                                     .'</div>'
 
                     
-                                    .'<div class="col-3">'
+                                    .'<div class="col-8">'
                                         .'<div class="form-group">'
                                             .'<label for="iLogin'.$coluna["id_usuario"].'">Login:</label>'
                                             .'<input type="text" value="'.$coluna["login"].'" class="form-control" id="iLogin'.$coluna["id_usuario"].'" name="nLogin" '.$camposDisabled.'  maxlength="80">'
                                         .'</div>'
                                     .'</div>'
                     
-                                    .'<div class="col-3">'
+                                    .'<div class="col-4">'
                                         .'<div class="form-group">'
                                             .'<label for="iSenha'.$coluna["id_usuario"].'">Senha:</label>'
                                             .'<input type="password" value="" class="form-control" id="iSenha'.$coluna["id_usuario"].'" name="nSenha" '.$camposDisabled.' maxlength="32">'
