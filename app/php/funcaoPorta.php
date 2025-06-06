@@ -432,7 +432,7 @@ function optionPorta() {
     $options = '';
 
     // Consulta todos os armários disponíveis
-    $sql = "SELECT id_armario, local FROM tb_armario ORDER BY local;";
+    $sql = "SELECT id_armario, local, id_empresa FROM tb_armario WHERE id_empresa ='".$_SESSION["idEmpresa"]."'";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 

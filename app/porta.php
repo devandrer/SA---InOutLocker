@@ -85,7 +85,7 @@ include('php/funcoes.php');
                     </thead>
                     <tbody>
 
-                      <?php echo listaPortas(); ?> <!-- faz o select no banco de dados, puxando as infos da portas (php/funcaoProta.php)-->
+                      <?php echo listaPortas(); ?> <!-- faz o select no banco de dados, puxando as infos da portas (php/funcaoPorta.php)-->
 
                     </tbody>
 
