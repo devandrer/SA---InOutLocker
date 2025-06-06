@@ -301,7 +301,7 @@ function listaPortas(){
             // Linha da tabela
             $lista .= 
             '<tr>'            
-                .'<td align="center">'.$coluna["id_porta"].'</td>'
+                //.'<td align="center">'.$coluna["id_porta"].'</td>'
                 .'<td align="center">'.htmlspecialchars($coluna["referencia"]).'</td>'           
                 .'<td align="center">'.descrArmarioPorta($coluna["id_armario"]).'</td>'  
                 .'<td align="center">'.$status.'</td>' 

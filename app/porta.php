@@ -75,7 +75,7 @@ include('php/funcoes.php');
                   <table id="tabela" class="table table-bordered table-hover">
                     <thead class="thead-dark">
                       <tr> <!-- tabela das informações principais da portas -->
-                        <th>ID</th>
+                        <!--<th>ID</th>-->
                         <th>Nr da Porta</th>
                         <th>Armário</th>
                         <th>Status</th>
